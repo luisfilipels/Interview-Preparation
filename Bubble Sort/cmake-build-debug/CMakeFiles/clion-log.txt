@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\luisf\OneDrive\Code-Dev\Meus Projetos Extra\GitHub\Estudos\Bubble Sort"
+"C:\Program Files\JetBrains\CLion 2018.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "F:\OneDrive\Code-Dev\Meus Projetos Extra\GitHub\Estudos\Bubble Sort"
 -- The C compiler identification is GNU 6.3.0
 -- The CXX compiler identification is GNU 6.3.0
 -- Check for working C compiler: C:/MinGW/bin/gcc.exe
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/luisf/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/cmake-build-debug
+-- Build files have been written to: F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/cmake-build-debug
