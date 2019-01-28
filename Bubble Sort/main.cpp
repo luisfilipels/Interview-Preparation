@@ -37,6 +37,21 @@ void printVector (std::vector<int> vet) {
     std::cout << std::endl;
 }
 
+void flagBubbleSort (std::vector<int> &vet) { //Bubble sort, com flag.
+    int i = 0;
+    bool flag;
+    do {
+        flag = false;
+        for (int j = 0;j < vet.size() - i - 1; j++) {
+            if (vet[j] > vet[j+1]) {
+                swap(vet[j], vet[j+1]);
+                flag = true;
+            }
+        }
+        i += 1;
+    } while (flag);
+}
+
 int main() {
     int size;
     int max;
@@ -45,10 +60,14 @@ int main() {
     std::cout << "MAX: ";
     std::cin >> max;
     std::vector<int> vet = fillRand(size, max);
+    std::vector<int> vet2 = vet;
     std::cout << "Unordered vector:" << std::endl;
     printVector(vet);
     bubbleSort(vet);
-    std::cout << "Ordered vector: " << std::endl;
+    std::cout << "Ordered vector (regular Bubble Sort): " << std::endl;
     printVector(vet);
+    std::cout << "Ordered vector (Bubble Sort with flag): " << std::endl;
+    flagBubbleSort(vet2);
+    printVector(vet2);
     return 0;
 }
