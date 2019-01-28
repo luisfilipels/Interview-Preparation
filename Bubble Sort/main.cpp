@@ -1,12 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <ctime>
 #include <chrono>
-#include <cstdlib>
 #include <random>
-
-#define SIZE 20
-#define MAX 50
 
 std::vector<int> fillRand (int size, int max) { // Preencher vetor com números aleatórios.
     std::mt19937 mersenne(static_cast<unsigned int>(std::time(nullptr)));
@@ -25,17 +20,27 @@ void swap (int &a, int &b) {
     b = aux;
 }
 
-int main() {
-    std::vector<int> vet = fillRand(SIZE, MAX);
-    int aux;
-    for (int i = 1; i < SIZE; i++) {    //Bubble sort, propriamente dito.
-        for (int j = 0; j < SIZE - i; j++) {
+void bubbleSort(std::vector<int> &vet) {
+    for (int i = 1; i < vet.size(); i++) {    //Bubble sort, propriamente dito.
+        for (int j = 0; j < vet.size() - i; j++) {
             if (vet[j] > vet[j+1]) {
                 swap(vet[j], vet[j+1]);
             }
         }
     }
-    for (int k = 0; k < SIZE; k++) {
+}
+
+int main() {
+    int size;
+    int max;
+    std::cout << "SIZE: ";
+    std::cin >> size;
+    std::cout << "MAX: ";
+    std::cin >> max;
+    std::vector<int> vet = fillRand(size, max);
+    int aux;
+    bubbleSort(vet);
+    for (int k = 0; k < vet.size(); k++) {
         std::cout << vet[k] << " ";
     }
     return 0;
