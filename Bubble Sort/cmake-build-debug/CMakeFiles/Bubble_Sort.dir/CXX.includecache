@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/luisf/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/main.cpp
+iostream
+-
+
