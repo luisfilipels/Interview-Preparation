@@ -30,6 +30,13 @@ void bubbleSort(std::vector<int> &vet) {
     }
 }
 
+void printVector (std::vector<int> vet) {
+    for (int k = 0; k < vet.size(); k++) {
+        std::cout << vet[k] << " ";
+    }
+    std::cout << std::endl;
+}
+
 int main() {
     int size;
     int max;
@@ -38,10 +45,10 @@ int main() {
     std::cout << "MAX: ";
     std::cin >> max;
     std::vector<int> vet = fillRand(size, max);
-    int aux;
+    std::cout << "Unordered vector:" << std::endl;
+    printVector(vet);
     bubbleSort(vet);
-    for (int k = 0; k < vet.size(); k++) {
-        std::cout << vet[k] << " ";
-    }
+    std::cout << "Ordered vector: " << std::endl;
+    printVector(vet);
     return 0;
 }
