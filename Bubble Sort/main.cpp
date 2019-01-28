@@ -13,7 +13,7 @@ std::vector<int> fillRand (int size, int max) {
     std::uniform_int_distribution<> die(1, max);
     std::vector<int> vet;
     for (int i = 0; i < size; i++) {
-        vet.push_back(die(mersenne));
+        vet.push_back(die(mersenne));aaaaa
     }
     return vet;
 }
