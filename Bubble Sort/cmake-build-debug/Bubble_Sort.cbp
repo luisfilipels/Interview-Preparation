@@ -83,6 +83,9 @@
 		<Unit filename="F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/main.cpp">
 			<Option target="Bubble_Sort"/>
 		</Unit>
+		<Unit filename="F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/orderFunctions.h">
+			<Option target="Bubble_Sort"/>
+		</Unit>
 		<Unit filename="F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

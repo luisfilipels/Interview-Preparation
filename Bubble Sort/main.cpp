@@ -2,6 +2,7 @@
 #include <vector>
 #include <chrono>
 #include <random>
+#include "orderFunctions.h"
 
 std::vector<int> fillRand (int size, int max) { // Preencher vetor com números aleatórios.
     std::mt19937 mersenne(static_cast<unsigned int>(std::time(nullptr)));
