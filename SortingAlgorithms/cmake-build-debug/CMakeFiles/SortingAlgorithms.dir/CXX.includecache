@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/auxiliaryFunctions.h
+vector
+-
+chrono
+-
+random
+-
+iostream
+-
+
+F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/main.cpp
+iostream
+-
+vector
+-
+chrono
+-
+random
+-
+orderFunctions.h
+F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/orderFunctions.h
+auxiliaryFunctions.h
+F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/auxiliaryFunctions.h
+
+F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/orderFunctions.h
+auxiliaryFunctions.h
+F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/auxiliaryFunctions.h
+vector
+-
+

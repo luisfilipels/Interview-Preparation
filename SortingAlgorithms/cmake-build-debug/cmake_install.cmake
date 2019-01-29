@@ -1,4 +1,4 @@
-# Install script for directory: F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort
+# Install script for directory: F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/Bubble Sort/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

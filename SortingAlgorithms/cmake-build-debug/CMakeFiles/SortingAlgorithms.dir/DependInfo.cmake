@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/main.cpp" "F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/cmake-build-debug/CMakeFiles/Bubble_Sort.dir/main.cpp.obj"
+  "F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/main.cpp" "F:/OneDrive/Code-Dev/Meus Projetos Extra/GitHub/Estudos/SortingAlgorithms/cmake-build-debug/CMakeFiles/SortingAlgorithms.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
