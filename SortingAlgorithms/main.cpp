@@ -13,14 +13,11 @@ int main() {
     std::cout << "MAX: ";
     std::cin >> max;
     std::vector<int> vet = fillRand(size, max);
-    std::vector<int> vet2 = vet;
     std::cout << "Unordered vector:" << std::endl;
     printVector(vet);
+
     bubbleSort(vet);
-    std::cout << "Ordered vector (regular Bubble Sort): " << std::endl;
-    printVector(vet);
-    std::cout << "Ordered vector (Bubble Sort with flag): " << std::endl;
-    flagBubbleSort(vet2);
-    printVector(vet2);
+    flagBubbleSort(vet)
+
     return 0;
 }
