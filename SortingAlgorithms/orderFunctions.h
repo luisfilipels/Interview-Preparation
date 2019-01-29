@@ -8,8 +8,6 @@
 #define BUBBLE_SORT_ORDERFUNCTIONS_H
 
 void bubbleSort(std::vector<int> vet) {
-    std::cout << "Unordered vector:" << std::endl;
-    printVector(vet);
     for (int i = 1; i < vet.size(); i++) {    //Bubble sort, propriamente dito.
         for (int j = 0; j < vet.size() - i; j++) {
             if (vet[j] > vet[j+1]) {
@@ -51,6 +49,8 @@ void insertionSort (std::vector<int> vet) {
         }
         vet[j+1] = pivot;
     }
+    std::cout << "Ordered vector (Insertion sort): " << std::endl;
+    printVector(vet);
 }
 
 #endif //BUBBLE_SORT_ORDERFUNCTIONS_H

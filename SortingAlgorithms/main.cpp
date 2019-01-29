@@ -17,7 +17,8 @@ int main() {
     printVector(vet);
 
     bubbleSort(vet);
-    flagBubbleSort(vet)
+    flagBubbleSort(vet);
+    insertionSort(vet);
 
     return 0;
 }
