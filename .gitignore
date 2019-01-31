@@ -28,3 +28,4 @@ SortingAlgorithms/cmake-build-debug/Makefile
 Lib/
 Scripts/
 pyvenv.cfg
+__pycache__/
