@@ -4,14 +4,16 @@ from insertionSort import insertionSort
 from helperFunctions import *
 import time
 import matplotlib.pyplot as plt
+from bubbleWFlag import bubbleWFlag
 
-vect = randList(100)
+vect = randList(1001)
 #vect = [2, 4, 5, 3]
 #print(vect, sep=' ')
 printIfSorted(vect)
 #start_time = time.time()
-#bubbleSort(vect)
-insertionSort(vect)
+bubbleSort(vect)
+#insertionSort(vect)
+#bubbleWFlag(vect)
 #exec_time = time.time() - start_time
 #print(vect, sep=' ')
 printIfSorted(vect)
