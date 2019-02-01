@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 from bubbleWFlag import bubbleWFlag
 from selectionSort import selectionSort
 
-#vect = randList(6)
-vect = [5, 4, 3, 2, 1]
+vect = randList(6)
+#vect = [5, 4, 3, 2, 1]
 #print(vect, sep=' ')
 printIfSorted(vect)
 #start_time = time.time()
