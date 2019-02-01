@@ -5,13 +5,15 @@ from helperFunctions import *
 import time
 import matplotlib.pyplot as plt
 from bubbleWFlag import bubbleWFlag
+from selectionSort import selectionSort
 
-vect = randList(1001)
-#vect = [2, 4, 5, 3]
+#vect = randList(6)
+vect = [5, 4, 3, 2, 1]
 #print(vect, sep=' ')
 printIfSorted(vect)
 #start_time = time.time()
-bubbleSort(vect)
+#bubbleSort(vect)
+selectionSort(vect)
 #insertionSort(vect)
 #bubbleWFlag(vect)
 #exec_time = time.time() - start_time

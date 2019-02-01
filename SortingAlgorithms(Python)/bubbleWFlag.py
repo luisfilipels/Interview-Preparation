@@ -8,5 +8,5 @@ def bubbleWFlag(v):
                 v[j], v[j+1] = v[j+1], v[j]
                 flag = True
         i += 1
-        if (flag is False):
+        if flag is False:
             break
