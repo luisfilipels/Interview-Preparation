@@ -1,4 +1,7 @@
 import random
+import matplotlib as mpl
+import timeit
+import matplotlib.pyplot as plt
 
 def isSorted(list):
     for i in range(len(list))[1:]:
@@ -12,13 +15,24 @@ def printIfSorted(list):
     else:
         print("List NOT sorted!")
 
-def randList(size):
-    vect = []
-    for x in range(size):
-        vect.append(random.randint(0, size))
-    return vect
+def geraLista(tam):
+    lista = []
+    for i in range(tam):
+        n = random.randint(1,1*tam)
+        if n not in lista: lista.append(n)
+    return lista
 
 def secondsToInt(time):
     (h, m, s) = time.split(':')
     return int(h) * 3600 + int(m) * 60 + int(s)
+
+
+def desenhaGrafico(x, y, xl="Entradas", yl="Saídas"):
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111)
+    ax.plot(x, y, label="Melhor Tempo")
+    ax.legend(bbox_to_anchor=(1, 1), bbox_transform=plt.gcf().transFigure)
+    plt.ylabel(yl)
+    plt.xlabel(xl)
+    plt.show()
 
