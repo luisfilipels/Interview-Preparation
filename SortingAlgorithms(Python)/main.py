@@ -1,14 +1,32 @@
-import timeit
 import random
-import matplotlib as mpl
+from bubbleSort import bubbleSort
+import bubbleSort
+from insertionSort import insertionSort
+from helperFunctions import *
+import time
 import matplotlib.pyplot as plt
+from bubbleWFlag import bubbleWFlag
+from selectionSort import selectionSort
+import timeit
+import datetime
+import variables
+
+setup = "from helperFunctions import geraLista\n" \
+        "from bubbleSort import bubbleSort"
+vect = geraLista(50000)
+swaps = []
+tempo = []
+passo = []
+for x in range(10000, len(vect)+1, 10000):
+    tempo.append(timeit.timeit("bubbleSort({})".format(vect[0:x].copy()), setup, number=1))
+    #print(tempo)
+    passo.append(x)
+    swaps.append(variables.swaps)
+
+
+#tempo = timeit.timeit("geraLista({})".format(vect[0:]))
 
 
 
-
-tempo1 = timeit.timeit("geraLista({})".format(100),setup="from __main__ import geraLista",number=1000)
-tempo2 = timeit.timeit("geraLista({})".format(100), setup="from __main__ import geraLista", number=10000)
-tempo3 = timeit.timeit("geraLista({})".format(100),setup="from __main__ import geraLista",number=50000)
-tempo4 = timeit.timeit("geraLista({})".format(100),setup="from __main__ import geraLista",number=100000)
-
-desenhaGrafico([1000, 10000, 50000, 100000], [tempo1, tempo2, tempo3, tempo4])
+desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo")
+desenhaGrafico(passo, swaps, xl="Swaps", yl="Tempo")
