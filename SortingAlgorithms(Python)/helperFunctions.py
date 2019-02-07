@@ -3,6 +3,7 @@ import matplotlib as mpl
 import timeit
 import matplotlib.pyplot as plt
 import datetime
+import math
 
 def isSorted(list):
     for i in range(len(list))[1:]:
@@ -36,6 +37,12 @@ def geraListaReversa(tam):
         lista.append(i)
     lista.reverse()
 
+def geraListaSemiOrd(tam):
+    lista = []
+    for i in range(tam):
+        noise = i + math.floor(math.sqrt(tam))
+        lista.append(random.randint(i, noise))
+    return lista
 
 def timeToInt(time):
     (h, m, s) = time.split(':')
