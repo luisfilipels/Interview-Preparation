@@ -36,6 +36,7 @@ def geraListaReversa(tam):
     for i in range(tam):
         lista.append(i)
     lista.reverse()
+    return lista
 
 def geraListaSemiOrd(tam):
     lista = []
@@ -52,13 +53,14 @@ def intToTime(time):
     return str(datetime.timedelta(seconds=time))
 
 
-def desenhaGrafico(x, y, xl="Entradas", yl="Tempo"):
+def desenhaGrafico(x, y, xl="Entradas", yl="Tempo", titulo="Grafico"):
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111)
     ax.plot(x, y, label="Melhor Tempo")
     ax.legend(bbox_to_anchor=(1, 1), bbox_transform=plt.gcf().transFigure)
     plt.ylabel(yl)
     plt.xlabel(xl)
-    plt.savefig("{0}{1}.png".format(xl, yl))
+    plt.title(titulo)
+    plt.savefig("{0}{1}{2}.png".format(xl, yl, titulo))
     plt.show()
 

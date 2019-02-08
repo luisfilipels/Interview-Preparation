@@ -11,8 +11,9 @@ import timeit
 import datetime
 import variables
 
-setup = "from helperFunctions import geraLista\n" \
+setup = "from helperFunctions import geraListaOrdenada\n" \
         "from bubbleSort import bubbleSort"
+
 vectMelhor = geraListaOrdenada(6000)
 tempoMelhor = []
 passoMelhor = []
@@ -28,7 +29,6 @@ numeros = [1000, 2000, 4000, 6000]
 #INICIO PIOR CASO
 for x in numeros:
     tempoPior.append(timeit.timeit("bubbleSort({})".format(vectPior[0:x].copy()), setup, number=1))
-    #print(tempo)
     passoPior.append(x)
     print("Elementos: {}".format(x))
     print("Tempo: {}\n".format(tempoPior.copy().pop()))
@@ -44,9 +44,10 @@ for x in numeros:
 #INICIO CASO NORMAL
 for x in numeros:
     tempo.append(timeit.timeit("bubbleSort({})".format(vect[0:x].copy()), setup, number=1))
-    # print(tempo)
     passo.append(x)
     print("Elementos: {}".format(x))
     print("Tempo: {}\n".format(tempo.copy().pop()))
 
-desenhaGrafico(passoPior, tempoPior, xl="Elementos", yl="Tempo")
+desenhaGrafico(passoPior, tempoPior, xl="Elementos", yl="Tempo", titulo="Pior caso")
+desenhaGrafico(passoMelhor, tempoMelhor, xl="Elementos", yl="Tempo", titulo="Melhor caso")
+desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo", titulo="Caso normal")
