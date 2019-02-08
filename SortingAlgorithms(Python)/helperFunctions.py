@@ -18,12 +18,11 @@ def printIfSorted(list):
     else:
         print("List NOT sorted!")
 
-#def geraLista(tam):
-#    lista = []
-#    for i in range(tam):
-#        n = random.randint(1,1*tam)
-#        if n not in lista: lista.append(n)
-#    return lista
+def geraListaOrdenada(tam):
+    lista = []
+    for i in range(tam):
+        lista.append(i)
+    return lista
 
 def geraLista(tam):
     lista = []

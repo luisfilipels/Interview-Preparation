@@ -12,13 +12,13 @@ import datetime
 import variables
 
 setup = "from helperFunctions import geraLista\n" \
-        "from insertionSort import insertionSort"
+        "from selectionSort import selectionSort"
 vect = geraLista(50000)
 swaps = []
 tempo = []
 passo = []
 for x in range(10000, len(vect)+1, 10000):
-    tempo.append(timeit.timeit("insertionSort({})".format(vect[0:x].copy()), setup, number=1))
+    tempo.append(timeit.timeit("selectionSort({})".format(vect[0:x].copy()), setup, number=1))
     passo.append(x)
     swaps.append(variables.swaps)
     print("Elementos: {}".format(x))
