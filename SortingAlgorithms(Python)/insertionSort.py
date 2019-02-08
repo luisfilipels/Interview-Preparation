@@ -1,3 +1,5 @@
+import variables
+
 def insertionSort(v):
     for i in range(len(v))[1:]:
         j = i - 1

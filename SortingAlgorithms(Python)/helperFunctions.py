@@ -4,6 +4,7 @@ import timeit
 import matplotlib.pyplot as plt
 import datetime
 import math
+import pylab
 
 def isSorted(list):
     for i in range(len(list))[1:]:
@@ -59,5 +60,6 @@ def desenhaGrafico(x, y, xl="Entradas", yl="Tempo"):
     ax.legend(bbox_to_anchor=(1, 1), bbox_transform=plt.gcf().transFigure)
     plt.ylabel(yl)
     plt.xlabel(xl)
+    plt.savefig("{0}{1}.png".format(xl, yl))
     plt.show()
 

@@ -10,15 +10,22 @@ from selectionSort import selectionSort
 import timeit
 import datetime
 import variables
+from shellSort import shellSort
 
 setup = "from helperFunctions import geraLista\n" \
-        "from bubbleSort import bubbleSort"
+        "from shellSort import shellSort"
 vect = geraLista(50000)
+
+#vect = [5, 3, 2, 7, 1, 0, 8, 6, 4]
+#shellSort(vect)
+#print(vect)
+#printIfSorted(vect)
+
 swaps = []
 tempo = []
 passo = []
 for x in range(10000, len(vect)+1, 10000):
-    tempo.append(timeit.timeit("bubbleSort({})".format(vect[0:x].copy()), setup, number=1))
+    tempo.append(timeit.timeit("shellSort({})".format(vect[0:x].copy()), setup, number=1))
     #print(tempo)
     passo.append(x)
     swaps.append(variables.swaps)
@@ -30,3 +37,5 @@ for x in range(10000, len(vect)+1, 10000):
 
 desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo")
 desenhaGrafico(passo, swaps, xl="Elementos", yl="Swaps")
+
+#desenhaGrafico(passo, tempo)
