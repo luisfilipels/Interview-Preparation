@@ -19,7 +19,6 @@ tempo = []
 passo = []
 for x in range(10000, len(vect)+1, 10000):
     tempo.append(timeit.timeit("bubbleSort({})".format(vect[0:x].copy()), setup, number=1))
-    #print(tempo)
     passo.append(x)
     swaps.append(variables.swaps)
     print("Elementos: {}".format(x))
