@@ -1,5 +1,3 @@
-import random
-from helperFunctions import *
 import timeit
 import variables
 from mergeSort import *
@@ -15,7 +13,7 @@ swaps = []
 tempo = []
 passo = []
 for x in range(10000, len(vect)+1, 10000):
-    tempo.append(timeit.timeit("mergeSort({})".format(vect[0:x]), setup, number=1))
+    tempo.append(timeit.timeit("aux={0}\naux=mergeSort(aux)\nprintIfSorted(aux)".format(vect[0:x]), setup, number=1))
     passo.append(x)
     swaps.append(variables.swaps)
     print("Elementos: {}".format(x))

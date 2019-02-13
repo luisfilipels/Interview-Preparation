@@ -9,3 +9,4 @@ def bubbleSort(vect):
                 vect[j], vect[j + 1] = vect[j + 1], vect[j]
                 swapAux += 1
     variables.swaps = swapAux
+    return vect
