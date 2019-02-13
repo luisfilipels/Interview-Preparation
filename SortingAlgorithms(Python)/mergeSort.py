@@ -4,23 +4,44 @@ import variables
 def merge(v, esq, dir):
     aux = []
     swapsAux = 0
-    while len(esq) is not 0 and len(dir) is not 0:
-        if esq[0] < dir[0]:
-            aux.append(esq.pop(0))
+    i = j = 0
+    while i < len(esq) and j < len(dir):
+        if esq[i] < dir[j]:
+            aux.append(esq[i])
             swapsAux += 1
+            i += 1
         else:
-            aux.append(dir.pop(0))
+            aux.append(dir[j])
             swapsAux += 1
-    while len(esq) is not 0:
-        aux.append(esq.pop(0))
+            j += 1
+    while i < len(esq):
+        aux.append(esq[i])
         swapsAux += 1
-    while len(dir) is not 0:
-        aux.append(dir.pop(0))
+        i += 1
+    while j < len(dir):
+        aux.append(dir[j])
         swapsAux += 1
+        j += 1
     v = aux
     variables.swaps += swapsAux
-    print(variables.swaps)
     return v
+"""while len(esq) is not 0 and len(dir) is not 0:
+    if esq[0] < dir[0]:
+        aux.append(esq.pop(0))
+        swapsAux += 1
+    else:
+        aux.append(dir.pop(0))
+        swapsAux += 1
+while len(esq) is not 0:
+    aux.append(esq.pop(0))
+    swapsAux += 1
+while len(dir) is not 0:
+    aux.append(dir.pop(0))
+    swapsAux += 1
+v = aux
+variables.swaps += swapsAux
+print(variables.swaps)
+return v"""
 
 
 def mergeSort(v):
@@ -32,7 +53,6 @@ def mergeSort(v):
     esq = mergeSort(esq)
     dir = mergeSort(dir)
     v = merge(v, esq, dir)
-    print(variables.swaps)
     return v
 
 

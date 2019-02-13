@@ -9,20 +9,22 @@ from mergeSort import *
 #print(vect)
 
 setup = "from helperFunctions import printIfSorted\n" \
-        "import mergeSort"
-vect = geraLista(10)
+        "from mergeSort import mergeSort"
+vect = geraListaReversa(500000)
 swaps = []
 tempo = []
 passo = []
-for x in range(5, len(vect)+1, 5):
-    tempo.append(timeit.timeit("aux=[{0}]\naux=mergeSort.mergeSort(aux)\nprintIfSorted(aux)".format(vect[0:x]), setup, number=1))
+#vect = mergeSort(vect)
+#printIfSorted(vect)
+for x in range(10000, len(vect)+1, 10000):
+    #tempo.append(timeit.timeit("aux=[{0}]\naux=mergeSort.mergeSort(aux)\nprintIfSorted(aux)".format(vect[0:x]), setup, number=1))
+    tempo.append(timeit.timeit("mergeSort({})".format(vect[0:x]), setup, number=1))
     passo.append(x)
     swaps.append(variables.swaps)
     print("Elementos: {}".format(x))
     print("Swaps: {}".format(variables.swaps))
     print("Tempo: {}\n".format(tempo.copy().pop()))
-
-
+    variables.swaps = 0
 
 desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo")
 desenhaGrafico(passo, swaps, xl="Elementos", yl="Swaps")
