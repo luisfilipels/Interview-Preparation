@@ -10,4 +10,3 @@ def selectionSort(v):
                 min = j
         v[i], v[min] = v[min], v[i]
         variables.swaps += 1
-    printIfSorted(v)

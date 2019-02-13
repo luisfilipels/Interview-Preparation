@@ -1,24 +1,16 @@
-import random
-from bubbleSort import bubbleSort
-import bubbleSort
-from insertionSort import insertionSort
 from helperFunctions import *
-import time
-import matplotlib.pyplot as plt
-from bubbleWFlag import bubbleWFlag
-from selectionSort import selectionSort
 import timeit
-import datetime
 import variables
 
-setup = "from helperFunctions import geraLista\n" \
+
+setup = "from helperFunctions import printfIfSorted\n" \
         "from selectionSort import selectionSort"
 vect = geraLista(50000)
 swaps = []
 tempo = []
 passo = []
 for x in range(10000, len(vect)+1, 10000):
-    tempo.append(timeit.timeit("selectionSort({})".format(vect[0:x].copy()), setup, number=1))
+    tempo.append(timeit.timeit("aux={}\naux=selectionSort(aux)\nprintIfSorted(aux)".format(vect[0:x].copy()), setup, number=1))
     passo.append(x)
     swaps.append(variables.swaps)
     print("Elementos: {}".format(x))
@@ -27,5 +19,4 @@ for x in range(10000, len(vect)+1, 10000):
 
 
 
-desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo")
-desenhaGrafico(passo, swaps, xl="Elementos", yl="Swaps")
+desenhaTresGraficos()

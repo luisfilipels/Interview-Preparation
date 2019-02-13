@@ -1,15 +1,5 @@
-import random
-from bubbleSort import bubbleSort
-import bubbleSort
-from insertionSort import insertionSort
 from helperFunctions import *
-import time
-import matplotlib.pyplot as plt
-from bubbleWFlag import bubbleWFlag
-from selectionSort import selectionSort
 import timeit
-import datetime
-import variables
 
 setup = "from helperFunctions import geraListaOrdenada\n" \
         "from bubbleSort import bubbleSort"
