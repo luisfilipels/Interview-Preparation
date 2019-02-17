@@ -1,6 +1,7 @@
 import timeit
 import variables
 from mergeSort import *
+from helperFunctions import *
 
 #vect = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 #vect = mergeSort(vect)

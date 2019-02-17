@@ -1,82 +1,28 @@
-import random
+import variables
 
-"""
-def partition(xs, start, end):
-    follower = leader = start
-    while leader < end:
-        if xs[leader] <= xs[end]:
-            xs[follower], xs[leader] = xs[leader], xs[follower]
-            follower += 1
-        leader += 1
-    xs[follower], xs[end] = xs[end], xs[follower]
-    return follower
-
-
-def _quicksort(xs, start, end):
-    if start >= end:
-        return
-    p = partition(xs, start, end)
-    _quicksort(xs, start, p - 1)
-    _quicksort(xs, p + 1, end)
-    return xs
-
-
-def quicksort(xs):
-    xs = _quicksort(xs, 0, len(xs) - 1)
-    return xs"""
-
-def particiona(v, inicio, fim):
-    if fim - inicio > 0:
-        pivo = v[0]
-        i = inicio
-        j = fim
-        while i <= j:
-            while i <= j and not v[i] > pivo:
-                i += 1
-            while not v[j] <= pivo:
-                j -= 1
-            if i <= j:
-                v[i], v[j] = v[j], v[i]
-                i += 1
-                j -= 1
-        v[inicio], v[j] = v[j], v[inicio]
-        return j
-    return fim
-
+def partition(v, n):
+    v[0], v[n] = v[n], v[0]
+    pivo = v[0]
+    i = 1
+    j = len(v)-1
+    while i <= j:
+        while i <= j and v[i] < pivo:
+            i += 1
+        while v[j] > pivo:
+            j -= 1
+        if i <= j:
+            v[i], v[j] = v[j], v[i]
+            variables.swaps += 1
+            i += 1
+            j -= 1
+    v[j], v[0] = v[0], v[j]
+    variables.swaps += 1
+    return j
 
 def quickSort(v):
     if len(v) <= 1:
         return v
-    j = particiona(v, 0, len(v)-1)
-    esq = quickSort(v[:j])
-    dir = quickSort(v[j:])
-    return esq + dir
-
-
-"""
-def quickSort(v):
-    v = quickSortEfet(v, 0, len(v)-1)
-    return v
-
-
-def quickSortEfet(v, inicio, fim):
-    if fim - inicio > 0:
-        pivo = v[inicio]
-        i = inicio
-        j = fim - 1
-        while i <= j:
-            while v[i] < pivo:
-                i += 1
-            while v[j] > pivo:
-                j -= 1
-            if i <= j:
-                v[i], v[j] = v[j], v[i]
-                i += 1
-                j -= 1
-        a = quickSortEfet(v, inicio, j)
-        b = quickSortEfet(v, i, fim)
-        a = a + b
-        return a
-
-    return v
-"""
+    j = partition(v, 0)
+    left = quickSort(v[:j+1])
+    right = quickSort(v[j+1:])
+    return left + right
