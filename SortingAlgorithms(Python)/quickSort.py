@@ -1,4 +1,5 @@
 import variables
+import random
 
 def partition(v, n):
     v[0], v[n] = v[n], v[0]
@@ -23,6 +24,14 @@ def quickSort(v):
     if len(v) <= 1:
         return v
     j = partition(v, 0)
+    left = quickSort(v[:j+1])
+    right = quickSort(v[j+1:])
+    return left + right
+
+def quickSortNDet(v):
+    if len(v) <= 1:
+        return v
+    j = partition(v, v.index(random.choice(v)))
     left = quickSort(v[:j+1])
     right = quickSort(v[j+1:])
     return left + right
