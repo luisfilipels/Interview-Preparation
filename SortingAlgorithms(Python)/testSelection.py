@@ -18,5 +18,4 @@ for x in range(10000, len(vect)+1, 10000):
     print("Tempo: {}\n".format(tempo.copy().pop()))
 
 
-
-desenhaTresGraficos()
+desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo")

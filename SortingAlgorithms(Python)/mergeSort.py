@@ -1,4 +1,3 @@
-from helperFunctions import *
 import variables
 
 def merge(v, esq, dir):
@@ -25,23 +24,6 @@ def merge(v, esq, dir):
     v = aux
     variables.swaps += swapsAux
     return v
-"""while len(esq) is not 0 and len(dir) is not 0:
-    if esq[0] < dir[0]:
-        aux.append(esq.pop(0))
-        swapsAux += 1
-    else:
-        aux.append(dir.pop(0))
-        swapsAux += 1
-while len(esq) is not 0:
-    aux.append(esq.pop(0))
-    swapsAux += 1
-while len(dir) is not 0:
-    aux.append(dir.pop(0))
-    swapsAux += 1
-v = aux
-variables.swaps += swapsAux
-print(variables.swaps)
-return v"""
 
 
 def mergeSort(v):
@@ -54,15 +36,3 @@ def mergeSort(v):
     dir = mergeSort(dir)
     v = merge(v, esq, dir)
     return v
-
-
-""""def mergeSort(v):
-    inicio = 0
-    fim = len(v)
-    if inicio < fim:
-        meio = int((inicio + fim) / 2)
-    if inicio < meio:
-        mergeSort(v, inicio, meio)
-    if meio + 1 < fim:
-        mergeSort(v, int(meio + 1), fim)
-    merge(v, inicio, meio, fim)"""
