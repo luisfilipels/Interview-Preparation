@@ -25,7 +25,6 @@ for x in numeros:
 #INICIO MELHOR CASO
 for x in numeros:
     tempoMelhor.append(timeit.timeit("selectionSort({})".format(vectMelhor[0:x].copy()), setup, number=1))
-    # print(tempo)
     passoMelhor.append(x)
     print("Elementos: {}".format(x))
     print("Tempo: {}\n".format(tempoMelhor.copy().pop()))
