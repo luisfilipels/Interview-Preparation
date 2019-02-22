@@ -50,7 +50,7 @@ def quickSort(v):
 def quickSortInPlace(v, inicio, fim):
     if fim - inicio <= 1:
         return v
-    j = partitionInPlace(v, inicio, inicio, fim-1)
+    j = partitionInPlace(v, v.index(random.choice(v[inicio:fim])), inicio, fim-1)
     quickSortInPlace(v, inicio, j)
     quickSortInPlace(v, j + 1, fim)
     return v

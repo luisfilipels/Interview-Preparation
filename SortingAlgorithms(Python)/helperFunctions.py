@@ -68,9 +68,9 @@ def desenhaGrafico(x, y, xl="Entradas", yl="Tempo", titulo="Grafico"):
 def desenhaTresGraficos(primX, primY, segX, segY, terX, terY, x1="Entradas", y1="Tempo", titulo="Selection"):
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111)
-    ax.plot(primX, primY, label="Melhor Tempo / Melhor caso")
-    ax.plot(segX, segY, label="Melhor Tempo / Pior caso")
-    ax.plot(terX, terY, label="Melhor Tempo / Caso normal")
+    ax.plot(primX, primY, label="Lista ordenada")
+    ax.plot(segX, segY, label="Lista reversa")
+    ax.plot(terX, terY, label="Lista aleatoria")
     ax.legend(bbox_to_anchor=(1, 1), bbox_transform=plt.gcf().transFigure)
     plt.ylabel(x1)
     plt.xlabel(y1)
