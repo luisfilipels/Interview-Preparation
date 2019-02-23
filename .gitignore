@@ -8,3 +8,4 @@ __pycache__/
 /cmake-build-debug/
 *.make
 SortingAlgorithms(Python)/teste.py
+SortingAlgorithms(Python)/tempo.txt

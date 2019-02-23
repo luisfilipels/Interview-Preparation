@@ -62,8 +62,9 @@ def desenhaGrafico(x, y, xl="Entradas", yl="Tempo", titulo="Grafico"):
     plt.ylabel(yl)
     plt.xlabel(xl)
     plt.title(titulo)
-    plt.savefig("{0}{1}{2}.png".format(xl, yl, titulo))
     plt.show()
+    plt.savefig("{0}{1}{2}.png".format(xl, yl, titulo))
+
 
 def desenhaTresGraficos(primX, primY, segX, segY, terX, terY, x1="Entradas", y1="Tempo", titulo="Selection"):
     fig = plt.figure(figsize=(10, 8))
@@ -75,8 +76,8 @@ def desenhaTresGraficos(primX, primY, segX, segY, terX, terY, x1="Entradas", y1=
     plt.ylabel(x1)
     plt.xlabel(y1)
     plt.title(titulo)
-    plt.savefig("{0}{1}{2}.png".format(x1, y1, titulo))
     plt.show()
+    plt.savefig("{0}{1}{2}.png".format(x1, y1, titulo))
 
 
 def geraListaDeLista (tam):

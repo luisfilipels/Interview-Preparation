@@ -37,7 +37,7 @@ tempoUmM = []
 passoUmM = []
 
 numeros = [10000, 20000, 30000, 40000, 50000]
-numeros2 = [100000, 250000, 500000, 750000, 1000000]
+numeros2 = [200000, 400000, 600000, 800000, 1000000]
 
 #INICIO PIOR CASO
 for x in numeros:
@@ -59,7 +59,7 @@ for x in numeros:
     passo.append(x)
     print("Elementos: {}".format(x))
     print("Tempo: {}\n".format(tempo.copy().pop()))
-"""
+
 #INICIO CASO UM MILHAO
 for x in numeros2:
     tempoUmM.append(
@@ -68,7 +68,7 @@ for x in numeros2:
     passoUmM.append(x)
     print("Elementos: {}".format(x))
     print("Tempo: {}\n".format(tempoUmM.copy().pop()))
-"""
+
 #INICIO ENCONTRAR PIOR CASO
 listas = geraListaDeLista(6)
 casoTempo = []
@@ -85,4 +85,4 @@ print("O tempo da lista com melhor caso e: {}".format(min(casoTempo)))
 print("A lista com melhor caso é: {}".format(casoLista[casoTempo.index(min(casoTempo))]))
 
 desenhaTresGraficos(passoMelhor, tempoMelhor, passoPior, tempoPior, passo, tempo, x1="Tempo", y1="Elementos", titulo="Quick Sort")
-#desenhaGrafico(passoUmM, tempoUmM, xl="Tempo", yl="Elementos", titulo="Quick Sort / Um milhao")
+desenhaGrafico(passoUmM, tempoUmM, xl="Tempo", yl="Elementos", titulo="Quick Sort Um milhao")
