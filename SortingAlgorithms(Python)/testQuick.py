@@ -1,23 +1,6 @@
-"""from helperFunctions import *
-import timeit
-import variables
-from quickSort import *
-
-#vect = [6, 9, 4, 7, 3, 5, 2, 0, 1, 8]
-#vect = [8, 6, 1, 5, 9, 7, 3, 2, 4, 0]
-vect = geraListaReversa(100000)
-#print(vect)
-quickSortInPlace(vect, 0, len(vect))
-printIfSorted(vect)
-#print(vect)
-"""
-
 from helperFunctions import *
 import timeit
-import time
 from quickSort import quickSortInPlace
-import sys
-#sys.setrecursionlimit(100000)
 
 
 

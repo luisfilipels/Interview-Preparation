@@ -56,6 +56,18 @@ def quickSortInPlace(v, inicio, fim):
     quickSortInPlace(v, j + 1, fim)
     return v
 
+def quickSortInPlaceIter(v, inicio, fim):
+    if fim - inicio <= 1:
+        return v
+    #j = partitionInPlace(v, v.index(random.choice(v[inicio:fim])), inicio, fim-1)
+    while True:
+        j = partitionInPlace(v, random.randint(inicio, fim-1), inicio, fim-1)
+        if inicio < j:
+            fim = j
+        if j < fim:
+            inicio = j
+    return v
+
 def quickSortNDet(v):
     if len(v) <= 1:
         return v
