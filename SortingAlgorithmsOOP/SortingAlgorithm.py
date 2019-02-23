@@ -13,6 +13,8 @@ class SortingAlgorithm:
         self.stats = Stats()
         self.testSetup = setup
         self.vet = vet
+        self.len = len(vet)
 
-    def sort(self):
-        self.stats.time = timeit.timeit("{}".format(sorted(self.vet)), setup=self.testSetup, number=1)
+    def sort(self, stop, start):
+        self.stats.time = timeit.timeit("{}".format(sorted(self.vet[start:stop])), setup=self.testSetup, number=1)
+        #TODO Fazer sort com inicio e fim opcionais
