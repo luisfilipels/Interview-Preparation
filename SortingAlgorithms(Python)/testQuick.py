@@ -85,4 +85,4 @@ print("O tempo da lista com melhor caso e: {}".format(min(casoTempo)))
 print("A lista com melhor caso é: {}".format(casoLista[casoTempo.index(min(casoTempo))]))
 
 desenhaTresGraficos(passoMelhor, tempoMelhor, passoPior, tempoPior, passo, tempo, x1="Tempo", y1="Elementos", titulo="Quick Sort")
-desenhaGrafico(passoUmM, tempoUmM, xl="Tempo", yl="Elementos", titulo="Quick Sort Um milhao")
+desenhaGrafico(passoUmM, tempoUmM, xl="Elementos", yl="Tempo", titulo="Quick Sort Um milhao")
