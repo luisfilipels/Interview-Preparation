@@ -50,22 +50,26 @@ def quickSort(v):
 def quickSortInPlace(v, inicio, fim):
     if fim - inicio <= 1:
         return v
-    #j = partitionInPlace(v, v.index(random.choice(v[inicio:fim])), inicio, fim-1)
     j = partitionInPlace(v, random.randint(inicio, fim-1), inicio, fim-1)
     quickSortInPlace(v, inicio, j)
     quickSortInPlace(v, j + 1, fim)
     return v
 
 def quickSortInPlaceIter(v, inicio, fim):
-    #TODO Terminar de implementar esta função, usando uma pilha, sem usar a recursividade do Python
-    if fim - inicio <= 1:
-        return v
-    while True:
-        j = partitionInPlace(v, random.randint(inicio, fim-1), inicio, fim-1)
-        if inicio < j:
-            fim = j
-        if j < fim:
-            inicio = j
+    listBegin = [inicio]
+    listEnd = [fim]
+    while (len(listBegin) > 0):
+        LB = listBegin.pop()
+        LE = listEnd.pop()
+        if LE - LB <= 1:
+            continue
+        j = partitionInPlace(v, LB, LB, LE - 1)
+        listBegin.append(LB)
+        listEnd.append(j)
+        listBegin.append(j + 1)
+        listEnd.append(LE)
+        break
+
     return v
 
 def quickSortNDet(v):
