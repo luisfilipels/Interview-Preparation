@@ -46,6 +46,4 @@ class heap:
             self.moveBaixo(i)
             i -= 1
 
-    #TODO Implementar heapify e melhorar compreensão do algoritmo.
-
 
