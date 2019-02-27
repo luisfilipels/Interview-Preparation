@@ -9,6 +9,9 @@ class Experiment:
         self.labelBottom = labelBottom
         self.title= title
 
+    def calculaTempos(self):
+        for vet in self.vets
+
     def plotar(self, salvar=True):
         if self.intervalos <= 1:
             raise Exception("Tentou plotar intervalo invalido!")

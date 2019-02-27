@@ -11,24 +11,27 @@ def bubbleSort(vect):
     return vect
 """
 from SortingAlgorithm import SortingAlgorithm
-
+import math
 
 class bubbleSort(SortingAlgorithm):
     def __init__(self, vet):
         SortingAlgorithm.__init__(self, vet)
 
-    def sort(self, stop, start=0):
-        self.stats.swaps = 0
-        for i in range(start+1, len(self.vet)):
+    def sort(self, start=0, stop=False):
+        '''self.stats.swaps = 0
+        for i in range(len(self.vet))[1:]:
             for j in range(len(self.vet) - i):
                 if self.vet[j] > self.vet[j + 1]:
                     self.vet[j], self.vet[j + 1] = self.vet[j + 1], self.vet[j]
-                    self.stats.swaps += 1
+                    self.stats.swaps += 1'''
 
-    def sort(self):
         self.stats.swaps = 0
-        for i in range(len(self.vet))[1:]:
-            for j in range(len(self.vet) - i):
+        if type(stop) != bool:
+            stop = stop
+        else:
+            stop = len(self.vet)
+        for i in range(start + 1, stop):
+            for j in range(stop - i):
                 if self.vet[j] > self.vet[j + 1]:
                     self.vet[j], self.vet[j + 1] = self.vet[j + 1], self.vet[j]
                     self.stats.swaps += 1

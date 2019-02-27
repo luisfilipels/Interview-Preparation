@@ -1,5 +1,5 @@
 import timeit
-
+import math
 
 class Stats:
     def __init__(self):
@@ -15,6 +15,10 @@ class SortingAlgorithm:
         self.vet = vet
         self.len = len(vet)
 
-    def sort(self, stop, start):
-        self.stats.time = timeit.timeit("{}".format(sorted(self.vet[start:stop])), setup=self.testSetup, number=1)
-        #TODO Fazer sort com inicio e fim opcionais
+    def sort(self, start=0, stop=False):
+        if type(stop) != bool:
+            self.vet[start:math.floor(stop)] = sorted(self.vet[start:math.floor(stop)])
+            return
+        else:
+            self.vet = sorted(self.vet)
+            return
