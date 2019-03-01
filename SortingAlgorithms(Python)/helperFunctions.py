@@ -81,7 +81,6 @@ def desenhaTresGraficos(primX, primY, segX, segY, terX, terY, x1="Entradas", y1=
 
 
 def geraListaDeLista (tam):
-    numElementos = math.factorial(tam+1)
     aux = list(itertools.permutations(list(range(0, tam))))
     return aux
 

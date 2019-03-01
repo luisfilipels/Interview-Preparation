@@ -14,7 +14,7 @@ from SortingAlgorithm import SortingAlgorithm
 import math
 
 class bubbleSort(SortingAlgorithm):
-    def __init__(self, vet):
+    def __init__(self, vet, intervals):
         SortingAlgorithm.__init__(self, vet)
 
     def sort(self, start=0, stop=False):
