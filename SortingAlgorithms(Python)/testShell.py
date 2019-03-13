@@ -1,41 +1,57 @@
-import random
-from bubbleSort import bubbleSort
-import bubbleSort
-from insertionSort import insertionSort
 from helperFunctions import *
-import time
-import matplotlib.pyplot as plt
-from bubbleWFlag import bubbleWFlag
-from selectionSort import selectionSort
 import timeit
-import datetime
-import variables
 from shellSort import shellSort
 
-setup = "from helperFunctions import geraLista\n" \
+
+
+setup = "from helperFunctions import printIfSorted\n" \
         "from shellSort import shellSort"
+vectMelhor = geraListaOrdenada(50000)
+tempoMelhor = []
+passoMelhor = []
+vectPior = geraListaReversa(50000)
+tempoPior = []
+passoPior = []
 vect = geraLista(50000)
-
-#vect = [5, 3, 2, 7, 1, 0, 8, 6, 4]
-#shellSort(vect)
-#print(vect)
-#printIfSorted(vect)
-
-swaps = []
 tempo = []
 passo = []
-for x in range(10000, len(vect)+1, 10000):
-    tempo.append(timeit.timeit("shellSort({})".format(vect[0:x].copy()), setup, number=1))
-    #print(tempo)
-    passo.append(x)
-    swaps.append(variables.swaps)
+
+numeros = [10000, 20000, 30000, 40000, 50000]
+
+#INICIO PIOR CASO
+for x in numeros:
+    tempoPior.append(timeit.timeit("aux={}\nshellSort(aux)\nprintIfSorted(aux)".format(vectPior[0:x]), setup, number=1))
+    passoPior.append(x)
     print("Elementos: {}".format(x))
-    print("Swaps: {}".format(variables.swaps))
+    print("Tempo: {}\n".format(tempoPior.copy().pop()))
+
+#INICIO MELHOR CASO
+for x in numeros:
+    tempoMelhor.append(timeit.timeit("aux={}\nshellSort(aux)\nprintIfSorted(aux)".format(vectMelhor[0:x]), setup, number=1))
+    passoMelhor.append(x)
+    print("Elementos: {}".format(x))
+    print("Tempo: {}\n".format(tempoMelhor.copy().pop()))
+
+#INICIO CASO NORMAL
+for x in numeros:
+    tempo.append(timeit.timeit("aux={}\nshellSort(aux)\nprintIfSorted(aux)".format(vect[0:x]), setup, number=1))
+    passo.append(x)
+    print("Elementos: {}".format(x))
     print("Tempo: {}\n".format(tempo.copy().pop()))
 
+#INICIO ENCONTRAR PIOR CASO
+listas = geraListaDeLista(6)
+casoTempo = []
+casoLista = []
 
+for lista in listas:
+    casoTempo.append(
+        timeit.timeit("aux={}\nshellSort(aux)".format(list(lista).copy()), setup,
+                      number=1))
+    casoLista.append(lista)
+print("O tempo da lista com pior caso e: {}".format(max(casoTempo)))
+print("A lista com pior caso é: {}\n".format(casoLista[casoTempo.index(max(casoTempo))]))
+print("O tempo da lista com melhor caso e: {}".format(min(casoTempo)))
+print("A lista com melhor caso é: {}".format(casoLista[casoTempo.index(min(casoTempo))]))
 
-desenhaGrafico(passo, tempo, xl="Elementos", yl="Tempo")
-desenhaGrafico(passo, swaps, xl="Elementos", yl="Swaps")
-
-#desenhaGrafico(passo, tempo)
+desenhaTresGraficos(passoMelhor, tempoMelhor, passoPior, tempoPior, passo, tempo, x1="Tempo", y1="Elementos", titulo="Shell Sort")
