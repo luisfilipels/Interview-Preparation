@@ -18,6 +18,9 @@ passo = []
 
 numeros = [10000, 20000, 30000, 40000, 50000]
 
+lista  = [6, 5, 4, 3, 2, 1]
+shellSort(lista)
+
 #INICIO PIOR CASO
 for x in numeros:
     tempoPior.append(timeit.timeit("aux={}\nshellSort(aux)\nprintIfSorted(aux)".format(vectPior[0:x]), setup, number=1))

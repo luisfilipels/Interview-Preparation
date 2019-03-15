@@ -9,4 +9,3 @@ def insertionSort(v):
                 j -= 1
             v.insert(j + 1, v.pop(i))
             variables.swaps += 1
-    printIfSorted(v)
