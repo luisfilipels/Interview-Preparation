@@ -1,13 +1,38 @@
 from countingSort import countingSort
+from functools import reduce
+from helperFunctions import *
 
-def radixSort (lista):
-    maiorElemento = max(lista)
-    expoente = 1
-    while maiorElemento/expoente > 0:
-        countingSort()
-    maior = [0] * 10
-    for j in range(0, maiorElemento):
-        for i in range(0, len(lista)):
-            maior[lista[j]] += 1
-        for i in range(1, 10):
-            maior[i] += maior[i-1]
+
+def radixSort(lista):
+    indice = 10
+    eMaiorTam = False
+    #tmp, placement = -1, 1
+    tmp = 1
+    placement = -1
+
+    while not eMaiorTam:
+        eMaiorTam = True
+
+        buckets = [list() for _ in range(indice)]
+
+        for i in lista:
+            tmp = i // placement
+            buckets[tmp % indice].append(i)
+            if eMaiorTam and tmp > 0:
+                eMaiorTam = False
+
+        a = 0
+        for b in range(indice):
+            buck = buckets[b]
+            for i in buck:
+                lista[a] = i
+                a += 1
+
+        placement *= indice
+
+    return lista
+#teste = [103, 106, 43, 48, 30, 11, 1001]
+#teste = geraListaOrdenada(10000)
+#radixSort(teste)
+#printIfSorted(teste)
+#print(teste)
