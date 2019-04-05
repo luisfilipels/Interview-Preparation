@@ -6,7 +6,6 @@ from helperFunctions import *
 def radixSort(lista):
     indice = 10
     eMaiorTam = False
-    #tmp, placement = -1, 1
     tmp = 1
     placement = -1
 
