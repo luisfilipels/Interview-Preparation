@@ -21,8 +21,8 @@ class Grafo:
         self.numVertices += 1
         self.listaVertices.append(Vertex(rotulo))
 
-    def adicionaArco(self, rotulo, peso, inicio, fim):
-        self.listaArcos.append(rotulo)
+    def adicionaArco(self, rotulo, peso, inicio, fim, rotuloInicio, rotuloFim):
+        self.listaArcos.append([rotulo, rotuloInicio, rotuloFim])
         self.matrizAdjacencias[inicio][fim] = peso
         self.matrizAdjacencias[fim][inicio] = peso
 
@@ -45,16 +45,25 @@ class Grafo:
 
     def localizaArco(self, rotulo):
         for i in range(len(self.listaArcos)):
-            if self.listaArcos[i] == rotulo:
+            if self.listaArcos[i][0] == rotulo:
                 return i
         return -1
+
+    def localizaPorOrigemDestino(self, rotulo):
+        lista_retorno = []
+        for i in range(0, len(self.listaArcos)):
+            if self.listaArcos[i][1] == rotulo or self.listaArcos[i][2] == rotulo:
+                lista_retorno.append(self.listaArcos[i][0])
+        if len(lista_retorno) == 0:
+            return -1
+        return lista_retorno
 
 
 if __name__ == "__main__":
     grf = Grafo()
     while True:
         print("Escolha uma opção:")
-        print("(M) - Mostra      (V) - Inserir Vértice      (A) - Inserin Arco     (B) - Buscar   (S) - Sair")
+        print("(M) - Mostra      (V) - Inserir Vértice      (A) - Inserin Arco     (B) - Buscar     (S) - Sair")
         escolha = input()
         if escolha == "M" or escolha == "m":
             grf.imprimeMatriz()
@@ -76,7 +85,7 @@ if __name__ == "__main__":
                 print("Vértice não cadastrado. Cadastre o vértice primeiro")
                 input()
                 continue
-            grf.adicionaArco(rotulo, peso, inicio, fim)
+            grf.adicionaArco(rotulo, peso, inicio, fim, rinicio, rfim)
         elif escolha == "s" or escolha == "S":
             break
         elif escolha == "B" or escolha == "b":
@@ -96,8 +105,14 @@ if __name__ == "__main__":
                     else:
                         print("Arco encontrado!")
                 elif escolha2 == "O" or escolha2 == "o":
-                    aaaa = 0
-                    # # FIXME: Terminar a implementação desta parte
+                    escolha2 = input("Digite o nome do vértice de origem ou destino: ")
+                    resposta = grf.localizaPorOrigemDestino(escolha2)
+                    if resposta == -1:
+                        print("O arco selecionado não foi encontrado!")
+                    else:
+                        print("O arco selecionado foi encontrado! Seu nome é ", end=" ")
+                        print(resposta)
+
         else:
             input("Entrada inválida. Pressione Enter")
 
