@@ -12,9 +12,10 @@ public class C1Q8 {
     }
 
     public static void print2DMatrix(int [][] input) {
-        int N = input[0].length;
+        int N = input.length;
+        int M = input[0].length;
         for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+            for (int j = 0; j < M; j++) {
                 System.out.print(input[i][j] + " ");
             }
             System.out.println();
@@ -46,10 +47,10 @@ public class C1Q8 {
 
     public static void main(String[] args) {
         int [][] input = {
-                {4, 5, 3, 1},
-                {2, 0, 4, 2},
-                {1, 3, 2, 3},
-                {1, 2, 3, 1}
+                {4, 5, 3, 1, 0},
+                {2, 0, 4, 2, 1},
+                {1, 3, 2, 3, 2},
+                {1, 2, 3, 1, 3}
         };
         print2DMatrix(input);
         zeroMatrix(input);
