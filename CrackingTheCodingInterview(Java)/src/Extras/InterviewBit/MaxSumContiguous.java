@@ -27,7 +27,6 @@ public class MaxSumContiguous {
 
     public static void main(String[] args) {
         int [] entry = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        //int [] entry = {-163, -20};
         System.out.println(maxSum(entry));
     }
 }
