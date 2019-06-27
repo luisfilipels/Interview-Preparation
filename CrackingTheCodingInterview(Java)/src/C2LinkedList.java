@@ -33,6 +33,12 @@ public interface C2LinkedList {
 
         public LinkedList() {}
 
+        public LinkedList(int [] array) {
+            for (int i1 : array) {
+                append(i1);
+            }
+        }
+
         public LinkedList(int d) {
             head = new Node(d);
         }
