@@ -82,6 +82,14 @@ public interface C2LinkedList {
             return null;
         }
 
+        public void appendNodeToTail (Node node) {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = node;
+        }
+
         public Node deleteNode(int value) {
             if (head.data == value) {
                 Node returnNode = head;
