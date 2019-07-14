@@ -1,6 +1,7 @@
 public class C3TestQueue {
     public static void main(String[] args) {
-        C3Queue.ArrayQueue queue = new C3Queue.ArrayQueue();
+        //C3Queue.ArrayQueue queue = new C3Queue.ArrayQueue();
+        C3Queue.LinkedListQueue queue = new C3Queue.LinkedListQueue();
         queue.enqueue(100);
         queue.enqueue(10);
         queue.enqueue(1);
