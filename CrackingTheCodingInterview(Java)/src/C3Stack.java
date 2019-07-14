@@ -13,14 +13,14 @@ public interface C3Stack {
         }
 
         public void append (int d) {
-            if (head == stack.length - 1) {
-                int [] tempStack = new int[stack.length*2];
-                for (int i = 0; i < stack.length; i++) {
+            if (head == stack.length - 1) {                     // If the stack represented by the array is full...
+                int [] tempStack = new int[stack.length*2];     // Create a new stack with twice the size
+                for (int i = 0; i < stack.length; i++) {        // Copy the values previously held in the stack to the new one
                     tempStack[i] = stack[i];
                 }
                 stack = tempStack;
             }
-            if (head == Integer.MIN_VALUE) {
+            if (head == Integer.MIN_VALUE) {                    // If the stack is empty
                 stack[0] = d;
                 head = 0;
             } else {
@@ -35,8 +35,8 @@ public interface C3Stack {
 
         public int pop() {
             try {
-                if (!(head == Integer.MIN_VALUE)) {
-                    int returnInt = stack[head];
+                if (!(head == Integer.MIN_VALUE)) {                 // If the stack is not empty...
+                    int returnInt = stack[head];                    // save the value currently held at the stack head
                     head--;
                     if (head == -1) {
                         head = Integer.MIN_VALUE;
