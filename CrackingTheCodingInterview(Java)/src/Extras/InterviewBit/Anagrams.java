@@ -5,10 +5,8 @@ import java.util.*;
 public class Anagrams {
 
     public static ArrayList<ArrayList<Integer>> anagrams(final List<String> A) {
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
         HashMap<String,ArrayList<Integer>> map = new HashMap<String,ArrayList<Integer>>();
         int n = A.size();
-        ArrayList<Integer> list = new ArrayList<Integer>();
         for(int i = 0; i < n; i++)
         {
             char[] arr = A.get(i).toCharArray();
@@ -25,11 +23,7 @@ public class Anagrams {
             }
         }
 
-        for(ArrayList<Integer> l: map.values())
-        {
-            result.add(l);
-        }
-        return result;
+        return new ArrayList<>(map.values());
     }
 
     public static void main(String[] args) {
