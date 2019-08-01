@@ -4,30 +4,76 @@ import java.util.List;
 public interface C4Tree {
 
     class TreeNode{
-        Object value;
+        int value;
         TreeNode left;
         TreeNode right;
 
-        TreeNode(Object value) {
+        TreeNode(int value) {
             this.value = value;
         }
 
         @Override
         public String toString() {
-            return value.toString();
+            return Integer.toString(value);
         }
     }
 
-    abstract class Tree <Type>{
+    abstract class Tree{
         TreeNode root;
 
-        abstract void add (Type item);
+        abstract void add (int item);
 
-        abstract List<TreeNode> inOrderTraversal();
+        public List<TreeNode> inOrderTraversal() {
+            ArrayList<TreeNode> returnList = new ArrayList<>();
+            if (root != null) {
+                _inOrderTraversal(root, returnList);
+            }
+            return returnList;
+        }
+
+        private void _inOrderTraversal(TreeNode node, List<TreeNode> list) {
+            if (node != null) {
+                _inOrderTraversal(node.left, list);
+                list.add(node);
+                _inOrderTraversal(node.right, list);
+            }
+        }
+
+        List<TreeNode> postOrderTraversal() {
+            ArrayList<TreeNode> returnList = new ArrayList<>();
+            if (root != null) {
+                _postOrderTraversal(root, returnList);
+            }
+            return returnList;
+        }
+
+        private void _postOrderTraversal(TreeNode node, List<TreeNode> list) {
+            if (node != null) {
+                _postOrderTraversal(node.left, list);
+                _postOrderTraversal(node.right, list);
+                list.add(node);
+            }
+        }
+
+        List<TreeNode> preOrderTraversal() {
+            ArrayList<TreeNode> returnList = new ArrayList<>();
+            if (root != null) {
+                _preOrderTraversal(root, returnList);
+            }
+            return returnList;
+        }
+
+        private void _preOrderTraversal(TreeNode node, List<TreeNode> list) {
+            if (node != null) {
+                list.add(node);
+                _preOrderTraversal(node.left, list);
+                _preOrderTraversal(node.right, list);
+            }
+        }
 
     }
 
-    public class BinaryCompleteTree extends Tree {
+    class BinaryCompleteTree extends Tree {
 
         int nodeCount;
         int level;
@@ -39,7 +85,7 @@ public interface C4Tree {
         }
 
         @Override
-        void add(Object item) {
+        void add(int item) {
             // Thanks to Funk, at StackOverflow!
             // https://stackoverflow.com/users/4838058/funk
             if (root == null) {
@@ -68,16 +114,6 @@ public interface C4Tree {
             return ((num >> position) & 1) == 0;
         }
 
-        private void tryAdd(Object item) {
-            nodeCount++;
-            TreeNode parent = findNode(nodeCount >> 1);
-            if (nodeCount % 2 == 0) {
-                parent.left = new TreeNode(item);
-            } else {
-                parent.right = new TreeNode(item);
-            }
-        }
-
         private TreeNode findNode (int location) {
             if (location == 1) {
                 return root;
@@ -86,20 +122,49 @@ public interface C4Tree {
             return (location % 2 == 0 ? parent.left : parent.right);
         }
 
+
+    }
+
+    class BinarySearchTree extends Tree {
+
         @Override
-        public List<TreeNode> inOrderTraversal() {
-            ArrayList<TreeNode> returnList = new ArrayList<>();
-            if (root != null) {
-                inOrderTraversal(root, returnList);
+        void add(int item) {
+            if (root == null) {
+                root = new TreeNode(item);
+                return;
             }
-            return returnList;
+            _add(root, item);
         }
 
-        void inOrderTraversal(TreeNode node, List<TreeNode> list) {
-            if (node != null) {
-                inOrderTraversal(root.left, list);
-                list.add(node);
-                inOrderTraversal(root.right, list);
+        private TreeNode _add(TreeNode node, int item) {
+            if (node == null) {
+                node = new TreeNode(item);
+                return node;
+            }
+            if (item <= node.value) {
+                node.left = _add(node.left, item);
+            } else {
+                node.right = _add(node.right, item);
+            }
+            return node;
+        }
+
+        public TreeNode search(int item) {
+            if (root != null) {
+                return _search(root, item);
+            } else return null;
+        }
+
+        private TreeNode _search(TreeNode node, int item) {
+            if (node == null) {
+                return null;
+            }
+            if (item == node.value) {
+                return node;
+            } else if (item < node.value) {
+                return _search(node.left, item);
+            } else {
+                return _search(node.right, item);
             }
         }
     }
