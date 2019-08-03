@@ -25,6 +25,7 @@ Book solution:
 public class C4Q2 {
 
     static C4Tree.TreeNode MinimalBST (ArrayList<Integer> array) {
+        // TODO Check how my implemntation can be improved
         if (array.size() == 0) {
             return null;
         } else if (array.size() == 1) {
