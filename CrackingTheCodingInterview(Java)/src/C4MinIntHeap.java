@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class C4MinIntHeap {
 
     int [] items = new int[1];
-    int tam = 0;
+    int size = 0;
 
     // https://www.youtube.com/watch?v=t0Cq6tVNRBA
     // Parent: ceil((index - 1) / 2)
@@ -35,11 +35,11 @@ public class C4MinIntHeap {
     }
 
     private boolean hasLeftChild (int index) {
-        return getLeftChildIndex(index) < tam;
+        return getLeftChildIndex(index) < size;
     }
 
     private boolean hasRightChild (int index) {
-        return getRightChildIndex(index) < tam;
+        return getRightChildIndex(index) < size;
     }
 
     private boolean hasParent (int index) {
@@ -53,31 +53,31 @@ public class C4MinIntHeap {
     }
 
     private void ensureExtraCapacity () {
-        if (tam == items.length) {
+        if (size == items.length) {
             items = Arrays.copyOf(items, items.length * 2);
         }
     }
 
     public int removeMin () {
-        if (tam == 0) {
+        if (size == 0) {
             throw new IllegalStateException();
         }
         int item = items[0];
-        items[0] = items[tam -1];
-        tam--;
+        items[0] = items[size -1];
+        size--;
         heapifyDown();
         return item;
     }
 
     public void add (int item) {
         ensureExtraCapacity();
-        items[tam] = item;
-        tam++;
+        items[size] = item;
+        size++;
         heapifyUp();
     }
 
     private void heapifyUp() {
-        int index = tam -1;
+        int index = size -1;
         while (hasParent(index) && parent(index) > items[index]) {
             swap(getParentIndex(index), index);
             index = getParentIndex(index);
