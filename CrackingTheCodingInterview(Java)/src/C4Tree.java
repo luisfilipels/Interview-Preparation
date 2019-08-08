@@ -3,6 +3,8 @@ import java.util.List;
 
 public interface C4Tree {
 
+
+
     class TreeNode{
         int value;
         TreeNode left;
@@ -26,31 +28,31 @@ public interface C4Tree {
         public List<TreeNode> inOrderTraversal() {
             ArrayList<TreeNode> returnList = new ArrayList<>();
             if (root != null) {
-                _inOrderTraversal(root, returnList);
+                inOrderTraversal(root, returnList);
             }
             return returnList;
         }
 
-        private void _inOrderTraversal(TreeNode node, List<TreeNode> list) {
+        public void inOrderTraversal(TreeNode node, List<TreeNode> list) {
             if (node != null) {
-                _inOrderTraversal(node.left, list);
+                inOrderTraversal(node.left, list);
                 list.add(node);
-                _inOrderTraversal(node.right, list);
+                inOrderTraversal(node.right, list);
             }
         }
 
         List<TreeNode> postOrderTraversal() {
             ArrayList<TreeNode> returnList = new ArrayList<>();
             if (root != null) {
-                _postOrderTraversal(root, returnList);
+                postOrderTraversal(root, returnList);
             }
             return returnList;
         }
 
-        private void _postOrderTraversal(TreeNode node, List<TreeNode> list) {
+        public void postOrderTraversal(TreeNode node, List<TreeNode> list) {
             if (node != null) {
-                _postOrderTraversal(node.left, list);
-                _postOrderTraversal(node.right, list);
+                postOrderTraversal(node.left, list);
+                postOrderTraversal(node.right, list);
                 list.add(node);
             }
         }
@@ -58,16 +60,16 @@ public interface C4Tree {
         List<TreeNode> preOrderTraversal() {
             ArrayList<TreeNode> returnList = new ArrayList<>();
             if (root != null) {
-                _preOrderTraversal(root, returnList);
+                preOrderTraversal(root, returnList);
             }
             return returnList;
         }
 
-        private void _preOrderTraversal(TreeNode node, List<TreeNode> list) {
+        public void preOrderTraversal(TreeNode node, List<TreeNode> list) {
             if (node != null) {
                 list.add(node);
-                _preOrderTraversal(node.left, list);
-                _preOrderTraversal(node.right, list);
+                preOrderTraversal(node.left, list);
+                preOrderTraversal(node.right, list);
             }
         }
 
