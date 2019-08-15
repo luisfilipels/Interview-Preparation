@@ -51,18 +51,6 @@ public interface C4Graph {
             }
         }
 
-        Stack<Integer> cloneOf (Stack<Integer> stack) {
-            Stack<Integer> returnStack = new Stack<>();
-            Stack<Integer> auxStack = new Stack<>();
-            while (!stack.empty()) {
-                auxStack.add(stack.pop());
-            }
-            while (!auxStack.empty()) {
-                returnStack.add(auxStack.pop());
-            }
-            return returnStack;
-        }
-
         Stack<Integer> pathDFS (int start, int end) {
             Stack<Integer> returnStack = new Stack<>();
             boolean [] visited = new boolean[graph.size()];
@@ -70,16 +58,17 @@ public interface C4Graph {
             returnStack.add(start);
             for (int i = 0; i < graph.size(); i++) {
                 if (!visited[i] && graph.get(start).get(i) != Integer.MAX_VALUE) {
-                    Stack<Integer> auxStack = pathDFS(i, end, visited, cloneOf(returnStack));
-                    if (auxStack != null && auxStack.peek() == end) {
-                        return auxStack;
+                    Stack<Integer> copyStack = (Stack<Integer>) returnStack.clone();
+                    copyStack = pathDFS(i, end, visited, copyStack);
+                    if (copyStack != null && copyStack.peek() == end) {
+                        return copyStack;
                     }
                 }
             }
             return returnStack;
         }
 
-        Stack<Integer> pathDFS (int start, int end, boolean[] visited, Stack<Integer> stack) {
+        private Stack<Integer> pathDFS (int start, int end, boolean[] visited, Stack<Integer> stack) {
             stack.add(start);
             if (start == end) {
                 return stack;
@@ -87,9 +76,46 @@ public interface C4Graph {
             visited[start] = true;
             for (int i = 0; i < graph.size(); i++) {
                 if (!visited[i] && graph.get(start).get(i) != Integer.MAX_VALUE) {
-                    Stack<Integer> auxStack = pathDFS(i, end, visited, cloneOf(stack));
-                    if (auxStack != null && auxStack.peek() == end) {
-                        return auxStack;
+                    Stack<Integer> copyStack = (Stack<Integer>) stack.clone();
+                    copyStack = pathDFS(i, end, visited, copyStack);
+                    if (copyStack != null && copyStack.peek() == end) {
+                        return copyStack;
+                    }
+                }
+            }
+            return stack;
+        }
+
+        ArrayList<Stack<Integer>> listPathsDFS (int start, int end) {
+            ArrayList<Stack<Integer>> returnArray = new ArrayList<>();
+            Stack<Integer> currentStack = new Stack<>();
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            currentStack.add(start);
+            for (int i = 0; i < graph.size(); i++) {
+                if (!visited[i] && graph.get(start).get(i) != Integer.MAX_VALUE) {
+                    Stack<Integer> copyStack = (Stack<Integer>) currentStack.clone();
+                    copyStack = listPathsDFS(i, end, visited, copyStack, returnArray);
+                    if (copyStack != null && copyStack.peek() == end) {
+                        returnArray.add(copyStack);
+                    }
+                }
+            }
+            return returnArray;
+        }
+
+        private Stack<Integer> listPathsDFS (int start, int end, boolean[] visited, Stack<Integer> stack, ArrayList<Stack<Integer>> listPaths) {
+            stack.add(start);
+            if (start == end) {
+                return stack;
+            }
+            visited[start] = true;
+            for (int i = 0; i < graph.size(); i++) {
+                if (!visited[i] && graph.get(start).get(i) != Integer.MAX_VALUE) {
+                    Stack<Integer> copyStack = (Stack<Integer>) stack.clone();
+                    copyStack = pathDFS(i, end, visited, copyStack);
+                    if (copyStack != null && copyStack.peek() == end) {
+                        listPaths.add(copyStack);
                     }
                 }
             }

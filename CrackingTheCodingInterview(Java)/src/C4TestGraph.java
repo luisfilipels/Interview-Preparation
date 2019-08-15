@@ -7,7 +7,9 @@ public class C4TestGraph {
         graph.setBidirEdge(1, 2);
         graph.setBidirEdge(2, 4);
         graph.setBidirEdge(0, 4);
-        System.out.println(graph.pathDFS(0, 4));
+        graph.setBidirEdge(1, 4);
+        //System.out.println(graph.pathDFS(0, 4));
+        System.out.println(graph.shortestPathDFS(0, 4));
     }
 
 }
