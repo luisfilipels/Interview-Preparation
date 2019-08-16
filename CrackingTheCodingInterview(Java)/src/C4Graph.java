@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 public interface C4Graph {
@@ -120,6 +121,60 @@ public interface C4Graph {
                 }
             }
             return stack;
+        }
+
+        boolean BFS (int start, int end) {
+            ArrayList<Integer> queue = new ArrayList<>();
+            queue.add(start);
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            while (!queue.isEmpty()) {
+                int i = queue.remove(0);
+                for (int j = 0; j < graph.size(); j++) {
+                    if (!visited[j] && graph.get(i).get(j) != Integer.MAX_VALUE) {
+                        visited[j] = true;
+                        queue.add(j);
+                    }
+                }
+            }
+            if (visited[end]) {
+                return true;
+            }
+            return false;
+        }
+
+        ArrayList<Integer> pathBFS (int start, int end) {
+            ArrayList<Integer> returnArray = new ArrayList<>();
+            ArrayList<Integer> queue = new ArrayList<>();
+            boolean [] visited = new boolean[graph.size()];
+            int [] traceback = new int[graph.size()];
+            for (int i = 0; i < traceback.length; i++) {
+                traceback[i] = Integer.MAX_VALUE;
+            }
+            visited[start] = true;
+            queue.add(start);
+            while (!queue.isEmpty()) {
+                int i = queue.remove(0);
+                for (int j = 0; j < graph.size(); j++) {
+                    if (!visited[j] && graph.get(i).get(j) != Integer.MAX_VALUE) {
+                        traceback[j] = i;
+                        visited[j] = true;
+                        queue.add(j);
+                    }
+                }
+            }
+            if (visited[end]) {
+                int j = end;
+                returnArray.add(end);
+                while (traceback[j] != start) {
+                    returnArray.add(traceback[j]);
+                    j = traceback[j];
+                }
+                returnArray.add(start);
+                Collections.reverse(returnArray);
+                return returnArray;
+            }
+            return null;
         }
 
     }
