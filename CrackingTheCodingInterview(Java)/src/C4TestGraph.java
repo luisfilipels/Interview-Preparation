@@ -11,7 +11,8 @@ public class C4TestGraph {
         //System.out.println(graph.pathDFS(0, 4));
         //System.out.println(graph.listPathsDFS(0, 4));
         //System.out.println(graph.BFS(0, 4));
-        System.out.println(graph.pathBFS(3, 1));
+        //System.out.println(graph.pathBFS(3, 1));
+        System.out.println(graph.listPathsBFS(3, 4));
     }
 
 }

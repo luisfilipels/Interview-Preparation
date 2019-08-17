@@ -177,6 +177,37 @@ public interface C4Graph {
             return null;
         }
 
+        ArrayList<ArrayList<Integer>> listPathsBFS (int start, int end) {
+            ArrayList<ArrayList<Integer>> returnArray = new ArrayList<>();
+            ArrayList<ArrayList<Integer>> queue = new ArrayList<>();
+            ArrayList<Integer> currentPath = new ArrayList<>();
+            ArrayList<boolean[]> queueVisited = new ArrayList<>();
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            queueVisited.add(visited);
+            currentPath.add(start);
+            queue.add(currentPath);
+            while (!queue.isEmpty()) {
+                currentPath = queue.remove(0);
+                visited = queueVisited.remove(0);
+                int last = currentPath.get(currentPath.size()-1);
+                if (last == end) {
+                    returnArray.add(currentPath);
+                }
+                for (int i = 0; i < graph.size(); i++) {
+                    if (!visited[i] && graph.get(last).get(i) != Integer.MAX_VALUE) {
+                        ArrayList<Integer> copyPath = (ArrayList<Integer>) currentPath.clone();
+                        boolean [] newVisited = visited.clone();
+                        newVisited[i] = true;
+                        copyPath.add(i);
+                        queueVisited.add(newVisited);
+                        queue.add(copyPath);
+                    }
+                }
+            }
+            return returnArray;
+        }
+
     }
 
 }
