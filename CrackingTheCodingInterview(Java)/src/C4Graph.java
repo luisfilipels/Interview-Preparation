@@ -114,7 +114,7 @@ public interface C4Graph {
             for (int i = 0; i < graph.size(); i++) {
                 if (!visited[i] && graph.get(start).get(i) != Integer.MAX_VALUE) {
                     Stack<Integer> copyStack = (Stack<Integer>) stack.clone();
-                    copyStack = pathDFS(i, end, visited, copyStack);
+                    copyStack = listPathsDFS(i, end, visited, copyStack, listPaths);
                     if (copyStack != null && copyStack.peek() == end) {
                         listPaths.add(copyStack);
                     }
@@ -208,6 +208,108 @@ public interface C4Graph {
             return returnArray;
         }
 
+    }
+
+    class AdjListGraph {
+
+        ArrayList<ArrayList<int []>> graph = new ArrayList<>();
+
+        AdjListGraph (int nodeCount) {
+            for (int i = 0; i < nodeCount; i++) {
+                graph.add(new ArrayList<>());
+            }
+        }
+
+        void setBidirEdge (int node1, int node2) {
+            editBidirEdge(node1, node2, 1);
+        }
+
+        void editBidirEdge (int node1, int node2, int weight) {
+            int [] vertexWeightTuple1 = {node2, weight};
+            int [] vertexWeightTuple2 = {node1, weight};
+            graph.get(node1).add(vertexWeightTuple1);
+            graph.get(node2).add(vertexWeightTuple2);
+        }
+
+        boolean DFS (int start, int end) {
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            DFSHelper(start, end, visited);
+            if (visited[end]) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        private void DFSHelper (int start, int end, boolean[]visited) {
+            visited[start] = true;
+            for (int i = 0; i < graph.get(start).size(); i++) {
+                if (!visited[graph.get(start).get(i)[0]]) {
+                    DFSHelper(graph.get(start).get(i)[0], end, visited);
+                }
+            }
+        }
+
+        Stack<Integer> pathDFS (int start, int end) {
+            Stack<Integer> returnStack = new Stack<>();
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            return pathDFSHelper(start, end, visited, returnStack);
+        }
+
+        private Stack<Integer> pathDFSHelper (int start, int end, boolean[] visited, Stack<Integer> stack) {
+            stack.add(start);
+            if (start == end) {
+                return stack;
+            }
+            visited[start] = true;
+            for (int i = 0; i < graph.get(start).size(); i++) {
+                if (!visited[graph.get(start).get(i)[0]]) {
+                    Stack <Integer> copyStack;
+                    copyStack = pathDFSHelper(graph.get(start).get(i)[0], end, visited, stack);
+                    if (copyStack != null && copyStack.peek() == end) {
+                        return copyStack;
+                    }
+                }
+            }
+            return stack;
+        }
+
+        ArrayList<Stack<Integer>> listPathsDFS (int start, int end) {
+            ArrayList<Stack<Integer>> returnArray = new ArrayList<>();
+            Stack<Integer> currentStack = new Stack<>();
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            currentStack.add(start);
+            for (int i = 0; i < graph.get(start).size(); i++) {
+                if (!visited[graph.get(start).get(i)[0]]) {
+                    Stack<Integer> copyStack = listPathsDFSHelper(graph.get(start).get(i)[0], end, visited, (Stack<Integer>) currentStack.clone(), returnArray);
+                    if (copyStack.peek() == end) {
+                        returnArray.add(copyStack);
+                    }
+                }
+            }
+            return returnArray;
+        }
+
+        private Stack<Integer> listPathsDFSHelper (int start, int end, boolean [] visited, Stack<Integer> stack, ArrayList<Stack<Integer>> listPaths) {
+            stack.add(start);
+            if (start == end) {
+                return stack;
+            }
+            visited[start] = true;
+            for (int i = 0; i < graph.get(start).size(); i++) {
+                if (!visited[graph.get(start).get(i)[0]]) {
+                    Stack<Integer> copyStack = listPathsDFSHelper(graph.get(start).get(i)[0], end, visited, (Stack<Integer>) stack.clone(), listPaths);
+                    if (copyStack.peek() == end) {
+                        listPaths.add(copyStack);
+                    }
+                }
+            }
+            return stack;
+        }
+        
     }
 
 }
