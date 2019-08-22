@@ -4,6 +4,9 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 
+// Unfortunately, although I feel I was on the right track in my attempt at solving this problem, I couldn't get past
+// the requirement of indicating the "distance" between the two words. Anyways, here one of the solutions given by the site.
+
 public class WordLadderI {
 
     static class Wrapper {
