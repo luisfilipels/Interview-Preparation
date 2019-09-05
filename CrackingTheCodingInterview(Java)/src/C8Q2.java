@@ -27,22 +27,23 @@ public class C8Q2 {
                 int valTop;
                 int valLeft;
                 if (i == 0 && j == 0) {
+                    cost[i][j] = 1;
                     continue;
                 }
                 if (matrix[i][j] == 1) {
-                    cost[i][j] = 10000;
+                    cost[i][j] = -1;
                     continue;
                 }
 
                 try {
                     valTop = cost[i-1][j];
                 } catch (Exception e) {
-                    valTop = 10000;
+                    valTop = Integer.MAX_VALUE;
                 }
                 try {
                     valLeft = cost[i][j-1];
                 } catch (Exception e) {
-                    valLeft = 10000;
+                    valLeft = Integer.MAX_VALUE;
                 }
                 cost[i][j] = 1 + Math.min(valLeft, valTop);
             }
@@ -50,7 +51,7 @@ public class C8Q2 {
         return cost;
     }
 
-
+// TODO Solve this question
 
 
     public static void main(String[] args) {
