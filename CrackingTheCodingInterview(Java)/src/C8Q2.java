@@ -51,8 +51,6 @@ public class C8Q2 {
         return cost;
     }
 
-// TODO Solve this question
-
 
     public static void main(String[] args) {
         int [][] grid = {
