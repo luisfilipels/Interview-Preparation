@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Stack;
+import java.util.*;
 
 public interface C4Graph {
 
@@ -256,9 +254,13 @@ public interface C4Graph {
 
     }
 
-    class AdjListGraph {
+    class AdjListGraph implements Cloneable{
 
         ArrayList<ArrayList<int []>> graph = new ArrayList<>();
+
+        HashMap <int [], String> edgeMap = new HashMap<>();
+
+        int edgeCount = 0;
 
         AdjListGraph (int nodeCount) {
             for (int i = 0; i < nodeCount; i++) {
@@ -266,8 +268,40 @@ public interface C4Graph {
             }
         }
 
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+
+        boolean BFSConnected (int start) {
+            Deque<Integer> queue = new ArrayDeque<>();   // Utilizes an ArrayList, but treated as a queue.
+            queue.add(start);
+            boolean [] visited = new boolean[graph.size()];
+            visited[start] = true;
+            while (!queue.isEmpty()) {
+                // We call 'i' the current node. We then check all of its adjacent vertices and add them to the queue.
+                int i = queue.poll();
+                for (int j = 0; j < graph.get(i).size(); j++) {
+                    if (!visited[j]) {
+                        visited[j] = true;
+                        queue.add(j);
+                    }
+                }
+            }
+            for (boolean b : visited) {
+                if (!b) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         void setBidirEdge (int node1, int node2) {
             editBidirEdge(node1, node2, 1);
+        }
+
+        void setBidirEdge (int node1, int node2, String label) {
+            editBidirEdge(node1, node2, 1);
+            edgeMap.put(new int[] {node1, node2}, label);
         }
 
         void editBidirEdge (int node1, int node2, int weight) {
@@ -275,6 +309,22 @@ public interface C4Graph {
             int [] vertexWeightTuple2 = {node1, weight};
             graph.get(node1).add(vertexWeightTuple1);
             graph.get(node2).add(vertexWeightTuple2);
+            edgeCount += 2;
+        }
+
+        void editBidirEdge (int node1, int node2, int weight, String label) {
+            int [] vertexWeightTuple1 = {node2, weight};
+            int [] vertexWeightTuple2 = {node1, weight};
+            graph.get(node1).add(vertexWeightTuple1);
+            graph.get(node2).add(vertexWeightTuple2);
+            edgeCount += 2;
+        }
+
+        void deleteBidirEdge (int node1, int node2) {
+            graph.get(node1).remove(node2);
+            graph.get(node2).remove(node1);
+            edgeMap.remove(new int[]{node1, node2});
+            edgeCount -= 2;
         }
 
         boolean DFS (int start, int end) {
@@ -302,6 +352,54 @@ public interface C4Graph {
             boolean [] visited = new boolean[graph.size()];
             visited[start] = true;
             return pathDFSHelper(start, end, visited, returnStack);
+        }
+
+        public boolean isComplete () {
+            for (ArrayList<int []> node : graph) {
+                if (node.size() != graph.size() - 1) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public int getMinDegree () {
+            int min = graph.size() + 1;
+            int currentDegree;
+            for (ArrayList<int []> node : graph) {
+                currentDegree = node.size();
+                min = Math.min(min, currentDegree);
+            }
+            return min;
+        }
+
+        public boolean edgeConnected (int k) {
+            if (k > getMinDegree()) {
+                return false;
+            }
+            if (isComplete() && k < graph.size()) {
+                return true;
+            }
+            if (k == 1) {
+                for (int i = 0; i < graph.size(); i++) {
+                    if (!BFSConnected(i)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            for (int [] edge : edgeMap.keySet()) {
+                try {
+                    AdjListGraph Gdot = (AdjListGraph) this.clone();
+                    Gdot.deleteBidirEdge(edge[0], edge[1]);
+                    if (!Gdot.edgeConnected(k - 1)) {
+                        return false;
+                    }
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+            return true;
         }
 
         private Stack<Integer> pathDFSHelper (int start, int end, boolean[] visited, Stack<Integer> stack) {
