@@ -254,11 +254,24 @@ public interface C4Graph {
 
     }
 
+    class Edge {
+        int node1;
+        int node2;
+        Edge(int node1, int node2) {
+            this.node1 = node1;
+            this.node2 = node2;
+        }
+    }
+
+    class Node {
+        
+    }
+
     class AdjListGraph implements Cloneable{
 
         ArrayList<ArrayList<int []>> graph = new ArrayList<>();
 
-        HashMap <int [], String> edgeMap = new HashMap<>();
+        HashSet <Edge> edgeMap = new HashSet<>();
 
         int edgeCount = 0;
 
@@ -301,7 +314,6 @@ public interface C4Graph {
 
         void setBidirEdge (int node1, int node2, String label) {
             editBidirEdge(node1, node2, 1);
-            edgeMap.put(new int[] {node1, node2}, label);
         }
 
         void editBidirEdge (int node1, int node2, int weight) {
@@ -309,6 +321,11 @@ public interface C4Graph {
             int [] vertexWeightTuple2 = {node1, weight};
             graph.get(node1).add(vertexWeightTuple1);
             graph.get(node2).add(vertexWeightTuple2);
+            if (node1 > node2) {
+                edgeMap.add(new Edge(node1, node2));
+            } else {
+                edgeMap.add(new Edge(node2, node1));
+            }
             edgeCount += 2;
         }
 
@@ -321,9 +338,13 @@ public interface C4Graph {
         }
 
         void deleteBidirEdge (int node1, int node2) {
-            graph.get(node1).remove(node2);
-            graph.get(node2).remove(node1);
-            edgeMap.remove(new int[]{node1, node2});
+            graph.get(node1).removeIf(node -> node[1] == node2);
+            graph.get(node2).removeIf(node -> node[0] == node1);
+            if (node1 > node2) {
+                edgeMap.removeIf(edge -> edge.node1 == node1 && edge.node2 == node2);
+            } else {
+                edgeMap.removeIf(edge -> edge.node1 == node1 && edge.node2 == node2);
+            }
             edgeCount -= 2;
         }
 
@@ -388,10 +409,10 @@ public interface C4Graph {
                 }
                 return true;
             }
-            for (int [] edge : edgeMap.keySet()) {
+            for (Edge edge : edgeMap) {
                 try {
                     AdjListGraph Gdot = (AdjListGraph) this.clone();
-                    Gdot.deleteBidirEdge(edge[0], edge[1]);
+                    Gdot.deleteBidirEdge(edge.node1, edge.node2);
                     if (!Gdot.edgeConnected(k - 1)) {
                         return false;
                     }

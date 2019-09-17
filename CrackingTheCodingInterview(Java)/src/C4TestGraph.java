@@ -1,14 +1,19 @@
 public class C4TestGraph {
 
     public static void main(String[] args) {
-        C4Graph.AdjListGraph graph = new C4Graph.AdjListGraph(4);
+        C4Graph.AdjListGraph graph = new C4Graph.AdjListGraph(6);
         graph.setBidirEdge(0, 1);
-        graph.setBidirEdge(0, 2);
         graph.setBidirEdge(0, 3);
         graph.setBidirEdge(1, 2);
+        graph.setBidirEdge(1, 5);
+        graph.setBidirEdge(1, 4);
+        graph.setBidirEdge(2, 5);
+        graph.setBidirEdge(4, 5);
         graph.setBidirEdge(1, 3);
-        //graph.setBidirEdge(2, 3);
-        System.out.println(graph.edgeConnected(1));
+        graph.setBidirEdge(3, 4);
+        graph.setBidirEdge(0, 4);
+        graph.setBidirEdge(4, 2);
+        System.out.println(graph.edgeConnected(3));
         //graph.setBidirEdge(2, 3);
         /*C4Graph.AdjListGraph graph = new C4Graph.AdjListGraph(8);
         graph.setBidirEdge(0, 1);
