@@ -1,9 +1,11 @@
 package Extras;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Stack;
 
-public class GraphDFSNoRecursion {
+public class GraphDFSNoRecursionDijkstra {
 
     private static class AdjMatrixGraph {
 
@@ -51,7 +53,7 @@ public class GraphDFSNoRecursion {
         graph.addEdge(2, 5);
         graph.addEdge(3, 4);
         graph.addEdge(4, 7);
-        //graph.addEdge(5, 6);
+        graph.addEdge(5, 6);
         graph.addEdge(6, 7);
         System.out.println(graph.DFS(0, 3));
     }
