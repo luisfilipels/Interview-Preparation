@@ -1,5 +1,8 @@
 package Extras;
 
+import Extras.LeetCode.BinTreeInorder;
+
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class TreeTraversalNoRecursion {
@@ -46,9 +49,12 @@ public class TreeTraversalNoRecursion {
         }
 
         void InOrderNoRecursion () {
+            if (root == null) {
+                return;
+            }
             Stack<TreeNode> stack = new Stack<>();
-            stack.push(root);
             TreeNode current = root;
+            ArrayList<Integer> list = new ArrayList<>();
             while (current != null || !stack.empty()) {
                 while (current != null) {
                     stack.push(current);
