@@ -8,7 +8,7 @@ public class LargestRectangleInHistogram {
     Easier than it seems!
     https://www.youtube.com/watch?v=MhQPpAoZbMc
     */
-    private static int largestRectangleArea (int [] heights) {
+     public static int largestRectangleArea (int [] heights) {
         if (heights.length == 0) {
             return 0;
         } else if (heights.length == 1) {
