@@ -4,8 +4,28 @@ import java.util.Arrays;
 
 public class ProductOfArrayExceptSelf {
 
+
+    // My new solution, with half the absolute usage of space. Most optimal solution.
+    private static int[] productExceptSelf (int[] nums) {
+        int [] helperArray = new int[nums.length];
+        helperArray[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            helperArray[i] = helperArray[i-1] * nums[i];
+        }
+        for (int i = nums.length-2; i >= 0; i--) {
+            nums[i] = nums[i+1] * nums[i];
+        }
+
+        nums[0] = nums[1];
+        for (int i = 1; i < nums.length-1; i++) {
+            nums[i] = helperArray[i-1] * nums[i+1];
+        }
+        nums[nums.length-1] = helperArray[nums.length-2];
+        return nums;
+    }
+
     // My solution with O(n) time and space complexity
-    static private int [] productExceptSelf(int[] nums) {
+    /*static private int [] productExceptSelf(int[] nums) {
         int [] left = new int[nums.length];
         int [] right = new int[nums.length];
         int [] returnArray = new int[nums.length];
@@ -66,7 +86,7 @@ public class ProductOfArrayExceptSelf {
         }
 
         return answer;
-    }
+    }*/
 
     public static void main(String[] args) {
         int [] input = new int[] {1, 2, 3, 4};
