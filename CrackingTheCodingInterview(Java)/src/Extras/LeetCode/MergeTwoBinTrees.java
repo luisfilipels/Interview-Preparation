@@ -9,6 +9,21 @@ public class MergeTwoBinTrees {
         TreeNode (int x) { val = x; }
     }
 
+    private static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+        if (t1 == null) {
+            return t2;
+        }
+        if (t2 == null) {
+            return t1;
+        }
+        TreeNode t3 = new TreeNode (t1.val + t2.val);
+        t3.left = mergeTrees(t1.left, t2.left);
+        t3.right = mergeTrees(t1.right, t2.right);
+        return t3;
+    }
+
+    /*
+    // Old solution. Too complicated
     private static void fillPreOrderHelper(TreeNode t1, TreeNode t2, TreeNode t3) {
         t3.val = t1.val + t2.val;
         if (t1.left == null && t2.left != null) {
@@ -50,6 +65,7 @@ public class MergeTwoBinTrees {
         }
         return fillPreOrderMain(t1, t2);
     }
+    */
 
     public static void main(String[] args) {
         TreeNode root1 = new TreeNode(1);
