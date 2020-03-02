@@ -1,8 +1,6 @@
 package Extras.LeetCode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class SubarraySumEqualsK {
 
@@ -25,15 +23,15 @@ public class SubarraySumEqualsK {
 
     private static int subarraySum (int [] nums, int k) {
         int count = 0;
-        HashMap<Integer, Integer> hash = new HashMap<>();
-        int currentSum = 0;
-        hash.put(0, 1);
+        HashMap<Integer, Integer> hash = new HashMap<>();   // Key: Value of sum. Value: Number of times the key has been found.
+        int currentSum = 0; // For a cumulative sum
+        hash.put(0, 1); // Needed in cases like nums = {3, 1, 2}, and k = 6, as for i = 2, currentSum - k = 0.
         for (int i = 0; i < nums.length; i++) {
             currentSum += nums[i];
             if (hash.containsKey(currentSum - k)) {
                 count += hash.get(currentSum - k);
             }
-            hash.put(currentSum, hash.getOrDefault(currentSum, 0) + 1);
+            hash.put(currentSum, hash.getOrDefault(currentSum, 0) + 1); // Put the current sum in the hashmap, as it is a value of a sum. Needed in cases that have negative integers in the array.
         }
         return count;
     }
