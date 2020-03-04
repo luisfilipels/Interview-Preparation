@@ -112,6 +112,94 @@ public class SortList {
         return mergeSort(head);
     }
 
+    /*
+    // Alternative solution. Perhaps easier to understand.
+    static ListNode[] partition (ListNode head) {
+        ListNode[] returnArray = new ListNode[2];
+        if (head.next == null) {
+            returnArray[0] = head;
+            returnArray[1] = null;
+            return returnArray;
+        }
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        ListNode temp = head;
+        while (temp.next != slow) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        returnArray[1] = slow;
+        returnArray[0] = head;
+        return returnArray;
+    }
+
+    static ListNode merge (ListNode left, ListNode right) {
+        ListNode i = left, j = right;
+        ListNode frontOfList;
+        ListNode head;
+        if (i == null) {
+            return right;
+        }
+        if (j == null) {
+            return left;
+        }
+        if (i.val < j.val) {
+            frontOfList = i;
+            i = i.next;
+            frontOfList.next = null;
+        } else {
+            frontOfList = j;
+            j = j.next;
+            frontOfList.next = null;
+        }
+        head = frontOfList;
+        while (i != null && j != null) {
+            if (i.val == j.val) {
+                frontOfList.next = i;
+                i = i.next;
+                frontOfList = frontOfList.next;
+                frontOfList.next = j;
+                j = j.next;
+                frontOfList = frontOfList.next;
+                frontOfList.next = null;
+            } else if (i.val < j.val) {
+                frontOfList.next = i;
+                frontOfList = frontOfList.next;
+                i = i.next;
+                frontOfList.next = null;
+            } else {
+                frontOfList.next = j;
+                frontOfList = frontOfList.next;
+                j = j.next;
+                frontOfList.next = null;
+            }
+        }
+        if (i == null && j == null) {
+            return head;
+        } else if (i == null) {
+            frontOfList.next = j;
+        } else {
+            frontOfList.next = i;
+        }
+        return head;
+
+    }
+
+    static ListNode mergeSort (ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode[] partitions = partition(head);
+        ListNode left = mergeSort(partitions[0]);
+        ListNode right = mergeSort(partitions[1]);
+
+        ListNode returnNode = merge(left, right);
+        return returnNode;
+    }
+    */
     private static ListNode listFromArray (int [] arr) {
         ListNode head;
         ListNode tail;
