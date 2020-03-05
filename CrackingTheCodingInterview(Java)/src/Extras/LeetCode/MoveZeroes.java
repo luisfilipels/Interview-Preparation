@@ -4,6 +4,34 @@ import java.util.Arrays;
 
 public class MoveZeroes {
 
+    private static void swap (int[] nums, int i, int j) {
+        int swap = nums[i];
+        nums[i] = nums[j];
+        nums[j] = swap;
+    }
+
+    private static void moveZeroes (int [] nums) {
+        int i = 0, j = 1;
+        while (j < nums.length) {
+            if (nums[i] != 0) {
+                i++;
+                j++;
+            } else {
+                while (j < nums.length) {
+                    if (nums[j] != 0) {
+                        swap(nums, i, j);
+                        i++;
+                        j++;
+                    } else {
+                        j++;
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+    // Old solution. Needs to count zeroes.
     private static void moveZeroes(int[] nums) {
         if (nums.length == 1) {
             return;
@@ -34,7 +62,7 @@ public class MoveZeroes {
         }
 
     }
-
+    */
     public static void main(String[] args) {
         int [] nums = new int[] {0, 1, 0, 3, 12};
         moveZeroes(nums);
