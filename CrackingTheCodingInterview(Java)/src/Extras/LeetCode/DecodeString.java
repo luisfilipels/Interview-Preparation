@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class DecodeString {
 
-    static class Tuple {
+    /*static class Tuple {
         Integer left;
         StringBuilder right;
         Tuple(int l, StringBuilder r) {
@@ -35,7 +35,46 @@ public class DecodeString {
             }
         }
         return stack.peek().right.toString();
+    }*/
+
+
+    // New solution. Virtually identical to previous one.
+    static class Tuple {
+        int amount;
+        StringBuilder contents;
+
+        Tuple (int amount, StringBuilder contents) {
+            this.amount = amount;
+            this.contents = contents;
+        }
     }
+
+    static String decodeString (String s) {
+        Stack<Tuple> stack = new Stack<>();
+        stack.push(new Tuple(1, new StringBuilder()));
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isDigit(s.charAt(i))) {
+                StringBuilder temp = new StringBuilder();
+                while (Character.isDigit(s.charAt(i))) {
+                    temp.append(s.charAt(i));
+                    i++;
+                }
+                int amount = Integer.parseInt(temp.toString());
+                stack.push(new Tuple(amount, new StringBuilder()));
+            } else {
+                if (s.charAt(i) == ']') {
+                    Tuple popped = stack.pop();
+                    for (int j = 0; j < popped.amount; j++) {
+                        stack.peek().contents.append(popped.contents);
+                    }
+                } else {
+                    stack.peek().contents.append(s.charAt(i));
+                }
+            }
+        }
+        return stack.pop().contents.toString();
+    }
+
 
     // Wrong answer, only works if not nested.
     /*static private String decodeString (String s) {

@@ -25,6 +25,32 @@ public class MaximalSquare {
         return returnInt * returnInt;
     }
 
+    /*
+    // Alternative answer.
+    static int maximalSquare(char[][] matrix) {
+        int returnInt = 0;
+        for (int l = 0; l < matrix.length; l++) {
+            matrix[l][0] -= '0';
+            returnInt = Math.max(returnInt, matrix[l][0]);
+        }
+        for (int c = 1; c < matrix[0].length; c++) {
+            matrix[0][c] -= '0';
+            returnInt = Math.max(returnInt, matrix[0][c]);
+        }
+        for (int l = 1; l < matrix.length; l++) {
+            for (int c = 1; c < matrix[0].length; c++) {
+                if (matrix[l][c] == '1') {
+                    matrix[l][c] = (char)(Math.min(matrix[l][c-1], Math.min(matrix[l-1][c], matrix[l-1][c-1])) + (char)(1));
+                    returnInt = Math.max(returnInt, matrix[l][c]);
+                } else {
+                    matrix[l][c] = 0;
+                }
+            }
+        }
+        return returnInt * returnInt;
+    }
+     */
+
     public static void main(String[] args) {
         char [][] matrix = new char[][] {
                 {'0', '1', '1', '0', '1'},
