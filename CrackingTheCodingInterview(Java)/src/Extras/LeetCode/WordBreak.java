@@ -5,10 +5,53 @@ import java.util.List;
 
 public class WordBreak {
 
+    // New solutions, easier to understand
+    /*public static boolean wordBreak(String s, List<String> wordDict) {
+        Queue<Integer> queue = new ArrayDeque<>();
+        HashSet<String> contained = new HashSet<>();
+        HashSet<Integer> visited = new HashSet<>();
+        for (String word : wordDict) {
+            contained.add(word);
+        }
+        visited.add(0);
+        queue.add(0);
+        while(!queue.isEmpty()) {
+            int currentStart = queue.poll();
+            for (int i = currentStart+1; i <= s.length(); i++) {
+                if (visited.contains(i)) continue;
+                String substr = s.substring(currentStart, i);
+                if (i == s.length() && contained.contains(substr)) {
+                    return true;
+                }
+                if (contained.contains(substr)) {
+                    queue.add(i);
+                    visited.add(i);
+                }
+            }
+        }
+        return false;
+    }*/
+
+    public static boolean wordBreak (String s, List<String> wordDict) {
+        int n = s.length();
+        boolean [] dp = new boolean[n+1];
+        dp[0] = true;
+        for (int i = 0; i < n; i++) {
+            if (!dp[i]) continue;
+            for (int j = i + 1; j <= n; j++) {
+                String substr = s.substring(i, j);
+                if (wordDict.contains(substr)) {
+                    dp[j] = true;
+                }
+            }
+        }
+        return dp[n];
+    }
+
     //https://leetcode.com/problems/word-break/discuss/44054/Java-DP-solution
 
-    static private boolean wordBreak (String s, List<String> wordDict) {
-        if (s == null || s.length() == 0) return false;                     //0123456789
+    /*static private boolean wordBreak (String s, List<String> wordDict) {
+        if (s == null || s.length() == 0) return false;
 
         int n = s.length();
 
@@ -27,7 +70,7 @@ public class WordBreak {
         }
 
         return dp[n - 1];
-    }
+    }*/
 
     /*
     // My brute force solution. Exceeds time limit.
