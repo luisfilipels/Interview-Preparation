@@ -16,11 +16,42 @@ public class JumpGame {
         return lastPos == 0;
     }*/
 
+    // My third implementation. Works similarly to my previous one, but is not recursive and uses only O(n) space.
+    enum Possibilities {
+        possible, impossible, unknown
+    }
+
+    static boolean canJump(int[] nums) {
+        if (nums.length == 1) {
+            return true;
+        }
+        Possibilities[] dp = new Possibilities[nums.length];
+        Arrays.fill(dp, Possibilities.unknown);
+        int n = nums.length;
+        dp[n-1] = nums[n-1] == 0 ? Possibilities.possible : Possibilities.impossible;
+        for (int i = n-2; i >= 0; i--) {
+            if (nums[i] == 0) dp[i] = Possibilities.impossible;
+            for (int j = 1; j <= nums[i]; j++) {
+                if (i + j >= n-1) {
+                    dp[i] = Possibilities.possible;
+                    break;
+                }
+                if (dp[i+j] == Possibilities.possible) {
+                    dp[i] = Possibilities.possible;
+                }
+            }
+            if (dp[i] != Possibilities.possible) {
+                dp[i] = Possibilities.impossible;
+            }
+        }
+        return dp[0] == Possibilities.possible ? true : false;
+    }
+
     // My second implementation. For each position in the nums array, it is either possible or impossible to, starting
     // from said position, reach the last element in the array, or exceed it. We simply memoize the result from previous
     // iterations, and that grants an increase in performance.
 
-    enum Index {
+    /*enum Index {
         possible, impossible, unknown
     }
 
@@ -52,7 +83,7 @@ public class JumpGame {
         Arrays.fill(dp, Index.unknown);
         canJumpFromIndex(nums,0);
         return dp[0] == Index.possible;
-    }
+    }*/
 
     // My first implementation. Time limit exceeds at the last case.
     /*private static boolean canJump (int[] nums) {
