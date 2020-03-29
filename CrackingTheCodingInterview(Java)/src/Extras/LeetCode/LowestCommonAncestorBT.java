@@ -1,5 +1,6 @@
 package Extras.LeetCode;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class LowestCommonAncestorBT {
@@ -11,7 +12,33 @@ public class LowestCommonAncestorBT {
         TreeNode (int x) { val = x;}
     }
 
+    // Alternative answer, creating parent pointers. To show off skillzzz, because it's slower than the original solution.
     private static TreeNode lowestCommonAncestor (TreeNode root, TreeNode p, TreeNode q) {
+        HashMap<TreeNode, TreeNode> parents = new HashMap<>();
+        buildParents(root, null, parents);
+        HashSet<TreeNode> visited = new HashSet<>();
+
+        TreeNode temp = p;
+        while (temp != null) {
+            visited.add(temp);
+            temp = parents.get(temp);
+        }
+
+        temp = q;
+        while (temp != null) {
+            if (visited.contains(temp)) return temp;
+            temp = parents.get(temp);
+        }
+        return null;
+    }
+
+    private static void buildParents (TreeNode root, TreeNode parent, HashMap<TreeNode, TreeNode> parents) {
+        if (root == null) return;
+        parents.put(root, parent);
+        buildParents(root.left, root, parents);
+        buildParents(root.right, root, parents);
+    }
+    /*private static TreeNode lowestCommonAncestor (TreeNode root, TreeNode p, TreeNode q) {
         helper(root, p, q);
         return returnNode;
     }
@@ -29,7 +56,7 @@ public class LowestCommonAncestorBT {
             returnNode = root;
         }
         return left || right || current;
-    }
+    }*/
 
     /*static private boolean hasFound = false;
     static TreeNode returnNode;

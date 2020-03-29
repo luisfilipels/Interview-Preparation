@@ -2,6 +2,7 @@ package Extras.LeetCode;
 
 import java.util.Arrays;
 
+
 public class SortColors {
 
     static void swap (int [] nums, int i, int j) {
@@ -10,7 +11,29 @@ public class SortColors {
         nums[j] = swap;
     }
 
+    //https://www.youtube.com/watch?v=uvB-Ns_TVis
     private static void sortColors (int [] nums) {
+        int start = 0;              // Where the next 0 should be.
+        int end = nums.length-1;    // Where the next 2 should be.
+        int index = 0;
+
+        while (index <= end && start < end) {
+            if (nums[index] == 0) {
+                nums[index] = nums[start];
+                nums[start] = 0;
+                start++;
+                index++;
+            } else if (nums[index] == 2) {
+                nums[index] = nums[end];
+                nums[end] = 2;
+                end--;
+            } else {
+                index++;
+            }
+        }
+    }
+
+    /*private static void sortColors (int [] nums) {
         //Moving 2 to the end
         int i = 0, j = nums.length-1;
         while (i < j) {
@@ -43,7 +66,7 @@ public class SortColors {
             }
         }
 
-    }
+    }*/
 
     /*
     // Same solution basically
@@ -77,7 +100,7 @@ public class SortColors {
     */
 
     public static void main(String[] args) {
-        int [] input = new int[] {2, 0, 1};
+        int [] input = new int[] {2,0,2,1,1,0};
         sortColors(input);
         System.out.println(Arrays.toString(input));
     }

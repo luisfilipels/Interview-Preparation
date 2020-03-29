@@ -15,6 +15,29 @@ public class KthLargestElement {
         nums[j] = swap;
     }
 
+    private static int quickSelect (int [] nums, int start, int end, int k) {
+        while (true) {
+            int pivot = end;
+            int i = start-1, j;
+            for (j = start; j < end; j++) {
+                if (nums[j] < nums[pivot]) {
+                    i++;
+                    swap(nums, i, j);
+                }
+            }
+            swap(nums, ++i, pivot);
+            int numsGreater = nums.length - i; // Count the numbers that are >= to the last pivot, after swapping it to its position
+            if (k == numsGreater) {
+                return nums[i];
+            }
+            if (k > numsGreater) {
+                end = i-1;
+            } else {
+                start = i+1;
+            }
+        }
+    }
+
     private static int select(int[] nums, int start, int end, int k) {
         while (true) {
             int pivot = start;
@@ -35,7 +58,7 @@ public class KthLargestElement {
         }
     }
 
-    static int quickSelect(int[] nums, int low, int high, int k) {
+    /*static int quickSelect(int[] nums, int low, int high, int k) {
         int pivot = low;
 
         // use quick sort's idea
@@ -56,7 +79,7 @@ public class KthLargestElement {
         if (count > k) return quickSelect(nums, pivot + 1, high, k);
         // pivot is too big, so it must be on the left
         return quickSelect(nums, low, pivot - 1, k - count);
-    }
+    }*/
 
     public static void main(String[] args) {
         int [] nums = new int[] {3,2,3,1,2,4,5,5,6};

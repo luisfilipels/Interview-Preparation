@@ -50,14 +50,15 @@ public class PerfectSquares {
      */
 
     private static int numSquares (int n) {
-        int [] dp = new int[n + 1];
-        Arrays.fill(dp, n);
+        int [] dp = new int[n+1];
         dp[0] = 0;
-        dp[1] = 1;
         for (int i = 1; i <= n; i++) {
-            for (int j = 1; j * j <= i; j++) {
-                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
+            int min = Integer.MAX_VALUE;
+            for (int x = 1; x * x <= n; x++) {
+                if (i - (x*x) < 0) break;
+                min = Math.min(min, dp[i - (x*x)] + 1);
             }
+            dp[i] = min;
         }
         return dp[n];
     }

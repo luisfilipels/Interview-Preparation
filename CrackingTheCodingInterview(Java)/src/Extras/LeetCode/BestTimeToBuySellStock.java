@@ -2,7 +2,18 @@ package Extras.LeetCode;
 
 public class BestTimeToBuySellStock {
 
+    // Shorter answer
     static private int maxProfit (int [] prices) {
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for (int i = 0; i < prices.length; i++) {
+            minPrice = Math.min(minPrice, prices[i]);
+            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+        }
+        return maxProfit;
+    }
+
+    /*static private int maxProfit (int [] prices) {
         int minBuy = Integer.MAX_VALUE;
         int maxProfit = 0;
         for (int i = 0; i < prices.length; i++) {
@@ -13,7 +24,7 @@ public class BestTimeToBuySellStock {
             }
         }
         return maxProfit;
-    }
+    }*/
 
     // Solução força bruta, quadrática
     /*static private int maxProfit (int [] prices) {
