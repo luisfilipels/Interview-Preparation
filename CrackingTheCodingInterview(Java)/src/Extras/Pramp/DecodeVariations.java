@@ -32,6 +32,8 @@ public class DecodeVariations {
 
     Notice anything about the progression of ways? Position i has the number of ways equal to ways[i-1] + ways[i-2]!
 
+    DOESN'T WORK FOR SOME STRINGS THAT HAVE ZEROES! DECODE WAYS ON LEETCODE IS CORRECT.
+
      */
 
     static int decodeVariations (String S) {

@@ -5,8 +5,8 @@ public class KthLargestElement {
     static int findKthLargest (int [] nums, int k) {
         // Pode ser feito com ordenação ou fila de prioridade, porém ambos demoram mais tempo que o QuickSelect.
         // Mais detalhes em https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n)-time
-        return select(nums, 0, nums.length-1, k);
-        //return quickSelect(nums, 0, nums.length - 1, k);
+        //return select(nums, 0, nums.length-1, k);
+        return quickSelect(nums, 0, nums.length - 1, k);
     }
 
     static void swap (int [] nums, int i, int j) {
@@ -86,7 +86,7 @@ public class KthLargestElement {
         //int [] nums = new int[] {2, 1};
         //int [] nums = new int[] {3,2,1,5,6,4};
         //System.out.println(select(nums, 0, nums.length-1, 4));
-        System.out.println(findKthLargest(nums, 4));
+        System.out.println(findKthLargest(nums, 3));
         //partition(nums, 0, nums.length-1, 4);
         //System.out.println(Arrays.toString(nums));
         //System.out.println(findKthLargest(nums, 2));

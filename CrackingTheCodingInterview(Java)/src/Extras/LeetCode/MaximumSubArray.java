@@ -2,14 +2,27 @@ package Extras.LeetCode;
 
 public class MaximumSubArray {
 
+    // New solution. Easier to understand.
+    // https://www.youtube.com/watch?v=tinz1fiYv0c
     private static int maxSubArray(int[] nums) {
+        int [] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(nums[i], dp[i-1] + nums[i]);
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    /*private static int maxSubArray(int[] nums) {
         int maxSoFar=nums[0], maxEndingHere=nums[0];
         for (int i=1;i < nums.length;++i){
             maxEndingHere = Math.max(maxEndingHere+nums[i],nums[i]); // Choose between the current number (which starts a new max subarray), or continuing a previous subarray.
             maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
         return maxSoFar;
-    }
+    }*/
 
     /*
     // My solution. Accepted, but uses too much time and space.
