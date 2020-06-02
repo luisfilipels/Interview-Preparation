@@ -9,6 +9,16 @@ public class MaxDepthBT {
         TreeNode(int x) { val = x; }
     }
 
+    // New solution.
+    private static int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    }
+
+
+    // First solution. Correct, but unnecessarily complex.
+    /*
     private static int maxDepth;
 
     static private void preOrder (TreeNode node, int currentDepth) {
@@ -24,7 +34,7 @@ public class MaxDepthBT {
         maxDepth = 1;
         preOrder(root, maxDepth);
         return maxDepth;
-    }
+    }*/
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3);
