@@ -1,24 +1,39 @@
 public class C1Q3 {
-    public static void main(String[] args) {
-        char [] input = new char[]{'a', 'b', ' ', 'c', 'd', ' ', 'e', 'f', ' '};
-        for (int i = 0; i < input.length; i++) {
-            if (input[i] == ' ') {
-                char [] temp = new char[input.length + 2];
-                int j;
-                for (j = 0; j < i; j++) {
-                    temp[j] = input[j];
-                }
-                temp[j++] = '%';
-                temp[j++] = '2';
-                temp[j++] = '0';
-                for (; j < temp.length; j++) {
-                    temp[j] = input[j - 2];
-                }
-                input = temp;
+
+    static char[] URLify (char[] input) {
+
+        int left = input.length-1;
+        while (input[left] == ' ') {
+            left--;
+        }
+
+        int count = 0;
+        for (int i = 0; i < left; i++) {
+            if (input[i] == ' ') count++;
+        }
+
+        System.out.println(count);
+        int right = left + 2 * count;
+
+        int limit = 0;
+        while (limit < input.length && input[limit] != ' ') {
+            limit++;
+        }
+        while (left >= 0 && left != limit-1) {
+            while (left >= 0 && input[left] != ' ') {
+                input[right--] = input[left--];
             }
+            input[right--] = '0';
+            input[right--] = '2';
+            input[right--] = '%';
+            left--;
         }
-        for (int i = 0; i < input.length; i++) {
-            System.out.print(input[i]);
-        }
+        return input;
+    }
+
+    public static void main(String[] args) {
+        String input = "Mr   John Smith abc                                                   ";
+        //String input = "Mr Smith  ";
+        System.out.println(URLify(input.toCharArray()));
     }
 }

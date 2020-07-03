@@ -1,5 +1,7 @@
+import java.util.Arrays;
+
 public class C1Q2 {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String input1 = "abcdef";
         String input2 = "zzz";
 
@@ -19,5 +21,38 @@ public class C1Q2 {
         }
         System.out.println("Permutation!");
 
+    }*/
+
+    // Alternative solution, using sorting. Time: O(log(n))
+    boolean checkIsPermutation (String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+
+        char [] s1Sorted = s1.toCharArray();
+        char [] s2Sorted = s2.toCharArray();
+
+        Arrays.sort(s1Sorted);
+        Arrays.sort(s2Sorted);
+
+        return Arrays.equals(s1Sorted, s2Sorted);
+    }
+
+    // Counting occurrences. Time: O(n)
+    boolean checkIsPermutation2 (String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+
+        int [] count = new int[128];
+
+        int n = s1.length();
+
+        for (int i = 0; i < n; i++) {
+            count[s1.charAt(i)]++;
+        }
+
+        for (int i = 0; i < n; i++) {
+            count[s2.charAt(i)]--;
+
+            if (count[s2.charAt(i)] != 0) return false;
+        }
+        return true;
     }
 }
