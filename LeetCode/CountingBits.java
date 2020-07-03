@@ -6,15 +6,14 @@ import java.util.Arrays;
 
 public class CountingBits {
     static public int[] countBits(int num) {
-        int r = 0;  // Indice atual
-        int p = 1;  // Potencia de 2 atual
-        int [] dp = new int[num+1];
-        while (p <= num) {
-            while (r < p && r+p <= num) {
-                dp[r + p] = dp[r] + 1;
-                r++;
-            }
-            r = 0; p = p << 1;
+        if (num == 0) return new int[]{0};
+        int [] dp = new int[num + 1];
+        dp[0] = 0;
+        dp[1] = 1;
+        int currentPowerOfTwo = 2;
+        for (int i = 2; i <= num; i++) {
+            if (i == currentPowerOfTwo * 2) currentPowerOfTwo = i;
+            dp[i] = dp[i - currentPowerOfTwo] + 1;
         }
         return dp;
     }

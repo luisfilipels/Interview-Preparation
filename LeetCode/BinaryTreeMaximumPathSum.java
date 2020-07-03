@@ -36,6 +36,7 @@ public class BinaryTreeMaximumPathSum {
         return currentIsNotTop;
     }
 
+    // Consider only the non-commented answer above
     /*private static int maxPathSum (TreeNode root) {
         if (root == null) {
             return 0;

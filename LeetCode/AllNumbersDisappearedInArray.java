@@ -9,7 +9,9 @@ public class AllNumbersDisappearedInArray {
     static List<Integer> findDisappearedNumbers (int [] nums) {
         List<Integer> returnList = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
-            if (nums[Math.abs(nums[i]) - 1] > 0) {                          // Marcamos posições como negativas apenas uma vez. Se o mesmo número aparecer novamente, ele não será negativado.
+            if (nums[Math.abs(nums[i]) - 1] > 0) {
+                // Marcamos posições como negativas apenas uma vez. Se o mesmo número aparecer novamente, ele não será invertido novamente.
+                // We mark each position as being negative only once. If the same number appears again, it won't be inverted again.
                 nums[Math.abs(nums[i]) - 1] = -nums[Math.abs(nums[i]) - 1];
             }
         }
@@ -22,7 +24,8 @@ public class AllNumbersDisappearedInArray {
     }
 
     /*
-    // Solução O(n) tempo, mas O(n) espaço
+    // Solução alternativa
+    // Alternative solution
     static List<Integer> findDisappearedNumbers (int[]nums) {
         List<Integer> returnList = new ArrayList<>();
         HashSet<Integer> hash = new HashSet<>();

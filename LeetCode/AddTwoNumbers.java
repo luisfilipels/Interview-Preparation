@@ -62,9 +62,6 @@ public class AddTwoNumbers {
     }
 
     public static void main(String[] args) {
-        //ListNode h1 = new ListNode(9);
-        //h1.next = new ListNode(9);
-        //ListNode h2 = new ListNode(1);
 
         ListNode h1 = new ListNode(2);
         h1.next = new ListNode(4);

@@ -10,9 +10,6 @@ public class DailyTemperatures {
         int [] returnArray = new int[T.length];
         stack.push(new int[] {T[0], 0});
         for (int i = 1; i < T.length; i++) {
-            if (T[i] == 43) {
-                System.out.println("stop here");
-            }
             if (T[i] <= stack.peek()[0]) {
                 stack.push(new int[] {T[i], i});
             } else if (T[i] > stack.peek()[0]) {

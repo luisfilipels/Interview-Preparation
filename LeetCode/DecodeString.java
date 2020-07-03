@@ -75,39 +75,6 @@ public class DecodeString {
         return stack.pop().contents.toString();
     }
 
-
-    // Wrong answer, only works if not nested.
-    /*static private String decodeString (String s) {
-        StringBuilder stringBuilder = new StringBuilder();
-        int i = 0;
-        int number = -1;
-        while (i < s.length()) {
-            StringBuilder builder = new StringBuilder();
-            if (Character.isDigit(s.charAt(i))) {
-                while (Character.isDigit(s.charAt(i))) {
-                    builder.append(s.charAt(i));
-                    i++;
-                }
-                number = Integer.parseInt(builder.toString());
-                builder.setLength(0);
-            } else if (Character.isLetter(s.charAt(i))) {
-                stringBuilder.append(s.charAt(i));
-                i++;
-            } else {
-                i++;
-                while (s.charAt(i) != ']') {
-                    builder.append(s.charAt(i));
-                    i++;
-                }
-                i++;
-                for (int j = 0; j < number; j++) {
-                    stringBuilder.append(builder);
-                }
-            }
-        }
-        return stringBuilder.toString();
-    }*/
-
     public static void main(String[] args) {
         String input = "3[a]2[bc]";
         System.out.println(decodeString(input));

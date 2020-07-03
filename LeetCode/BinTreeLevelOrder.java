@@ -14,7 +14,8 @@ public class BinTreeLevelOrder {
         TreeNode (int x) { val = x; }
     }
 
-    // A solução seguinte está totalmente correta. As de baixo obtém o resultado correto, porém pelo método errado.
+    // A solução seguinte está totalmente correta. A de baixo obtém o resultado correto, porém pelo método errado, pois não a traversal solicitada.
+    // The following solution is entirely correct. The solution below it reaches the correct result as well, but it doesn't actually do the Level-Order traversal.
     static List<List<Integer>> levelOrder (TreeNode root) {
         if (root == null) {
             List<List<Integer>> returnList = new ArrayList<>();
