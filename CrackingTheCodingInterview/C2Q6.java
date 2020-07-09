@@ -2,42 +2,60 @@ import java.util.Stack;
 
 public class C2Q6 {
 
-    public static void reverseList (C2LinkedList.LinkedList list) {
-        C2LinkedList.Node prev = null;
-        C2LinkedList.Node current = list.head;
-        C2LinkedList.Node next = null;
-        while (current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+    static class Node {
+        int val;
+        Node next;
+
+        Node(int val) {
+            this.val = val;
         }
-        list.head = prev;
+
+        @Override
+        public String toString() {
+            Node temp = this;
+            StringBuilder sb = new StringBuilder();
+            while (temp != null) {
+                sb.append(temp.val).append(" ");
+                temp = temp.next;
+            }
+            return sb.toString();
+        }
+
+        void append(int val) {
+            Node temp = this;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = new Node(val);
+        }
     }
 
-    public static boolean isPalindrome (C2LinkedList.LinkedList list) {
-        C2LinkedList.LinkedList newList = new C2LinkedList.LinkedList();
-        C2LinkedList.Node temp = list.head;
+    static Node LLfromArray(int[] arr) {
+        Node head = new Node(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            head.append(arr[i]);
+        }
+        return head;
+    }
+
+    public static boolean isPalindrome (Node head) {
+        Stack<Node> stack = new Stack<>();
+        Node temp = head;
         while (temp != null) {
-            newList.append(temp.data);
+            stack.push(temp);
             temp = temp.next;
         }
-        reverseList(newList);
-        C2LinkedList.Node node1 = list.head;
-        C2LinkedList.Node node2 = newList.head;
-        while (node1 != null) {
-            if (node1.data != node2.data) {
-                return false;
-            }
-            node1 = node1.next;
-            node2 = node2.next;
+        temp = head;
+        while (!stack.isEmpty()) {
+            if (stack.pop().val != temp.val) return false;
+            temp = temp.next;
         }
         return true;
-
     }
 
     public static void main(String[] args) {
-        C2LinkedList.LinkedList list = new C2LinkedList.LinkedList(new int[]{1, 2, 3, 2, 1, 1});
-        System.out.println(isPalindrome(list));
+        int [] input = new int[] {1, 2, 3, 2, 1, 2, 1};
+        Node head = LLfromArray(input);
+        System.out.println(isPalindrome(head));
     }
 }

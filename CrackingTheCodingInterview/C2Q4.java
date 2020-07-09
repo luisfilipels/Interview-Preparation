@@ -1,30 +1,68 @@
 public class C2Q4 {
 
-    public static C2LinkedList.LinkedList partition (C2LinkedList.LinkedList list, int x) {
-        C2LinkedList.Node temp = list.head;
-        C2LinkedList.LinkedList less = new C2LinkedList.LinkedList();
-        C2LinkedList.LinkedList more = new C2LinkedList.LinkedList();
-        while (temp.next != null) {
-            if (temp.data < x) {
-                less.append(temp.data);
-            } else {
-                more.append(temp.data);
+    static class Node {
+        int val;
+        Node next;
+
+        Node(int val) {
+            this.val = val;
+        }
+
+        @Override
+        public String toString() {
+            Node temp = this;
+            StringBuilder sb = new StringBuilder();
+            while (temp != null) {
+                sb.append(temp.val).append(" ");
+                temp = temp.next;
             }
-            temp = temp.next;
+            return sb.toString();
         }
-        if (temp.data < x) {
-            less.append(temp.data);
-        } else {
-            more.append(temp.data);
+
+        void append(int val) {
+            Node temp = this;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = new Node(val);
         }
-        less.appendNodeToTail(more.head);
-        return less;
+    }
+
+    static Node LLfromArray(int[] arr) {
+        Node head = new Node(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            head.append(arr[i]);
+        }
+        return head;
+    }
+
+    static Node partition (Node head, int x) {
+        Node lessRoot = new Node(-1);
+        Node geqRoot = new Node(-1);
+        Node lessRunner = lessRoot;
+        Node geqRunner = geqRoot;
+
+        Node temp = head;
+        while (temp != null) {
+            Node bkp = temp.next;
+            temp.next = null;
+            if (temp.val < x) {
+                lessRunner.next = temp;
+                lessRunner = lessRunner.next;
+            } else {
+                geqRunner.next = temp;
+                geqRunner = geqRunner.next;
+            }
+            temp = bkp;
+        }
+        lessRunner.next = geqRoot.next;
+        return lessRoot.next;
     }
 
     public static void main(String[] args) {
-        int [] input = {5, 8, 5, 10, 2, 1};
-        C2LinkedList.LinkedList list = new C2LinkedList.LinkedList(input);
-        list = partition(list, 3);
-        System.out.println(list.toString(" | "));
+        int [] input = {3, 5, 8, 5, 10, 2, 1};
+        Node list = LLfromArray(input);
+        list = partition(list, 2);
+        System.out.println(list.toString());
     }
 }
