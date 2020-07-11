@@ -32,115 +32,114 @@ Feel free to contact me through the email that I make available on my [profile](
 ### 3. Question list
 
 - LeetCode
-  - **Add Two Numbers**
-  - **All Numbers Disappeared in Array** - Comments: Pt-Br: :white_check_mark: - En: :white_check_mark:
-  - **Best Time to Buy and Sell Stock**
-  - **Best Time to Buy and Sell Stock with cooldown** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Best Time to Buy and Sell Stock II** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Binary Tree Maximum Path Sum** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Binary Tree Inorder Traversal**
-  - **Binary Tree Level Order Traversal** - Comments: Pt-Br: :white_check_mark: - En: :white_check_mark:
-  - **Bitwise AND of Numbers Range** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Climbing Stairs** - Comments: Pt-Br: :white_check_mark: - En: :x:
-  - **Coin Change** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Combination Sum**
-  - **Construct BST from Preorder Traversal** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Construct BST from Preorder and Inorder Traversal**
-  - **Container with most water**
-  - **Counting Bits**
-  - **Course Schedule**
-  - **Copy List with Random Pointer**
-  - **Daily Temperatures**
-  - **Decode String**
-  - **Decode Ways**
-  - **Delete Operation fro Two Strings**
-  - **Diameter of Binary Tree**
-  - **Find All Numbers Disappeared in an Array** - Comments: Pt-Br: :white_check_mark: - En: :x:
-  - **Find All Anagrams in a String**
-  - **Find the Duplicate Number**
-  - **Find Median from Data Stream** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Find the Celebrity**
-  - **First Missing Positive** - Comments: Pt-Br: :white_check_mark: - En: :x:
-  - **First Unique Number** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Flatten Binary Tree to Linked List**
-  - **Find First and Last of Element in Sorted Array**
-  - **Fraction to Recurring Decimal** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Generate Parentheses**
-  - **Group Anagrams**
-  - **Happy Number**
-  - **House Robber**
-  - **Implement Trie**
-  - **Inorder Successor in BST**
-  - **Intersection to Two Linked Lists**
-  - **Invert Binary Tree**
-  - **Jump Game** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **K Most Frequent Elements**
-  - **Kth Largest Element in an Array**
-  - **Largest Rectangle in Histogram**
-  - **Letter Combinations of a Phone Number**
-  - **Linked List Cycle**
-  - **Linked List Cycle II**
-  - **Longest Common Subsequence**
-  - **Longest Consecutive Sequence** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Longest Increasing Subsequence** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Longest Palindromic Substring** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Longest Substring without repeating Characters**
-  - **LRU Cache** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Majority Element**
-  - **Maximum Depth of Binary Tree*
-  - **Maximal Rectangle**
-  - **Maximal Square**
-  - **Maximum Product Subarray**
-  - **Maximum Size Subarray Sum Equals K**
-  - **Maximum Subarray**
-  - **Best Time to Buy and Sell Stock With Cooldown**
-  - **Median of Two Sorted Arrays**
-  - **Meeting Rooms I**
-  - **Meeting Rooms II** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Merge Intervals**
-  - **Merge K Sorted Lists** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Merge Sorted Lists**
-  - **Merge Two Binary Trees**
-  - **Minimum Path Sum**
-  - **Minimum Window Substring**
-  - **Min Stack**
-  - **Move Zeroes**
-  - **Next Permutation**
-  - **Number of Islands**
-  - **One Edit Distance**
-  - **Palindrome Linked List**
-  - **Palindromic Substrings**
-  - **Partition Equal Subset Sum** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Path Sum III**
-  - **Perfect Squares** - Comments: Pt-Br: :white_check_mark: - En: :x:
-  - **Perform String Shifts**
-  - **Permutations**
-  - **Product of Array Except Self**
-  - **Queue Reconstruction By Height**
-  - **Read N Characters given Read4**
-  - **Remove Invalid Parentheses** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Remove Nth Node from Linked List**
-  - **Reverse Linked List**
-  - **Rotate Image**
-  - **Search in Rotated Sorted Array**
-  - **Search a 2D Matrix II**
-  - **Serialize and Deserialize Binary Tree**
-  - **Shortest Unsorted Continuous Subarray**
-  - **Single Number**
-  - **Sort Colors**
-  - **Sort List**
-  - **Sparse Matrix Multiplication**
-  - **Subarray Sum Equals K** - Comments: Pt-Br: :x: - En: :white_check_mark:
-  - **Subsets**
-  - **Symmetric Tree**
-  - **Target Sum**
-  - **Task Scheduler**
-  - **Three Sum**
-  - **Trapping Rain Water**
-  - **Unique BSTs**
-  - **Unique Paths**
-  - **Validate Binary Search Tree**
-  - **Validate Parenthesis String**
+  - **[Add Two Numbers](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/AddTwoNumbers.java)**
+  - **[All Numbers Disappeared in Array](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/AllNumbersDisappearedInArray.java)** - Comments: Pt-Br: :white_check_mark: - En: :white_check_mark:
+  - **[Best Time to Buy and Sell Stock](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BestTimeToBuySellStock.java)**
+  - **[Best Time to Buy and Sell Stock with Cooldown](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BestTimeToBuySellStockCooldown.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Best Time to Buy and Sell Stock II](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BestTimeToBuySellStockII.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Binary Tree Maximum Path Sum](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BinaryTreeMaximumPathSum.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Binary Tree Inorder Traversal](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BinTreeInorder.java)**
+  - **[Binary Tree Level Order Traversal](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BinTreeLevelOrder.java)** - Comments: Pt-Br: :white_check_mark: - En: :white_check_mark:
+  - **[Bitwise AND of Numbers Range](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/BitwiseANDofRange.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Climbing Stairs](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ClimbingStairs.java)** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **[Coin Change](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/CoinChange.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Combination Sum](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/CombinationSum.java)**
+  - **[Construct BST from Preorder Traversal](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ConstructBSTFromPreorder.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Construct BST from Preorder and Inorder Traversal](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ConstructTreeFromInorderAndPreorder.java)**
+  - **[Container with most water](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ContainerWithMostWater.java)**
+  - **[Counting Bits](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/CountingBits.java)**
+  - **[Course Schedule](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/CourseSchedule.java)**
+  - **[Copy List with Random Pointer](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/CpyListWthRandPointer.java)**
+  - **[Daily Temperatures](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/DailyTemperatures.java)**
+  - **[Decode String](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/DecodeString.java)**
+  - **[Decode Ways](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/DecodeWays.java)**
+  - **[Delete Operation for Two Strings](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/DeleteOperationForTwoStrings.java)**
+  - **[Diameter of Binary Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/DiameterOfBinaryTree.java)**
+  - **[Find All Numbers Disappeared in an Array](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FindAllNumbersDisappeared.java)** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **[Find All Anagrams in a String](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FindAnagrams.java)**
+  - **[Find the Duplicate Number](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FindDuplicateNumber.java)**
+  - **[Find Median from Data Stream](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FindMedianFromDataStream.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Find the Celebrity](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FindTheCelebrity.java)**
+  - **[First Missing Positive](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FirstMissingPositive.java)** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **[First Unique Number](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FirstUniqueNumber.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Flatten Binary Tree to Linked List](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FlattenBinTreeToLL.java)**
+  - **[Find First and Last of Element in Sorted Array](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FndFrstAndLstPstnOfElmntInSrtdArr.java)**
+  - **[Fraction to Recurring Decimal](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/FractionToRecurringDecimal.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Generate Parentheses](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/GenerateParentheses.java)**
+  - **[Group Anagrams](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/GroupAnagrams.java)**
+  - **[Happy Number](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/HappyNumber.java)**
+  - **[House Robber](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/HouseRobber.java)**
+  - **[Implement Trie](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ImplementTrie.java)**
+  - **[Inorder Successor in BST](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/InorderSuccessorInBST.java)**
+  - **[Intersection of Two Linked Lists](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/IntersectionOfTwoLL.java)**
+  - **[Invert Binary Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/InvertBinTree.java)**
+  - **[Jump Game](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/JumpGame.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[K Most Frequent Elements](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/KMostFrequent.java)**
+  - **[Kth Largest Element in an Array](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/KthLargestElement.java)**
+  - **[Largest Rectangle in Histogram](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LargestRectangleInHistogram.java)**
+  - **[Letter Combinations of a Phone Number](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LetterCombinationsOfPhone.java)**
+  - **[Linked List Cycle](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LinkedListCycle.java)**
+  - **[Linked List Cycle II](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LinkedListCycleII.java)**
+  - **[Longest Common Subsequence](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LongestCommonSubsequence.java)**
+  - **[Longest Consecutive Sequence](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LongestConsecutiveSequence.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Longest Increasing Subsequence](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LongestIncreasingSubsequence.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Longest Palindromic Substring](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LongestPalindromicSubstring.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Longest Substring without repeating Characters](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LongestSubstringWoutRepChars.java)**
+  - **[LRU Cache](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/LRUCache.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Majority Element](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MajorityElement.java)**
+  - **[Maximum Depth of Binary Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MaxDepthBT.java)**
+  - **[Maximal Rectangle](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MaximalRectangle.java)**
+  - **[Maximal Square](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MaximalSquare.java)**
+  - **[Maximum Product Subarray](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MaximumProductSubarray.java)**
+  - **[Maximum Size Subarray Sum Equals K](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MaximumSizeSubarraySumEqualsK.java)**
+  - **[Maximum Subarray](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MaximumSubArray.java)**
+  - **[Median of Two Sorted Arrays](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MedianOfTwoSortedArrays.java)**
+  - **[Meeting Rooms I](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MeetingRoomsI.java)**
+  - **[Meeting Rooms II](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MeetingRoomsII.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Merge Intervals](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MergeIntervals.java)**
+  - **[Merge K Sorted Lists](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MergeKSortedLists.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Merge Sorted Lists](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MergeSortedLists.java)**
+  - **[Merge Two Binary Trees](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MergeTwoBinTrees.java)**
+  - **[Minimum Path Sum](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MinimumPathSum.java)**
+  - **[Minimum Window Substring](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MinimumWindowSubstring.java)**
+  - **[Min Stack](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MinStack.java)**
+  - **[Move Zeroes](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/MoveZeroes.java)**
+  - **[Next Permutation](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/NextPermutation.java)**
+  - **[Number of Islands](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/NumberOfIslands.java)**
+  - **[One Edit Distance](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/OneEditDistance.java)**
+  - **[Palindrome Linked List](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/PalindromeLinkedList.java)**
+  - **[Palindromic Substrings](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/PalindromicSubstrings.java)**
+  - **[Partition Equal Subset Sum](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/PartitionEqualSubsetSum.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Path Sum III](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/PathSumIII.java)**
+  - **[Perfect Squares](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/PerfectSquares.java)** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **[Perform String Shifts](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/PerformStringShifts.java)**
+  - **[Permutations](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/Permutations.java)**
+  - **[Product of Array Except Self](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ProductOfArrayExceptSelf.java)**
+  - **[Queue Reconstruction By Height](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/QueueRecByHeight.java)**
+  - **[Read N Characters given Read4](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ReadNCharactersGivenRead4.java)**
+  - **[Remove Invalid Parentheses](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/RemoveInvalidParentheses.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Remove Nth Node from Linked List](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/RemoveNthNodeFromLL.java)**
+  - **[Reverse Linked List](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ReverseLinkedList.java)**
+  - **[Rotate Image](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/RotateImage.java)**
+  - **[Search in Rotated Sorted Array](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SearchInRotatedSortedArray.java)**
+  - **[Search a 2D Matrix II](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SearchTwoDMatrixII.java)**
+  - **[Serialize and Deserialize Binary Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SerializeAndDeserializeBinTree.java)**
+  - **[Shortest Unsorted Continuous Subarray](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ShortestUnsortedContinuousSubArray.java)**
+  - **[Single Number](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SingleNumber.java)**
+  - **[Sort Colors](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SortColors.java)**
+  - **[Sort List](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SortList.java)**
+  - **[Sparse Matrix Multiplication](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SparseMatrixMultiplication.java)**
+  - **[Subarray Sum Equals K](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SubarraySumEqualsK.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Subsets](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/Subsets.java)**
+  - **[Symmetric Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/SymmetricTree.java)**
+  - **[Target Sum](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/TargetSum.java)**
+  - **[Task Scheduler](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/TaskScheduler.java)**
+  - **[Three Sum](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ThreeSum.java)**
+  - **[Trapping Rain Water](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/TrappingRainWater.java)**
+  - **[Unique BSTs](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/UniqueBSTs.java)**
+  - **[Unique Paths](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/UniquePaths.java)**
+  - **[Validate Binary Search Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ValidateBST.java)**
+  - **[Validate Parenthesis String](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ValidParenthesisString.java)**
   - **Walls and Gates**
   - **Word Break**
   - **Word Search**
