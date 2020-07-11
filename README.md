@@ -55,4 +55,92 @@ Feel free to contact me through the email that I make available on my [profile](
   - **Decode Ways**
   - **Delete Operation fro Two Strings**
   - **Diameter of Binary Tree**
-  
+  - **Find All Numbers Disappeared in an Array** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **Find All Anagrams in a String**
+  - **Find the Duplicate Number**
+  - **Find Median from Data Stream** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Find the Celebrity**
+  - **First Missing Positive** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **First Unique Number** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Flatten Binary Tree to Linked List**
+  - **Find First and Last of Element in Sorted Array**
+  - **Fraction to Recurring Decimal** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Generate Parentheses**
+  - **Group Anagrams**
+  - **Happy Number**
+  - **House Robber**
+  - **Implement Trie**
+  - **Inorder Successor in BST**
+  - **Intersection to Two Linked Lists**
+  - **Invert Binary Tree**
+  - **Jump Game** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **K Most Frequent Elements**
+  - **Kth Largest Element in an Array**
+  - **Largest Rectangle in Histogram**
+  - **Letter Combinations of a Phone Number**
+  - **Linked List Cycle**
+  - **Linked List Cycle II**
+  - **Longest Common Subsequence**
+  - **Longest Consecutive Sequence** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Longest Increasing Subsequence** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Longest Palindromic Substring** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Longest Substring without repeating Characters**
+  - **LRU Cache** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Majority Element**
+  - **Maximum Depth of Binary Tree*
+  - **Maximal Rectangle**
+  - **Maximal Square**
+  - **Maximum Product Subarray**
+  - **Maximum Size Subarray Sum Equals K**
+  - **Maximum Subarray**
+  - **Best Time to Buy and Sell Stock With Cooldown**
+  - **Median of Two Sorted Arrays**
+  - **Meeting Rooms I**
+  - **Meeting Rooms II** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Merge Intervals**
+  - **Merge K Sorted Lists** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Merge Sorted Lists**
+  - **Merge Two Binary Trees**
+  - **Minimum Path Sum**
+  - **Minimum Window Substring**
+  - **Min Stack**
+  - **Move Zeroes**
+  - **Next Permutation**
+  - **Number of Islands**
+  - **One Edit Distance**
+  - **Palindrome Linked List**
+  - **Palindromic Substrings**
+  - **Partition Equal Subset Sum** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Path Sum III**
+  - **Perfect Squares** - Comments: Pt-Br: :white_check_mark: - En: :x:
+  - **Perform String Shifts**
+  - **Permutations**
+  - **Product of Array Except Self**
+  - **Queue Reconstruction By Height**
+  - **Read N Characters given Read4**
+  - **Remove Invalid Parentheses** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Remove Nth Node from Linked List**
+  - **Reverse Linked List**
+  - **Rotate Image**
+  - **Search in Rotated Sorted Array**
+  - **Search a 2D Matrix II**
+  - **Serialize and Deserialize Binary Tree**
+  - **Shortest Unsorted Continuous Subarray**
+  - **Single Number**
+  - **Sort Colors**
+  - **Sort List**
+  - **Sparse Matrix Multiplication**
+  - **Subarray Sum Equals K** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **Subsets**
+  - **Symmetric Tree**
+  - **Target Sum**
+  - **Task Scheduler**
+  - **Three Sum**
+  - **Trapping Rain Water**
+  - **Unique BSTs**
+  - **Unique Paths**
+  - **Validate Binary Search Tree**
+  - **Validate Parenthesis String**
+  - **Walls and Gates**
+  - **Word Break**
+  - **Word Search**
