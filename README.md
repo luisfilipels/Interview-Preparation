@@ -2,7 +2,7 @@
 
 ## A repo with answers to coding questions from multiple sites (and from Cracking the Coding Interview)
 
-This repository contains the answers to questions I've solved starting from June 2019. Overall, as of 07/03/2020, it contains more than 250 questions from sites such as HackerRank, InterviewBit, LeetCode and Pramp, as well as questions from the book Cracking the Coding Interview (6th edition).
+This repository contains the answers to questions I've solved starting from June 2019. Overall, as of 07/03/2020, it contains about 250 questions from sites such as HackerRank, InterviewBit, LeetCode and Pramp, as well as questions from the book Cracking the Coding Interview (6th edition).
 
 ### Contents
 
