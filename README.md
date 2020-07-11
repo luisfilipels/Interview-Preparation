@@ -140,6 +140,6 @@ Feel free to contact me through the email that I make available on my [profile](
   - **[Unique Paths](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/UniquePaths.java)**
   - **[Validate Binary Search Tree](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ValidateBST.java)**
   - **[Validate Parenthesis String](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/ValidParenthesisString.java)**
-  - **Walls and Gates**
-  - **Word Break**
-  - **Word Search**
+  - **[Walls and Gates](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/WallsAndGates.java)**
+  - **[Word Break](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/WordBreak.java)**
+  - **[Word Search](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/WordSearch.java)**
