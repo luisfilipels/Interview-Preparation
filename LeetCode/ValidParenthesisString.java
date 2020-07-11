@@ -3,7 +3,7 @@ package Extras.LeetCode;
 public class ValidParenthesisString {
 
     // LeetCode's solution
-    private static boolean checkValidString(String s) {
+    /*private static boolean checkValidString(String s) {
         int lo = 0, hi = 0;
         for (char c: s.toCharArray()) {
             lo += c == '(' ? 1 : -1;
@@ -12,10 +12,10 @@ public class ValidParenthesisString {
             lo = Math.max(lo, 0);   // Doesn't allow lo to be less than 0
         }
         return lo == 0;
-    }
+    }*/
 
     // My first solution. Accepted, but is O(3^n)
-    /*
+
     private static boolean checkValidString(String s) {
         return helper(s, 0, 0);
     }
@@ -32,7 +32,7 @@ public class ValidParenthesisString {
                 return helper(s, i+1, count) || helper(s, i+1, count-1) || helper(s, i+1, count+1);
         }
     }
-    */
+
 
     public static void main(String[] args) {
         String s = "(*((*())*";

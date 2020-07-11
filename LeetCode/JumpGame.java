@@ -85,36 +85,6 @@ public class JumpGame {
         return dp[0] == Index.possible;
     }*/
 
-    // My first implementation. Time limit exceeds at the last case.
-    /*private static boolean canJump (int[] nums) {
-        if (nums.length == 1) {
-            return true;
-        }
-        Stack<Integer> stack = new Stack<>();
-        int current = 0;
-        do {
-            if (nums[current] == 0) {
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                current = stack.peek();
-            } else {
-                stack.push(current);
-            }
-            int currentJump = nums[current];
-            if (nums[current] > 0) {
-                nums[current]--;
-            }
-            if (nums[current] == 0) stack.pop();
-            current += currentJump;
-            if (stack.isEmpty() && nums[current] > 0) {
-                stack.push(current);
-            }
-            if (current >= nums.length - 1) return true;
-        } while (!stack.empty());
-        return false;
-    }*/
-
     public static void main(String[] args) {
         int [] input = new int[] {0};
         System.out.println(canJump(input));

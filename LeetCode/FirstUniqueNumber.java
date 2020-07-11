@@ -56,7 +56,6 @@ public class FirstUniqueNumber {
             while (currentInList != null && currentInList.count != 1) {
                 currentInList = currentInList.next;
             }
-            System.out.println("BREAK");
         }
 
         public int showFirstUnique() {

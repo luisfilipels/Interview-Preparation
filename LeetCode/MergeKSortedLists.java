@@ -20,7 +20,7 @@ public class MergeKSortedLists {
     }
 
     private static ListNode mergeKLists (ListNode[] lists) {
-        // The basic idea of this algorithm is to merge each list 2 by two, feeding the list from the previous merge into
+        // The basic idea of this algorithm is to merge each list two by two, feeding the list from the previous merge into
         // the next. The main list is the one that will persist between merges, and a pointer to the next list is used
         // to keep track of the nodes from the second list that have already been "consumed" and inserted into the main
         // list. The pointer to the second list will always be the next node to be inserted into the main list.

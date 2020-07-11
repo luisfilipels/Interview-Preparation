@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class FndFrstAndLstPstnOfElmntInSrtdArr {
 
-    // Keep on doing a binary search, even if you find the number to find first the leftmost index, then to find the
-    // rightmost one.
+    // Basically, keep on doing a binary search.
 
     private static int [] searchRange (int [] nums, int target) {
         int [] returnRange = new int[] {-1, -1};

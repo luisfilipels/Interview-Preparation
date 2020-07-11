@@ -62,6 +62,7 @@ public class C2Q7 {
     
     static Node findIntersect (Node h1, Node h2) {
         int size1 = 0, size2 = 0;
+
         Node temp = h1;
         while (temp != null) {
             size1++;

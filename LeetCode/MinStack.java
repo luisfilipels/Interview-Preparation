@@ -20,7 +20,6 @@ public class MinStack {
 
         Node top;
 
-        /** initialize your data structure here. */
         public MinStackInternal() {
             top = null;
         }
@@ -56,9 +55,8 @@ public class MinStack {
             return top.min;
         }
     }
-    //                                                                                                                                                                                    i
-    //["MinStack",        "push",        "push",      "push",       "top","pop","getMin","pop","getMin","pop",    "push",     "top",     "getMin",    "push",     "top","getMin","pop","getMin"]
-    //[   [],          [2147483646],   [2147483646], [2147483647],    [],   [],    [],     [],     [],     [], [2147483647],    [],           [],  [-2147483648],   [],    [],     [],    []]
+
+
     public static void main(String[] args) {
         MinStackInternal minStack = new MinStackInternal();
         minStack.push(2147483646);

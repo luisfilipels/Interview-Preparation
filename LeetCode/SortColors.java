@@ -12,6 +12,7 @@ public class SortColors {
     }
 
     //https://www.youtube.com/watch?v=uvB-Ns_TVis
+
     private static void sortColors (int [] nums) {
         int start = 0;              // Where the next 0 should be.
         int end = nums.length-1;    // Where the next 2 should be.
@@ -33,6 +34,7 @@ public class SortColors {
         }
     }
 
+    // Solutions below are mine
     /*private static void sortColors (int [] nums) {
         //Moving 2 to the end
         int i = 0, j = nums.length-1;

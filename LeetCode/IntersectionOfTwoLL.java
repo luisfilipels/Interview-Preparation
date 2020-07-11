@@ -11,6 +11,7 @@ public class IntersectionOfTwoLL {
         }
     }
 
+    // Original solution. Performs better.
     private static ListNode getIntersectionNode (ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
         if (headA == headB) return headA;
@@ -41,6 +42,48 @@ public class IntersectionOfTwoLL {
                 return pointA;
             }
         }
+    }
+
+    // Alternative solution. Identical to C2Q7 of Cracking the Coding Interview.
+    static ListNode findIntersect (ListNode h1, ListNode h2) {
+        int size1 = 0, size2 = 0;
+
+        ListNode temp = h1;
+        while (temp != null) {
+            size1++;
+            temp = temp.next;
+        }
+
+        temp = h2;
+        while (temp != null) {
+            size2++;
+            temp = temp.next;
+        }
+
+        int dif;
+        if (size1 < size2) {
+            temp = h1;
+            h1 = h2;
+            h2 = temp;
+            dif = size2 - size1;
+        } else {
+            dif = size1 - size2;
+        }
+
+        temp = h1;
+        ListNode temp2 = h2;
+
+        for (int i = 0; i < dif; i++) {
+            temp = temp.next;
+        }
+        while (temp != null) {
+            if (temp == temp2) {
+                return temp;
+            }
+            temp = temp.next;
+            temp2 = temp2.next;
+        }
+        return null;
     }
 
     public static void main(String[] args) {

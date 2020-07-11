@@ -8,6 +8,7 @@ public class PalindromeLinkedList {
         ListNode (int x) { val = x; }
     }
 
+    // O(n) time and O(1) space. (Reversing the list)
     private static boolean isPalindrome (ListNode head) {
         int size = 0;
         ListNode right = head;

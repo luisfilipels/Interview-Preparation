@@ -26,7 +26,7 @@ public class MaximumProductSubarray {
         return max;
     }
 
-    // My first solution. Fool's errand.
+    // My first solution.
     /*private static int maxProduct (int[] nums) {
         if (nums.length == 1) {
             return nums[0];
