@@ -1,41 +1,33 @@
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class C3Q4 {
 
-    static class MyQueue {
-        Stack<Integer> enqueueStack;
-        Stack<Integer> dequeueStack;
+    public static class MyQueue {
+        Stack<Integer> enqueueStack = new Stack<>();
+        Stack<Integer> dequeueStack = new Stack<>();
 
-        MyQueue () {
-            enqueueStack = new Stack<>();
-            dequeueStack = new Stack<>();
-        }
-
-        void enqueue (int d) {
-            while (!dequeueStack.empty()) {
-                enqueueStack.add(dequeueStack.pop());
+        void enqueue(int x) {
+            while (!dequeueStack.isEmpty()) {
+                enqueueStack.push(dequeueStack.pop());
             }
-            enqueueStack.add(d);
+            enqueueStack.push(x);
         }
 
-        int dequeue () {
-           while (!enqueueStack.empty()) {
-               dequeueStack.add(enqueueStack.pop());
-           }
-           return dequeueStack.pop();
-        }
-
-        boolean empty() {
-            return dequeueStack.size() == 0 && enqueueStack.size() == 0;
-        }
-
-        int peek () {
-            while (!enqueueStack.empty()) {
-                dequeueStack.add(enqueueStack.pop());
+        int dequeue() {
+            if (enqueueStack.isEmpty() && dequeueStack.isEmpty()) {
+                throw new EmptyStackException();
+            } else {
+                while (!enqueueStack.isEmpty()) {
+                    dequeueStack.push(enqueueStack.pop());
+                }
+                return dequeueStack.pop();
             }
-            return dequeueStack.peek();
         }
 
+        boolean isEmpty() {
+            return enqueueStack.isEmpty() && dequeueStack.isEmpty();
+        }
     }
 
     public static void main(String[] args) {
@@ -47,7 +39,7 @@ public class C3Q4 {
         System.out.println(queue.dequeue());
         queue.enqueue(2);
         queue.enqueue(1);
-        while (!queue.empty()) {
+        while (!queue.isEmpty()) {
             System.out.println(queue.dequeue());
         }
     }

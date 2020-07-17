@@ -5,87 +5,61 @@ public class C3Q3 {
 
     public static class SetOfStacks {
 
-        int capacity;
-        ArrayList<Stack<Integer>> stacks;
+        ArrayList<Stack<Integer>> stacks = new ArrayList<>();
 
-        SetOfStacks (int capacity) {
-            this.capacity = capacity;
-            stacks = new ArrayList<>();
-            stacks.add(new Stack<>());
+        int limit;
+
+        SetOfStacks(int limit) {
+            this.limit = limit;
         }
 
-        void push (int d) {
+        void push(int x) {
             if (stacks.size() == 0) {
                 stacks.add(new Stack<>());
             }
-            if (stacks.get(stacks.size()-1).size() < capacity) {
-                stacks.get(stacks.size()-1).push(d);
+            Stack<Integer> currentStack = stacks.get(stacks.size()-1);
+            if (currentStack.size() < limit) {
+                currentStack.add(x);
             } else {
-                System.out.println("Stack full! Creating new stack!");
                 stacks.add(new Stack<>());
-                stacks.get(stacks.size()-1).push(d);
+                stacks.get(stacks.size()-1).push(x);
             }
         }
 
-        int pop () {
-            if (stacks.get(stacks.size() - 1).size() == 1) {
-                int returnInt = stacks.get(stacks.size() - 1).pop();
-                stacks.remove(stacks.size() - 1);
-                return returnInt;
+        int pop() {
+            Stack<Integer> currentStack = stacks.get(stacks.size()-1);
+            if (currentStack.isEmpty()) {
+                stacks.remove(stacks.size()-1);
+                return stacks.get(stacks.size()-1).pop();
             } else {
-                return stacks.get(stacks.size() - 1).pop();
+                return currentStack.pop();
             }
         }
 
-        int popAt (int index) {
-            if (stacks.get(index).size() == 1) {
-                int returnInt = stacks.get(index).pop();
-                stacks.remove(index);
-                return returnInt;
-            } else {
-                return stacks.get(index).pop();
-            }
+        int peek() {
+            Stack<Integer> currentStack = stacks.get(stacks.size()-1);
+            return currentStack.peek();
         }
-
-        // TODO Implement "rollover" for popAt
-
     }
 
     public static void main(String[] args) {
         SetOfStacks set = new SetOfStacks(3);
-        set.push(1);
-        set.push(2);
-        set.push(3);
-        set.push(4);
-        set.push(5);
-        set.push(6);
-        set.push(7);
-        set.pop();
-        set.push(7);
-        try {
-            while (true) {
-                System.out.println(set.pop());
-            }
-        } catch (Exception ignored) {}
 
-        set.push(10);
-        System.out.println(set.pop());
         set.push(1);
         set.push(2);
         set.push(3);
+
         set.push(4);
-        set.push(5);
-        set.push(6);
-        set.push(7);
-        System.out.println();
-        System.out.println(set.popAt(0));
-        System.out.println(set.popAt(1));
-        System.out.println();
+        System.out.println(set.peek());
+        System.out.println(set.pop());
+        System.out.println(set.pop());
+        System.out.println(set.pop());
+        System.out.println(set.pop());
         try {
-            while (true) {
-                System.out.println(set.pop());
-            }
+            System.out.println(set.pop());
         } catch (Exception ignored) {}
+        set.push(1);
+        System.out.println(set.pop());
     }
 
 }
