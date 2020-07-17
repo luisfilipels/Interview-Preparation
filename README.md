@@ -8,8 +8,8 @@ This repository contains the answers to questions I've solved starting from June
 
 1. About this repo
 2. Contacting me
-3. [Question list](#question-list)
-   - [LeetCode](#leetcode)
+3. Question list
+   - LeetCode
    - HackerRank
    - InterviewBit
    - Pramp
