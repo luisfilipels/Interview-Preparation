@@ -5,9 +5,6 @@ import java.util.HashMap;
 
 public class FriendCircleQueries {
 
-    //static int[] uf = new int[10000];
-    //static int[] count = new int[10000];
-
     // Using hashmap, as to evade maximum memory usage restrictions when creating 2 arrays with 10^9 integer elements
     static HashMap<Integer, Integer> uf = new HashMap<>();
     static HashMap<Integer, Integer> count = new HashMap<>();
@@ -42,9 +39,6 @@ public class FriendCircleQueries {
         while (uf.get(root) != root) {
             root = uf.get(root);
         }
-        //while (uf[root] != root) {
-        //    root = uf[root];
-        //}
 
         while (person != root) {
             int next = uf.get(person);
@@ -57,10 +51,6 @@ public class FriendCircleQueries {
     }
 
     static int[] maxCircle (int[][] queries) {
-        /*for (int i = 0; i < count.length; i++) {
-            count[i] = 1;
-            uf[i] = i;
-        }*/
         int[] response = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
             int[] query = queries[i];
