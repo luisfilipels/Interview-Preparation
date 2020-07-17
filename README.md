@@ -8,8 +8,8 @@ This repository contains the answers to questions I've solved starting from June
 
 1. About this repo
 2. Contacting me
-3. Question list
-   - LeetCode
+3. [Question list](#question-list)
+   - [LeetCode](#leetcode)
    - HackerRank
    - InterviewBit
    - Pramp
@@ -30,7 +30,6 @@ Regarding the code itself for each answer, I have been using exclusively Java 8 
 Feel free to contact me through the email that I make available on my [profile](https://github.com/luisfilipels/)
 
 ### 3. Question list
-
 - LeetCode
   - **[Add Two Numbers](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/AddTwoNumbers.java)**
   - **[All Numbers Disappeared in Array](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/AllNumbersDisappearedInArray.java)** - Comments: Pt-Br: :white_check_mark: - En: :white_check_mark:
