@@ -143,3 +143,59 @@ Feel free to contact me through the email that I make available on my [profile](
   - **[Walls and Gates](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/WallsAndGates.java)**
   - **[Word Break](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/WordBreak.java)**
   - **[Word Search](https://github.com/luisfilipels/Interview-Preparation/blob/reorganize2/LeetCode/WordSearch.java)**
+
+- HackerRank
+  - **[Abbreviation](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/Abbreviation.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Arrays: Left Rotation](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/ArrayLeftRotation.java)**
+  - **[Array Manipulation](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/ArrayManipulation.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Binary Search Tree: Lowest Common Ancestor](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/BSTLowestCommonAncestor.java)**
+  - **[Balanced Brackets](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/BalancedBrackets.java)**
+  - **[Sorting: Bubble Sort](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/BubbleSort.java)**
+  - **[Common Child](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/CommonChild.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Count Triplets](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/CountTriplets.java)**
+  - **[Merge Sort: Counting Inversions](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/CountingInversions.java)**
+  - **[Counting Valleys](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/CountingValleys.java)**
+  - **[Crossword Puzzle](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/CrossWordPuzzle.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Connected Cells in a Grid](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/DFSConnectedCellInAGrid.java)**
+  - **[Recursion: Davis' Staircase](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/DavisStaircase.java)**
+  - **[Encryption](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/Encryption.java)**
+  - **[Extra Long Factorials](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/ExtraLongFactorials.java)**
+  - **[Recursion: Fibonacci Numbers](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/FibonacciNumbers.java)**
+  - **[Flipping Bits](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/FlippingBits.java)**
+  - **[Fraudulent Activity Notifications](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/FraudulentActivityNotifications.java)**
+  - **[Frequency Queries](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/FrequencyQueries.java)**
+  - **[Friend Circle Queries](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/FriendCircleQueries.java)**
+  - **[Greedy Florist](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/GreedyFlorist.java)**
+  - **[Height of Binary Tree](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/HeightOfBinaryTree.java)**
+  - **[Huffman Decoding](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/HuffmanDecoding.java)**
+  - **[Ice Cream Parlor](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/IceCreamParlor.java)**
+  - **[Image Editing](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/ImageEditing.java)**
+  - **[Insert a Node at a specific position in a linked list](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/InsertNodeAtSpecificPositionInLL.java)**
+  - **[Inserting a Node Into a Sorted Doubly Linked List](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/InsertNodeIntoSortedDLL.java)**
+  - **[Is This a Binary Search Tree?](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/IsThisABST.java)**
+  - **[Largest Rectangle](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/LargestRectangle.java)**
+  - **[Linked Lists: Detect a Cycle](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/LinkedListsDetectACycle.java)**
+  - **[Mark and Toys](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/MarkAndToys.java)**
+  - **[Max Min](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/MaxMin.java)**
+  - **[Maximum Subarray Sum Modulo M](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/MaximumSubarraySumModuloM.java)**
+  - **[Minimum Swaps 2](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/MinimumSwapsTwo.java)**
+  - **[New Year Chaos](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/NewYearChaos.java)**
+  - **[Odd Numbers](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/OddNumbers.java)**
+  - **[Organizing Containers](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/OrganizingContainers.java)**
+  - **[Pairs](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/Pairs.java)**
+  - **[Queen's Attack II](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/QueensAttack.java)**
+  - **[Queues: A Tale of Two Stacks](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/QueuesATaleOfTwoStacks.java)**
+  - **[Ransom Note](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/RansomNote.java)**
+  - **[Recursive Digit Sum](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/RecursiveDigitSum.java)**
+  - **[Repeated String](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/RepeatedString.java)**
+  - **[Reverse a Doubly Linked List](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/ReverseDoublyLinkedList.java)**
+  - **[Sherlock and Anagrams](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/SherlockAndAnagrams.java)**  - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Sock Merchant](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/SockMerchant.java)**
+  - **[Special String Again](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/SpecialStringAgain.java)**
+  - **[String Comparator](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/StringComparator.java)**
+  - **[Swap Nodes](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/SwapNodes.java)**
+  - **[The Coin Change Problem](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/TheCoinChangeProblem.java)**
+  - **[The Full Counting Sort](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/TheFullCountingSort.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[Time Complexity: Primality](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/TimeComplexityPrimality.java)** - Comments: Pt-Br: :x: - En: :white_check_mark:
+  - **[2D Array - DS](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/TwoDArrayDS.java)**
+  - **[Two Strings](https://github.com/luisfilipels/Interview-Preparation/blob/master/HackerRank/TwoStrings.java)**
