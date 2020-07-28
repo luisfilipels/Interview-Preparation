@@ -2,6 +2,9 @@ import java.util.LinkedList;
 
 public class C3Q6 {
 
+    // The book's solution to this question is straightforward enough. Treat dogs and cats separately
+    // in their own linked lists, and keep a timestamp.
+
     static class Animal {
         int order;
         Animal(int order) {
