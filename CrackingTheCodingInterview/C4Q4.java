@@ -1,85 +1,51 @@
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.PriorityQueue;
 
 public class C4Q4 {
 
-    static int checkHeight(C4Tree.TreeNode root) {
-        if (root == null) return -1;
+    // TODO: Check if this is correct
 
-        int leftHeight = checkHeight(root.left);
-        if (leftHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE;
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-        int rightHeight = checkHeight(root.right);
-        if (rightHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE;
-
-        if (Math.abs(leftHeight - rightHeight) > 1) {
-            return Integer.MIN_VALUE;
-        } else {
-            return Math.max(leftHeight, rightHeight) + 1;
+        TreeNode (int x) {
+            val = x;
         }
     }
 
-    static boolean isBalanced (C4Tree.TreeNode root) {
-        return checkHeight(root) != Integer.MIN_VALUE;
+    static boolean flag = true;
+
+    static int helper (TreeNode root, int currentDepth) {
+        if (root == null) return currentDepth;
+
+        int left = helper(root.left, currentDepth+1);
+        int right = helper(root.right, currentDepth+1);
+
+        if (Math.abs(left - right) > 1) flag = false;
+
+        return Math.max(left, right);
     }
 
-    /*
-    static boolean checkNodeBalanced (C4Tree.TreeNode node) {
-        if (node != null) {
-            int hl = checkHeight(node.left);
-            int hr = checkHeight(node.right);
-            if (Math.abs(hl - hr) > 1) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return true;
+    static boolean isBalanced (TreeNode root) {
+        helper(root, 0);
+        return flag;
     }
-
-    static boolean checkSubTreeBalanced (C4Tree.TreeNode node) {
-        if (node != null) {
-            boolean currentIsBalanced = checkNodeBalanced(node);
-            boolean leftIsBalanced = checkSubTreeBalanced(node.left);
-            boolean rightIsBalanced = checkSubTreeBalanced(node.right);
-            return leftIsBalanced && rightIsBalanced && currentIsBalanced;
-        }
-        return true;
-    }
-
-    static int checkHeight (C4Tree.TreeNode node) {
-        if (node == null) {
-            return -1;
-        }
-        int hl, hr;
-        if (node.left == null) {
-            hl = 0;
-        } else {
-            hl = checkHeight(node.left);
-        }
-        if (node.right == null) {
-            hr = 0;
-        } else {
-            hr = checkHeight(node.right);
-        }
-        int height = 1 + Math.max(hr, hl);
-        return height;
-    }
-    */
 
     public static void main(String[] args) {
-        //int [] array = {1, 2, 2, 3, 3, 4, 5, 5, 6};
-        //ArrayList<Integer> arrayList = new ArrayList<>();
-        //for (int i : array) {
-        //    arrayList.add(i);
-        //}
 
-        //C4Tree.TreeNode root = C4Q2.MinimalBST(arrayList);
+        TreeNode root = new TreeNode(1);
+        /*root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(4);*/
 
-        C4Tree.TreeNode root = new C4Tree.TreeNode(1);
-        root.left = new C4Tree.TreeNode(2);
-        root.right = new C4Tree.TreeNode(3);
-        root.left.left = new C4Tree.TreeNode(5);
-        root.left.right = new C4Tree.TreeNode(4);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.left.right = new TreeNode(4);
+        root.right = new TreeNode(5);
 
         System.out.println(isBalanced(root));
         //System.out.println(checkSubTreeBalanced(root));
