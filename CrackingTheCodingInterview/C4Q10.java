@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class C4Q10 {
 
@@ -53,7 +52,26 @@ public class C4Q10 {
      traversal:
      3 4 x x x               3 x 4 x x
     */
-    static boolean containsTree(C4Tree.TreeNode t1, C4Tree.TreeNode t2) {
+
+    static class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+
+        TreeNode (int val) {
+            this.val = val;
+        }
+
+        void createLeft (int val) {
+            left = new TreeNode(val);
+        }
+
+        void createRight (int val) {
+            right = new TreeNode(val);
+        }
+    }
+
+    static boolean containsTree(TreeNode t1, TreeNode t2) {
         StringBuilder string1 = new StringBuilder();
         StringBuilder string2 = new StringBuilder();
 
@@ -64,12 +82,12 @@ public class C4Q10 {
 
     }
 
-    static void getOrderString(C4Tree.TreeNode node, StringBuilder sb) {
+    static void getOrderString(TreeNode node, StringBuilder sb) {
         if (node == null) {
             sb.append("X");
             return;
         }
-        sb.append(node.value + " ");
+        sb.append(node.val + " ");
         getOrderString(node.left, sb);
         getOrderString(node.right, sb);
     }
@@ -78,19 +96,19 @@ public class C4Q10 {
 
     public static void main(String[] args) {
 
-        C4Tree.TreeNode root = new C4Tree.TreeNode(5);
+        TreeNode root = new TreeNode(5);
 
-        root.left = new C4Tree.TreeNode(2);
-        root.left.left = new C4Tree.TreeNode(1);
-        root.left.right = new C4Tree.TreeNode(3);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
 
-        root.right = new C4Tree.TreeNode(7);
-        root.right.left = new C4Tree.TreeNode(6);
-        root.right.right = new C4Tree.TreeNode(8);
+        root.right = new TreeNode(7);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(8);
 
-        C4Tree.TreeNode root2 = new C4Tree.TreeNode(7);
-        root2.left = new C4Tree.TreeNode(6);
-        root2.right = new C4Tree.TreeNode(8);
+        TreeNode root2 = new TreeNode(7);
+        root2.left = new TreeNode(6);
+        root2.right = new TreeNode(8);
 
 
         System.out.println(containsTree(root, root2));
