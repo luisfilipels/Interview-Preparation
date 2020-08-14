@@ -1,65 +1,89 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class C8Q2 {
 
-    ArrayList<int []> path = new ArrayList<>();
-
-    public static String get2DArrayPrint(int[][] matrix) {
-        String output = new String();
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                output = output + (matrix[i][j] + " ");
-            }
-            output = output + "\n";
-        }
-        return output;
+    static class Coordinate {
+        int l, c;
+        Coordinate(int l, int c) {this.l = l; this.c = c;}
     }
 
+    static final int W = Integer.MAX_VALUE;
+    static final int F = Integer.MAX_VALUE-1;
 
-    static int [][] findCostMatrix (int [][] matrix) {
-        int[][] cost = new int[matrix.length][matrix[0].length];
-        for (int i = 0; i < cost.length; i++) {
-            Arrays.fill(cost[i], -1);
-        }
-        cost[0][0] = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[0].length; j++) {
-                int valTop;
-                int valLeft;
-                if (i == 0 && j == 0) {
-                    cost[i][j] = 1;
+    static LinkedList<Coordinate> robotInGrid (int [][] map) {
+        /**for (int l = 0; l < map.length; l++) {
+            for (int c = 0; c < map[0].length; c++) {
+                if (l == 0 && c == 0) continue;
+                if (map[l][c] == W)
                     continue;
+                if (l == 0) {
+                    map[l][c] = map[l][c-1] + 1;
+                } else if (c == 0) {
+                    map[l][c] = map[l-1][c] + 1;
+                } else {
+                    int min = Math.min(map[l-1][c], map[l][c-1]);
+                    if (min == W || min == F) {
+                        map[l-1][c] = W;
+                        break;
+                    }
+                    map[l][c] = min + 1;
                 }
-                if (matrix[i][j] == 1) {
-                    cost[i][j] = -1;
-                    continue;
-                }
-
-                try {
-                    valTop = cost[i-1][j];
-                } catch (Exception e) {
-                    valTop = Integer.MAX_VALUE;
-                }
-                try {
-                    valLeft = cost[i][j-1];
-                } catch (Exception e) {
-                    valLeft = Integer.MAX_VALUE;
-                }
-                cost[i][j] = 1 + Math.min(valLeft, valTop);
             }
         }
-        return cost;
+        ArrayList<Coordinate> answer = new ArrayList<>();
+        int l = map.length-1, c = map[0].length-1;
+        answer.add(new Coordinate(l, c));
+        while (true) {
+            int above = l-1 >= 0 ? map[l-1][c] : W;
+            int left = c-1 >= 0 ? map[l][c-1] : W;
+            if (above < left) {
+                l--;
+            } else {
+                c--;
+            }
+            answer.add(new Coordinate(l, c));
+            if (l == 0 && c == 0) break;
+        }
+        return answer;*/
+        boolean[][] visited = new boolean[map.length][map[0].length];
+        findPath(map, visited, 0, 0, new LinkedList<Coordinate>());
+        return response;
     }
 
+    static boolean foundEnd = false;
+    static LinkedList<Coordinate> response;
+
+    static void findPath (int[][] map, boolean[][] visited, int l, int c, LinkedList<Coordinate> currentPath) {
+        if (c >= map[0].length || l >= map.length || visited[l][c] || foundEnd) return;
+
+        visited[l][c] = true;
+        currentPath.add(new Coordinate(l, c));
+
+        if (map[l][c] != W) {
+            if (l == map.length-1 && c == map[0].length-1) {
+                response = currentPath;
+                foundEnd = true;
+                return;
+            }
+            visited[l][c] = true;
+            findPath(map, visited, l+1, c, new LinkedList<>(currentPath));
+            findPath(map, visited, l, c+1, new LinkedList<>(currentPath));
+        }
+    }
 
     public static void main(String[] args) {
         int [][] grid = {
-                {0, 1, 1, 1, 1},
-                {0, 0, 0, 0, 0},
-                {1, 1, 0, 1, 1},
-                {1, 0, 0, 0, 0}
+                {0, 0, 0, W, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, W, W, 0, 0},
+                {W, W, 0, 0, W, 0, W, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0}
         };
-        int [][] cost = findCostMatrix(grid);
+        LinkedList<Coordinate> response = robotInGrid(grid);
+        for (Coordinate c : response) {
+            System.out.println(c.l + " " + c.c);
+        }
 
     }
 
