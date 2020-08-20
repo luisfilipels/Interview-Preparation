@@ -3,23 +3,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
-// Pode ser feito com enumeração explicita, obviamente. Mas como?
-
-// Fiz com enumeração explícita, mas tendo que ordenar para cada elemento adicionado :P
-
 public class C8Q4 {
 
-    static int [][] dp;
+    // Done using the explicit enumeration technique.
 
     static ArrayList<Integer> getBinRep (ArrayList<Integer> arr, int rep) {
-        int current = rep;
         ArrayList<Integer> returnArray = new ArrayList<>();
-        for (int i = 0; i < arr.size(); i++) {
-            if (((current >> i) & 1) == 1) {
+        for (int i = arr.size()-1; i >= 0; i--) {
+            if (((rep >> i) & 1) == 1) {
                 returnArray.add(arr.get(arr.size() - 1 - i));
             }
         }
-        Collections.sort(returnArray);
         return returnArray;
     }
 
@@ -28,7 +22,6 @@ public class C8Q4 {
         for (int i = 0; i < set.size() * set.size(); i++) {
             powerSet.add(getBinRep(set, i));
         }
-        Collections.sort(powerSet, Comparator.comparingInt(ArrayList::size));
         return powerSet;
     }
 
