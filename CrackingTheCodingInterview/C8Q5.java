@@ -1,11 +1,11 @@
 public class C8Q5 {
 
-    static int [] dp;       // No need for it to be 2D, as big never changes. We only store the corresponding value to some sml value
+    /*static int [] dp;       // No need for it to be 2D, as big never changes. We only store the corresponding value to some sml value
     static boolean dpCreated = false;
 
     static int multiply (int num1, int num2) {
-        int big = num1 < num2 ? num2 : num1;
-        int sml = num1 < num2 ? num1 : num2;
+        int big = Math.max(num1, num2);
+        int sml = Math.min(num1, num2);
         if (!dpCreated) {
             dp = new int[sml + 1];
             dpCreated = true;
@@ -32,7 +32,7 @@ public class C8Q5 {
         dp[sml] = side1 + side2;
         return dp[sml];
 
-    }
+    }*/
 
     /*
     // Book approach, no DP
@@ -87,7 +87,26 @@ public class C8Q5 {
     }
     */
 
+    static int multiply (int num1, int num2) {
+        if (num2 > num1) {
+            int temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+        return multiplyHelper(num1, num2);
+    }
+
+    static int multiplyHelper (int num1, int num2) {
+        if (num2 == 1) return num1;
+        if (num2 == 0) return 0;
+        if (num2 % 2 == 0) {
+            return multiplyHelper(num1 + num1, num2 >> 1);
+        } else {
+            return (multiplyHelper(num1 + num1, num2 >> 1)) + num1;
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(multiply(3, 17));
+        System.out.println(multiply(1, 30));
     }
 }
