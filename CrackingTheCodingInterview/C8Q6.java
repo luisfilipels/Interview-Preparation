@@ -6,6 +6,7 @@ public class C8Q6 {
     static Stack<Integer> stackB = new Stack<>();
     static Stack<Integer> stackC = new Stack<>();
 
+    // Good explanation: https://www.reddit.com/r/learnpython/comments/38tsea/help_understanding_the_tower_of_hanoi_problem/
     static void towerOfHanoi (int remaining, Stack<Integer> origin, Stack<Integer> destination, Stack<Integer> buffer) {
         if (remaining == 0) {
             return;                                                                 // Base case. Do nothing
