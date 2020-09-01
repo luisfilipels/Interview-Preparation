@@ -12,6 +12,20 @@ public class IsThisABST {
         }
     }
 
+    // This code should be correct, however, as this question appears to be bugged when using Java, the following code
+    // in python 3 works and is accepted:
+    /*
+    def helper(root, min, max):
+        if root is None:
+            return True
+        if max is not None and root.data >= max:
+            return False
+        if min is not None and root.data <= min:
+            return False
+        left = helper(root.left, min, root.data)
+        right = helper(root.right, root.data, max)
+        return left and right
+     */
     static boolean helper (Node root, Integer neverLower, Integer neverAbove) {
         if (root == null) {
             return true;
