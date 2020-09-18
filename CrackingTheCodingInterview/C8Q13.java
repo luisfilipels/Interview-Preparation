@@ -5,10 +5,9 @@ import java.util.HashSet;
 public class C8Q13 {
 
     static class Box {
-        int number, width, height, depth;
+        int width, height, depth;
 
         Box(int number, int width, int height, int depth) {
-            this.number = number;
             this.width = width;
             this.height = height;
             this.depth = depth;
@@ -22,38 +21,62 @@ public class C8Q13 {
         for (int i = 0; i < n; i++) {
             set.add(new Box(i, w[i], h[i], d[i]));
         }
-        int[] maxHeight = new int[1];
-        helper(new StringBuilder(), null, 0, set, maxHeight);
-        return maxHeight[0];
+        return helper(new StringBuilder(), null, 0, set, new HashMap<>());
     }
 
     private static boolean isSmallerThanLast(Box newBox, Box topBox) {
         return (newBox.height < topBox.height && newBox.depth < topBox.depth && newBox.width < topBox.width);
     }
 
-    private static void helper (StringBuilder currentStackString, Box lastBox, int currentHeight, HashSet<Box> remainingBoxes, int[] maxHeight) {
+    // No memoization solution.
+    /*private static void helper (StringBuilder currentStackString, Box lastBox, int currentHeight, HashSet<Box> remainingBoxes, int[] maxHeight) {
         maxHeight[0] = Math.max(maxHeight[0], currentHeight);
         for (Box b : remainingBoxes) {
             if (lastBox == null || isSmallerThanLast(b, lastBox)) {
                 StringBuilder newStackString = new StringBuilder(currentStackString);
-                newStackString.append(b.number + " ");
+                newStackString.append(b.height + "." + b.depth + "." + b.width + " ");
                 HashSet<Box> newRemainingBoxes = new HashSet<>(remainingBoxes);
                 newRemainingBoxes.remove(b);
 
                 helper(newStackString, b, currentHeight + b.height, newRemainingBoxes, maxHeight);
             }
         }
+    }*/
+
+    private static int helper(StringBuilder currentStackString, Box lastBox, int currentHeight, HashSet<Box> remainingBoxes, HashMap<String, Integer> memo) {
+        if (memo.containsKey(currentStackString.toString())) {
+            return memo.get(currentStackString.toString());
+        }
+        int currentMax = currentHeight;
+        boolean noBoxesPossible = true;
+        for (Box b : remainingBoxes) {
+            if (lastBox == null || isSmallerThanLast(b, lastBox)) {
+                noBoxesPossible = false;
+                StringBuilder newStackString = new StringBuilder(currentStackString);
+                newStackString.append(b.height + "." + b.depth + "." + b.width + " ");
+                HashSet<Box> newRemainingBoxes = new HashSet<>(remainingBoxes);
+                newRemainingBoxes.remove(b);
+
+                int result = helper(newStackString, b, currentHeight + b.height, newRemainingBoxes, memo);
+                if (result > currentMax) {
+                    currentMax = result;
+                }
+            }
+        }
+        memo.put(currentStackString.toString(), currentMax);
+        if (noBoxesPossible) return currentHeight;
+        else return currentMax;
     }
 
     public static void main(String[] args) {
         int [] w = new int[] {
-                1, 2, 3, 4, 5, 6, 6, 8, 9
+                5, 7, 6, 6,6, 5, 2, 3, 2, 1
         };
         int [] h = new int[] {
-                1, 2, 3, 4, 5, 6, 6, 8, 9
+                8, 8, 6, 3,3, 5, 4, 3, 2, 1
         };
         int [] d = new int[] {
-                1, 2, 3, 4, 5, 6, 6, 8, 9
+                9, 5, 6, 2,2, 5, 2, 3, 2, 1
         };
         System.out.println(stackOfBoxes(w.length, w, h, d));
     }
