@@ -7,16 +7,8 @@ public class DeleteNodeInLinkedList {
     }
 
     public void deleteNode(ListNode node) {
-        ListNode temp = node;
-
-        while (temp.next.next != null) {
-            int next = temp.next.val;
-            temp.val = next;
-            temp = temp.next;
-        }
-        int next = temp.next.val;
-        temp.val = next;
-        temp.next = null;
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 
 }
