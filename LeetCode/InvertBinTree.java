@@ -9,7 +9,7 @@ public class InvertBinTree {
         TreeNode(int x) { val = x; }
     }
 
-    static private void invertTreeHelper (TreeNode root) {
+    /*static private void invertTreeHelper (TreeNode root) {
         if (root.left != null && root.right != null) {
             TreeNode swap = root.left;
             root.left = root.right;
@@ -32,6 +32,19 @@ public class InvertBinTree {
             return null;
         }
         invertTreeHelper(root);
+        return root;
+    }*/
+
+    // Simplified answer
+    static private TreeNode invertTree (TreeNode root) {
+        if (root == null) return null;
+
+        TreeNode bkp = root.left;
+        root.left = root.right;
+        root.right = bkp;
+
+        invertTree(root.left);
+        invertTree(root.right);
         return root;
     }
 

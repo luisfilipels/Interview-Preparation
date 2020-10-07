@@ -9,7 +9,17 @@ public class MergeTwoBinTrees {
         TreeNode (int x) { val = x; }
     }
 
-    private static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+    private static TreeNode mergeTrees (TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 == null) return null;
+
+        TreeNode newNode = new TreeNode((t1 != null ? t1.val : 0) + (t2 != null ? t2.val : 0));
+
+        newNode.left = mergeTrees(t1 != null ? t1.left : null, t2 != null ? t2.left : null);
+        newNode.right = mergeTrees(t1 != null ? t1.right : null, t2 != null ? t2.right : null);
+        return newNode;
+    }
+
+    /*private static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (t1 == null) {
             return t2;
         }
@@ -20,7 +30,7 @@ public class MergeTwoBinTrees {
         t3.left = mergeTrees(t1.left, t2.left);
         t3.right = mergeTrees(t1.right, t2.right);
         return t3;
-    }
+    }*/
 
     /*
     // Old solution. Too complicated
@@ -78,6 +88,7 @@ public class MergeTwoBinTrees {
         root2.right = new TreeNode(3);
         root2.right.right = new TreeNode(7);
         TreeNode res = mergeTrees(root1, root2);
+        System.out.println(res.val);
     }
 
 }
