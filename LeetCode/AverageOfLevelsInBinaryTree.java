@@ -19,7 +19,7 @@ public class AverageOfLevelsInBinaryTree {
         }
     }
 
-    static class NodeLevelTuple {
+    /*static class NodeLevelTuple {
         TreeNode node;
         int level;
 
@@ -55,6 +55,31 @@ public class AverageOfLevelsInBinaryTree {
         for (int i = 0; i < nodesPerLevel.size(); i++) {
             returnList.add((double)sumPerLevel.get(i) / nodesPerLevel.get(i));
         }
+        return returnList;
+    }*/
+
+    // Improved solution. Only takes 2ms, instead of 5, like the previous answer.
+    private static List<Double> averageOfLevels (TreeNode root) {
+        if (root == null) return new ArrayList<>();
+
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+
+        List<Double> returnList = new ArrayList<>();
+
+        while (!queue.isEmpty()) {
+            int n = queue.size();
+            long sum = 0;
+            for (int i = 0; i < n; i++) {
+                TreeNode current = queue.poll();
+                sum += (long) current.val;
+
+                if (current.left != null) queue.add(current.left);
+                if (current.right != null) queue.add(current.right);
+            }
+            returnList.add((double) sum / n);
+        }
+
         return returnList;
     }
 
