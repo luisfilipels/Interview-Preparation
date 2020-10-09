@@ -1,11 +1,15 @@
 package Extras.LeetCode;
 
+import java.util.PriorityQueue;
+
 public class MergeKSortedLists {
 
     private static class ListNode {
         int val;
         ListNode next;
         ListNode (int x) { val = x; }
+
+        ListNode(){}
 
         @Override
         public String toString() {
@@ -19,7 +23,8 @@ public class MergeKSortedLists {
         }
     }
 
-    private static ListNode mergeKLists (ListNode[] lists) {
+    /*private static ListNode mergeKLists (ListNode[] lists) {
+        // This algorithm follows the brute force approach
         // The basic idea of this algorithm is to merge each list two by two, feeding the list from the previous merge into
         // the next. The main list is the one that will persist between merges, and a pointer to the next list is used
         // to keep track of the nodes from the second list that have already been "consumed" and inserted into the main
@@ -84,15 +89,102 @@ public class MergeKSortedLists {
             i++;
         }
         return dummy.next;
+    }*/
+
+    static private ListNode mergeTwoLists (ListNode l1, ListNode l2) {
+        ListNode head = new ListNode(-1);
+        ListNode handler = head;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                handler.next = l1;
+                l1 = l1.next;
+            } else {
+                handler.next = l2;
+                l2 = l2.next;
+            }
+            handler = handler.next;
+        }
+        if (l1 != null) {
+            handler.next = l1;
+        } else if (l2 != null) {
+            handler.next = l2;
+        }
+        return head.next;
+    }
+
+    // This algorithm also follows the brute force approach, but has cleaner code. Takes approximately the same time
+    // as the previous solution, but saves some memory.
+    private static ListNode mergeKLists2 (ListNode [] lists) {
+        if (lists.length == 0) return null;
+        if (lists.length == 1) return lists[0];
+
+        ListNode dummy = new ListNode();
+
+        for (int i = 1; i < lists.length; i++) {
+            dummy.next = mergeTwoLists(lists[i], lists[i-1]);
+            lists[i] = dummy.next;
+        }
+
+        return dummy.next;
+    }
+
+    // Approach that uses a priority queue.
+    // With a priority queue sorted by the values of each ListNode's value, we can insert the heads of each listnode
+    // in the array into the priority queue, and when we call the poll method, we immediately get the listnode with the
+    // smallest value, which we can then add to our Linked List that is to be returned.
+    private static ListNode mergeKLists (ListNode [] lists) {
+        if (lists.length == 0) return null;
+        if (lists.length == 1) return lists[0];
+
+        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>( (x1, x2) -> {
+            return x1.val - x2.val;
+        });
+
+        for (int i = 0; i < lists.length; i++) {
+            if (lists[i] != null) {
+                queue.add(lists[i]);
+            }
+        }
+
+        if (queue.isEmpty()) {
+            return null;
+        }
+
+        ListNode returnNode = new ListNode();
+        ListNode runner = returnNode;
+
+        while (!queue.isEmpty()) {
+            ListNode current = queue.poll();
+            runner.next = current;
+            runner = runner.next;
+            if (current.next != null) {
+                queue.add(current.next);
+            }
+        }
+        return returnNode.next;
     }
 
     public static void main(String[] args) {
         ListNode [] listNodes = new ListNode[3];
-        listNodes[1] = new ListNode(2);
+
+        listNodes[0] = new ListNode(1);
+        listNodes[0].next = new ListNode(4);
+        listNodes[0].next.next = new ListNode(5);
+
+        listNodes[1] = new ListNode(1);
+        listNodes[1].next = new ListNode(3);
+        listNodes[1].next.next = new ListNode(4);
+
+        listNodes[2] = new ListNode(2);
+        listNodes[2].next = new ListNode(6);
+
+        System.out.println(mergeKLists(listNodes));
+
+        /*listNodes[1] = new ListNode(2);
         listNodes[2] = new ListNode(-3);
         listNodes[2].next = new ListNode(-2);
         listNodes[2].next.next = new ListNode(1);
-        /*ListNode node1 = new ListNode(1);
+        ListNode node1 = new ListNode(1);
         node1.next = new ListNode(4);
         node1.next.next = new ListNode(5);
         listNodes[0] = node1;
@@ -102,13 +194,13 @@ public class MergeKSortedLists {
         listNodes[1] = node2;
         ListNode node3 = new ListNode(2);
         node3.next = new ListNode(6);
-        listNodes[2] = node3;*/
+        listNodes[2] = node3;
 
         ListNode temp = mergeKLists(listNodes);
         while (temp != null) {
             System.out.println(temp.val);
             temp = temp.next;
-        }
+        }*/
     }
 
 }
