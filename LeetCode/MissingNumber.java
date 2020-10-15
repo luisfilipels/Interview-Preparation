@@ -42,11 +42,28 @@ public class MissingNumber {
         return -1;
     }
 
+    // One pass solution.
+    // It bases itself on the fact that 1 + 2 + 3 + ... + n is equal to (n * (n + 1))/2. If that's the case, and we only
+    // have a single number missing from our array, then the sum of the given array should be equal to ((n * (n + 1))/2) - x,
+    // with x being the number that's missing from the array.
+    private static int missingNumber2 (int [] nums) {
+        int n = nums.length;
+
+        int expectedSum = (n * (n+1))/2;
+        int actualSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            actualSum += nums[i];
+        }
+
+        return expectedSum - actualSum;
+    }
+
     public static void main(String[] args) {
-        System.out.println(missingNumber(new int[] {0, 2}));
-        System.out.println(missingNumber(new int[] {3, 0, 1}));
-        System.out.println(missingNumber(new int[] {9,6,4,2,3,5,7,0,1}));
-        System.out.println(missingNumber(new int[] {2, 0}));
+        System.out.println(missingNumber2(new int[] {0, 2}));
+        System.out.println(missingNumber2(new int[] {3, 0, 1}));
+        System.out.println(missingNumber2(new int[] {9,6,4,2,3,5,7,0,1}));
+        System.out.println(missingNumber2(new int[] {2, 0}));
     }
 
 }
