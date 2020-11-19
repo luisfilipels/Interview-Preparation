@@ -4,8 +4,46 @@ import java.util.*;
 
 public class ThreeSum {
 
-    // Slightly improved solution. Still takes a lot of time and space.
+
+    // Greatly improved solution. Takes around 28ms.
     private static List<List<Integer>> threeSum (int [] nums) {
+        if (nums.length <= 2) return new ArrayList<>();
+        Arrays.sort(nums);
+        List<List<Integer>> returnList = new LinkedList<>();
+        int currentFixed = nums[0];
+        for (int fixedIdx = -1; fixedIdx < nums.length - 2; fixedIdx++) {
+            if (fixedIdx == -1) {
+                fixedIdx++;
+            } else {
+                while (fixedIdx < nums.length && nums[fixedIdx] == currentFixed) fixedIdx++;
+                if (fixedIdx == nums.length) break;
+            }
+            currentFixed = nums[fixedIdx];
+            int start = fixedIdx+1;
+            int end = nums.length-1;
+            while (start < end) {
+                int result = nums[fixedIdx] + nums[start] + nums[end];
+                if (result >= 0) {
+                    if (result == 0) {
+                        returnList.add(new LinkedList<>());
+                        int m = returnList.size();
+                        returnList.get(m-1).add(nums[fixedIdx]);
+                        returnList.get(m-1).add(nums[start]);
+                        returnList.get(m-1).add(nums[end]);
+                    }
+                    int currentEnd = nums[end];
+                    while (start < end && nums[end] == currentEnd) end--;
+                } else {
+                    int currentStart = nums[start];
+                    while (start < end && nums[start] == currentStart) start++;
+                }
+            }
+        }
+        return returnList;
+    }
+
+    // Slightly improved solution. Still takes a lot of time and space.
+    /*private static List<List<Integer>> threeSum (int [] nums) {
         Arrays.sort(nums);
         List<List<Integer>> returnList = new ArrayList<>();
         HashSet<ArrayList<Integer>> inList = new HashSet<>();
@@ -30,7 +68,7 @@ public class ThreeSum {
             }
         }
         return returnList;
-    }
+    }*/
 
     /*
     // First solution. Accepted (sometimes), but takes quite some time.
@@ -61,6 +99,7 @@ public class ThreeSum {
 
     public static void main(String[] args) {
         //int [] nums = new int[] {-1,0,1,2,-1,-4};
+        //int [] nums = new int[] {-6, -1, 1, 0, -8, 2, 6, 4};
         int [] nums = new int[] {0,0,0,0};
         System.out.println(threeSum(nums));
     }
