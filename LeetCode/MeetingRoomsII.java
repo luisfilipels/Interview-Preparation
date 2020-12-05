@@ -1,7 +1,6 @@
 package Extras.LeetCode;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class MeetingRoomsII {
 
@@ -30,6 +29,29 @@ public class MeetingRoomsII {
         Arrays.sort(intervals, (int1, int2) -> {
             return int1.start - int2.start;
         });
+
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        int maxSize = 0;
+        for (Interval interval : intervals) {
+            if (pq.isEmpty()) {
+                pq.offer(interval.end);
+            } else {
+                if (interval.start < pq.peek()) {
+                    pq.offer(interval.end);
+                } else {
+                    while (!pq.isEmpty() && interval.start >= pq.peek()) {
+                        pq.poll();
+                    }
+                    pq.offer(interval.end);
+                }
+            }
+            maxSize = Math.max(maxSize, pq.size());
+        }
+        return maxSize;
+    }
+
+    // Simpler answer, but not as easy to understand
+    /*private static int minMeetingRooms (Interval [] intervals) {
         int count = 0;
         PriorityQueue<Integer> boundingEnds = new PriorityQueue<>();
         for (Interval current : intervals) {
@@ -46,13 +68,17 @@ public class MeetingRoomsII {
             }
         }
         return count;
-    }
+    }*/
 
     public static void main(String[] args) {
         int [][] intervals = new int[][] {
                 //{5, 13}, {12, 13}, {0, 11}, {7,8}, {15, 20}
-                {0, 11}, {5, 16}, {7,8}, {15, 20}, {16, 20}, {17, 19}, {18, 19}
+                //{0, 11}, {5, 16}, {7,8}, {15, 20}, {16, 20}, {17, 19}, {18, 19}
+                {1,18}, {18,23}, {15,29},{4,15}, {2, 11}, {5, 13}
         };
+
+
+
         Interval[] inputs = new Interval[intervals.length];
         for (int i = 0; i < inputs.length; i++) {
             inputs[i] = new Interval(intervals[i][0], intervals[i][1]);
