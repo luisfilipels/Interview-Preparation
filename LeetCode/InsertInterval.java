@@ -9,58 +9,35 @@ public class InsertInterval {
     }
 
     private static int[][] insert (int[][] intervals, int[] newInterval) {
-        if (intervals.length == 0) {
-            return new int[][] {
-                    newInterval
-            };
+        int[][] newIntervals = new int[intervals.length+1][2];
+        for (int i = 0; i < intervals.length; i++) {
+            newIntervals[i] = intervals[i];
         }
+        newIntervals[intervals.length] = newInterval;
 
-        int n = intervals.length;
-        ArrayList<int[]> intervalsList = new ArrayList<>();
+        Arrays.sort(newIntervals, (i1, i2) -> {
+            return i1[0] - i2[0];
+        });
 
-        HashSet<Integer> indicesToIgnore = new HashSet<>();
-        int indexToAdd = -2;
+        ArrayList<int[]> list = new ArrayList<>();
 
-        if (intervals[0][0] > newInterval[1]) {
-            indexToAdd = -1;
-        } else if (intervals[n-1][1] < newInterval[0]) {
-            indexToAdd = n;
-        }
-
-        if (indexToAdd == -2) {
-            for (int i = 0; i < n; i++) {
-                if (intervalsOverlap(intervals[i], newInterval)) { // Conflict
-                    indicesToIgnore.add(i);
-                    newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
-                    newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
-                } else if (i >= 1 && intervals[i-1][1] < newInterval[0] && intervals[i][0] > newInterval[1]) {
-                    indexToAdd = i-1;
-                }
-            }
-        }
-
-        boolean newIntervalAdded = false;
-        if (indexToAdd == -1) intervalsList.add(newInterval);
-        for (int i = 0; i < n; i++) {
-            if (!indicesToIgnore.contains(i)) {
-                intervalsList.add(intervals[i]);
-                if (i == indexToAdd) intervalsList.add(newInterval);
+        int[] currentInterval = newIntervals[0];
+        for (int i = 0; i < newIntervals.length; i++) {
+            if (intervalsOverlap(currentInterval, newIntervals[i])) {
+                currentInterval[1] = Math.max(currentInterval[1], newIntervals[i][1]);
             } else {
-                if (!newIntervalAdded) {
-                    newIntervalAdded = true;
-                    intervalsList.add(newInterval);
-                }
+                list.add(currentInterval);
+                currentInterval = newIntervals[i];
             }
         }
-        if (indexToAdd == n) intervalsList.add(newInterval);
+        list.add(currentInterval);
 
-        int[][] returnArray = new int[intervalsList.size()][2];
-        for (int i = 0; i < returnArray.length; i++) {
-            returnArray[i] = intervalsList.get(i);
+        int[][] returnArray = new int[list.size()][2];
+        for (int i = 0; i < list.size(); i++) {
+            returnArray[i] = list.get(i);
         }
 
         return returnArray;
-
     }
 
     public static void main(String[] args) {

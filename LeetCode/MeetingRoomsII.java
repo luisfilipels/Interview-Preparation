@@ -11,6 +11,40 @@ public class MeetingRoomsII {
         Interval(int s, int e) {start = s; end = e;}
     }
 
+    private static boolean intervalsOverlap (Interval i1, Interval i2) {
+        return Math.max(i1.start, i2.start) <= Math.min(i1.end, i2.end);
+    }
+
+    private static int minMeetingRooms (Interval [] intervals) {
+        Arrays.sort(intervals, (i1, i2) -> {
+            return i1.start - i2.start;
+        });
+
+        PriorityQueue<Interval> pq = new PriorityQueue<Interval>((x1, x2) -> {
+            return x1.end - x2.end;
+        });
+
+        int maxSize = 0;
+
+        for (int i = 0; i < intervals.length; i++) {
+            if (pq.isEmpty()) {
+                pq.offer(intervals[i]);
+            } else {
+                if (intervalsOverlap(intervals[i], pq.peek())) {
+                    pq.offer(intervals[i]);
+                } else {
+                    while (!pq.isEmpty() && !intervalsOverlap(intervals[i], pq.peek())) {
+                        pq.poll();
+                    }
+                    pq.offer(intervals[i]);
+                }
+            }
+            maxSize = Math.max(maxSize, pq.size());
+        }
+
+        return maxSize;
+    }
+
     /*
     Start by sorting, as is usually done in these kinds of questions.
     Next, create a Priority Queue that will hold ends of intervals. Why? For example:
@@ -25,7 +59,7 @@ public class MeetingRoomsII {
     and continue, as to mean we have ended the meeting of some room.
 
      */
-    private static int minMeetingRooms (Interval [] intervals) {
+    /*private static int minMeetingRooms (Interval [] intervals) {
         Arrays.sort(intervals, (int1, int2) -> {
             return int1.start - int2.start;
         });
@@ -48,7 +82,7 @@ public class MeetingRoomsII {
             maxSize = Math.max(maxSize, pq.size());
         }
         return maxSize;
-    }
+    }*/
 
     // Simpler answer, but not as easy to understand
     /*private static int minMeetingRooms (Interval [] intervals) {

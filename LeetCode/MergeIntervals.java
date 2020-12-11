@@ -2,13 +2,44 @@ package Extras.LeetCode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Stack;
 
 public class MergeIntervals {
 
-    // New solution. Slightly faster, and uses less memory.
+    private static boolean intervalsOverlap(int[] i1, int[] i2) {
+        return Math.max(i1[0], i2[0]) <= Math.min(i1[1], i2[1]);
+    }
+
     private static int[][] merge (int[][] intervals) {
+        if (intervals.length <= 1) return intervals;
+
+        Arrays.sort(intervals, (i1, i2) -> {
+            return i1[0] - i2[0];
+        });
+
+        ArrayList<int[]> intervalsList = new ArrayList<>();
+
+        int[] currentInterval = intervals[0];
+
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervalsOverlap(currentInterval, intervals[i])) {
+                currentInterval[1] = Math.max(currentInterval[1], intervals[i][1]);
+            } else {
+                intervalsList.add(currentInterval);
+                currentInterval = intervals[i];
+            }
+        }
+        intervalsList.add(currentInterval);
+
+        int[][] returnArray = new int[intervalsList.size()][2];
+        for (int i = 0; i < intervalsList.size(); i++) {
+            returnArray[i] = intervalsList.get(i);
+        }
+
+        return returnArray;
+    }
+
+    // Old solution. Slower.
+    /*private static int[][] merge (int[][] intervals) {
         if (intervals.length == 0) {
             return new int[][] {};
         } else if (intervals.length == 1) {
@@ -47,32 +78,7 @@ public class MergeIntervals {
         }
         return returnArray;
 
-    }
-
-    /*
-    // Old solution.
-    private static int[][] merge(int[][] intervals) {
-        if (intervals.length == 0) {
-            return new int[][] {};
-        }
-        ArrayList<int[]> arrayList = new ArrayList<>();
-        Arrays.sort(intervals, Comparator.comparingInt(x -> x[0]));
-        arrayList.add(intervals[0]);
-        for (int i = 1; i < intervals.length; i++) {
-            int [] last = arrayList.get(arrayList.size()-1);
-            if (intervals[i][0] >= last[0] && intervals[i][0] <= last[1]) {
-                arrayList.get(arrayList.size()-1)[1] = Math.max(last[1], intervals[i][1]);
-            } else {
-                arrayList.add(intervals[i]);
-            }
-        }
-        int [][] returnArray = new int[arrayList.size()][2];
-        for (int i = 0; i < returnArray.length; i++) {
-            returnArray[i] = arrayList.get(i);
-        }
-        return returnArray;
-    }
-    */
+    }*/
 
     public static void main(String[] args) {
         //int [][] input = new int[][] {
