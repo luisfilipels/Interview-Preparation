@@ -3,6 +3,26 @@ package Extras.LeetCode;
 public class MaximumProductSubarray {
 
     private static int maxProduct (int [] nums) {
+        int n = nums.length;
+
+        int [] maximums = new int[n];
+        int [] minimums = new int[n];
+
+        int max = nums[0];
+        maximums[0] = nums[0];
+        minimums[0] = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            maximums[i] = Math.max(Math.max(nums[i], nums[i] * maximums[i-1]), nums[i] * minimums[i-1]);
+            minimums[i] = Math.min(Math.min(nums[i], nums[i] * maximums[i-1]), nums[i] * minimums[i-1]);
+
+            max = Math.max(max, maximums[i]);
+        }
+
+        return max;
+    }
+
+    /*private static int maxProduct (int [] nums) {
         if (nums.length == 1) return nums[0];
         int currentProduct = 1;
         int max = 0;
@@ -24,7 +44,7 @@ public class MaximumProductSubarray {
             max = Math.max(currentProduct, max);
         }
         return max;
-    }
+    }*/
 
     // My first solution.
     /*private static int maxProduct (int[] nums) {
