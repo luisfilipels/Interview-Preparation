@@ -2,61 +2,40 @@ package Extras.LeetCode;
 
 public class SearchInRotatedSortedArray {
 
-    private static int search(int[] nums, int target) {
-        if (nums.length == 0) {
+    // Check if the target is between the start and the mid. If so, go to the left half. Else, to the right.
+    // If neither is true, then check if the target is between the mid and end. If so, go to the right half. Else, to the left
+    private static int search (int[] nums, int target) {
+        int start = 0, end = nums.length-1;
+
+        if (nums.length <= 3) {
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] == target) return i;
+            }
             return -1;
         }
-        if (nums.length == 1) {
-            if (nums[0] == target) return 0;
-            else return -1;
-        }
-        if (nums.length == 2) {
-            if (nums[0] == target) return 0;
-            if (nums[1] == target) return 1;
-            else return -1;
-        }
-        int start = 0;
-        int end = nums.length - 1;
-        while (start < end) {           // Try to find where the array is "divided"
-            int mid = start + (end - start) / 2;
-            if (nums[mid] == target) return mid;
-            if (nums[start] == target) return start;
-            if (nums[end] == target) return end;
-            if (nums[mid] > nums[end]) {
-                start = mid + 1;
-            } else {
-                end = mid;
-            }
 
-        }
-        int divide = end;
-        start = 0;
-        end = divide - 1;
-        while (start < end) {           // Search on left half
-            int mid = start + (end - start) / 2;
-            if (nums[mid] == target) return mid;
-            if (nums[start] == target) return start;
-            if (nums[end] == target) return end;
-            if (nums[mid] > target) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
+        while (true) {
+            int mid = (start + end)/2;
+
+            int nm = nums[mid];
+            int ns = nums[start];
+            int ne = nums[end];
+
+            if (ns == target) return start;
+            if (nm == target) return mid;
+            if (ne == target) return end;
+
+            if (end - start <= 1) return -1;
+
+            if (ne > nm) {
+                if (target < ne && target > nm) start = mid+1;
+                else end = mid-1;
+            }
+            if (nm > ns) {
+                if (target < nm && target > ns) end = mid-1;
+                else start = mid+1;
             }
         }
-        start = divide;
-        end = nums.length - 1;
-        while (start < end) {            // Search on right half
-            int mid = start + (end - start) / 2;
-            if (nums[mid] == target) return mid;
-            if (nums[start] == target) return start;
-            if (nums[end] == target) return end;
-            if (nums[mid] > target) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-        return -1;
     }
 
     public static void main(String[] args) {
