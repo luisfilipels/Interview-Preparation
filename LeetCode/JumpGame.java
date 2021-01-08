@@ -4,6 +4,26 @@ import java.util.Arrays;
 
 public class JumpGame {
 
+    // My best solution. O(n) time and O(1) space. Consider each position as giving you "fuel" to move forward. If at position i I get x units of fuel,
+    // then when I reach position i+1 I will have x-1 units of fuel. At that point, I can either choose to fill with nums[i+1]
+    // units of fuel, or I can proceed with the fuel I already had if it's greater than what I will have at position i+1.
+    private static boolean canJump(int[] nums) {
+        if (nums[0] == 0 && nums.length > 1) return false;
+        if (nums[0] == 0) return true;
+
+        int momentum = nums[0];
+
+        int n = nums.length;
+
+        for (int i = 1; i < n; i++) {
+            momentum--;
+            if (momentum < 0) return false;
+            momentum = Math.max(momentum, nums[i]);
+        }
+
+        return true;
+    }
+
     // The best solution given by LeetCode. Try simulating it, and you'll see it's quite easy to understand why it's correct.
     /*
     private static boolean canJump(int[] nums) {
@@ -17,7 +37,7 @@ public class JumpGame {
     }*/
 
     // My third implementation. Works similarly to my previous one, but is not recursive and uses only O(n) space.
-    enum Possibilities {
+    /*enum Possibilities {
         possible, impossible, unknown
     }
 
@@ -45,7 +65,7 @@ public class JumpGame {
             }
         }
         return dp[0] == Possibilities.possible ? true : false;
-    }
+    }*/
 
     // My second implementation. For each position in the nums array, it is either possible or impossible to, starting
     // from said position, reach the last element in the array, or exceed it. We simply memoize the result from previous

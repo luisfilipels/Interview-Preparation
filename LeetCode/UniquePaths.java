@@ -5,22 +5,23 @@ import java.util.Arrays;
 public class UniquePaths {
 
     static private int uniquePaths (int m, int n) {
-        if (m == 1 || n == 1) {
-            return 1;
+        int [][] dp = new int[m][n];
+
+        for (int c = 0; c < n; c++) {
+            dp[0][c] = 1;
         }
-        int [][] dp = new int[n][m];
-        dp[0][0] = 1;
-        for (int l = 0; l < n; l++) {
-            for (int c = 0; c < m; c++) {
-                if (l-1 >= 0) {
-                    dp[l][c] += dp[l-1][c];
-                }
-                if (c-1 >= 0) {
-                    dp[l][c] += dp[l][c-1];
-                }
+
+        for (int r = 0; r < m; r++) {
+            dp[r][0] = 1;
+        }
+
+        for (int r = 1; r < m; r++) {
+            for (int c = 1; c < n; c++) {
+                dp[r][c] = dp[r-1][c] + dp[r][c-1];
             }
         }
-        return dp[n-2][m-1] + dp[n-1][m-2];
+
+        return dp[m-1][n-1];
     }
 
     public static void main(String[] args) {
