@@ -7,22 +7,22 @@ public class NextPermutation {
     // Great explanation: https://www.youtube.com/watch?v=quAS1iydq7U
 
     public static void nextPermutation (int [] nums) {
-        int startOfDecreasing = nums.length - 2;
-        while (startOfDecreasing >= 0 && nums[startOfDecreasing] >= nums[startOfDecreasing + 1]) {
-            startOfDecreasing--;
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
         }
-        if (startOfDecreasing == -1) {
+        if (i == -1) {
             reverse(nums, 0, nums.length-1);
-        } else if (startOfDecreasing == nums.length - 2) {
-            swap(nums, startOfDecreasing, startOfDecreasing+1);
+        } else if (i == nums.length - 2) {
+            swap(nums, i, i+1);
         } else {
-            int smallestGreaterThanStartOfDecreasing = nums.length-1;
+            int j = nums.length-1;
 
-            while (smallestGreaterThanStartOfDecreasing >= 0 && nums[smallestGreaterThanStartOfDecreasing] <= nums[startOfDecreasing]) {
-                smallestGreaterThanStartOfDecreasing--;
+            while (j >= 0 && nums[j] <= nums[i]) {
+                j--;
             }
-            swap(nums, startOfDecreasing, smallestGreaterThanStartOfDecreasing);
-            reverse(nums, startOfDecreasing+1, nums.length-1);
+            swap(nums, i, j);
+            reverse(nums, i+1, nums.length-1);
         }
     }
 
