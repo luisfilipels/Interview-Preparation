@@ -3,67 +3,43 @@ import java.util.List;
 
 public class SpiralMatrix {
 
-    private static List<Integer> spiralOrder (int[][] matrix) {
-        int hor = 1;
-        int vert = 0;
+    // Better solution. O(1) space.
+    // Go through everyone in the first layer, than the second, third...
+    public List<Integer> spiralOrder(int[][] inputMatrix) {
+        int minC = 0, maxC = inputMatrix[0].length-1;
+        int minR = 0, maxR = inputMatrix.length-1;
 
-        int numbersRemaining = matrix.length * matrix[0].length;
+        int[] output = new int[inputMatrix.length * inputMatrix[0].length];
+        int i = 0;
+
+        while (i < output.length) {
+            for (int c = minC; c <= maxC; c++) {
+                output[i++] = inputMatrix[minR][c];
+            }
+            for (int r = minR+1; r <= maxR; r++) {
+                output[i++] = inputMatrix[r][maxC];
+            }
+            if (minR < maxR && minC < maxC) {
+                for (int c = maxC-1; c >= minC; c--) {
+                    output[i++] = inputMatrix[maxR][c];
+                }
+                for (int r = maxR-1; r >= minR+1; r--) {
+                    output[i++] = inputMatrix[r][minC];
+                }
+            }
+            minR++;
+            maxR--;
+            minC++;
+            maxC--;
+        }
 
         List<Integer> result = new ArrayList<>();
 
-        int row = 0, col = 0;
-        while (numbersRemaining > 0) {
-            result.add(matrix[row][col]);
-            matrix[row][col] = Integer.MAX_VALUE;
-
-            if (hor == 1) {
-                if (col+1 == matrix[0].length || matrix[row][col+1] == Integer.MAX_VALUE) {
-                    hor = 0;
-                    vert = 1;
-                    row++;
-                } else {
-                    col++;
-                }
-            } else if (hor == -1) {
-                if (col-1 == -1 || matrix[row][col-1] == Integer.MAX_VALUE) {
-                    hor = 0;
-                    vert = -1;
-                    row--;
-                } else {
-                    col--;
-                }
-            } else if (vert == 1) {
-                if (row+1 == matrix.length || matrix[row+1][col] == Integer.MAX_VALUE) {
-                    hor = -1;
-                    vert = 0;
-                    col--;
-                } else {
-                    row++;
-                }
-            } else if (vert == -1) {
-                if (row-1 == -1 || matrix[row-1][col] == Integer.MAX_VALUE) {
-                    hor = 1;
-                    vert = 0;
-                    col++;
-                } else {
-                    row--;
-                }
-            }
-
-            numbersRemaining--;
+        for (int s : output) {
+            result.add(s);
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[][] matrix = new int[][] {
-                {1},
-                {5},
-                {9}
-        };
-
-        System.out.println(spiralOrder(matrix));
     }
 
 }
